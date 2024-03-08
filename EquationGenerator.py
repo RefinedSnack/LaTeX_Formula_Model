@@ -47,9 +47,10 @@ class EquationGenerator:
         return r'\sum_{' + upper_part + r'}^{' + lower_part + r'}'
     
     def generate_super_string(self) -> str:
-        equation_parts = [
-            self.generate_greek_symbol(num_symbols),
-            self.generate_english_letter(num_symbols),
+        equation_parts = []
+        equation_parts.extend()
+            self.greek_letters_lower,
+            self.,
             self.generate_logical_symbol(num_symbols),
             self.generate_binary_operator(num_symbols),
             self.generate_arrow(num_symbols),
