@@ -8,12 +8,15 @@ from typing import List
 import csv
 import shutil
 import threading
+import concurrent
+from concurrent.futures import ThreadPoolExecutor
 
 
 
 
 
 def render_latex_equation_to_pdf(filename, latex_equation):
+    
     latex_template = r"""
     \documentclass{{standalone}}
     \usepackage{{amsmath}}
@@ -28,17 +31,17 @@ def render_latex_equation_to_pdf(filename, latex_equation):
     latex_code = latex_template.format(latex_equation)
     
     # Write LaTeX code to a temporary .tex file
-    with open(f'{filename}.tex', 'w') as f:
+    with open(f'tex/{filename}.tex', 'w') as f:
         f.write(latex_code)
     
     # Compile LaTeX code into a PDF file
-    subprocess.run(['pdflatex', '-halt-on-error', 'equation.tex'])
-    # subprocess.run(['pdflatex', '-halt-on-error', 'equation.tex'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    # subprocess.run(['pdflatex', '-halt-on-error', '-output-directory', "logs", f'tex/{filename}.tex'])
+    subprocess.run(['pdflatex', '-halt-on-error', '-output-directory', "logs", f'tex/{filename}.tex'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     
     # Move the generated PDF file to the desired location
-    pdf_file = '{filename}.pdf'
-    subprocess.run(['mv', pdf_file, f'dataset/{filename}.pdf'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-
+    pdf_file = f'logs/{filename}.pdf'  # Corrected line
+    subprocess.run(['mv', pdf_file, f'dataset/{filename}.pdf'])
+    print(f"done with {filename}")
 
 
 def pad_int_to_4_digits(num: int) -> str:
@@ -60,8 +63,7 @@ def test_all_symbols():
     print(eq)
     render_latex_equation_to_pdf(f"output/Equation.pdf", eq)
 
-def generate_pdf(x: int, eq: str):
-    render_latex_equation_to_pdf(f"{pad_int_to_4_digits(x)}", eq)
+
     
 def csv_to_list(csv_file_path: str) -> List[List[str]]:
     data: List[List[str]] = []
@@ -70,6 +72,20 @@ def csv_to_list(csv_file_path: str) -> List[List[str]]:
         for row in reader:
             data.append(row)
     return data
+
+def generate_pdf(x: int, eq: str):
+    render_latex_equation_to_pdf(f"{pad_int_to_4_digits(x)}", eq)
+    
+def run_csv(csv_filename):
+    data: List[List[str]] = csv_to_list(csv_filename)
+    with ThreadPoolExecutor(max_workers=16) as executor:
+        futures = [executor.submit(generate_pdf, int(filename), equation) for filename, equation in data]
+
+        for future in concurrent.futures.as_completed(futures):
+            try:
+                future.result()
+            except Exception as e:
+                print(f"An error occurred: {e}")
 
 def generate_data_set(num_files, max_num_symbols):
     if os.path.exists("dataset"):
@@ -117,9 +133,8 @@ def generate_data_set(num_files, max_num_symbols):
         append_to_csv([pad_int_to_4_digits(next_x),eq], "key.csv")
         next_x += 1
 
-    data: List[List[str]] = csv_to_list("key.csv")
-    for x in data:
-        generate_pdf(int(x[0]), x[1])
+    run_csv("key.csv")
+    
 
 
 # test_all_symbols()

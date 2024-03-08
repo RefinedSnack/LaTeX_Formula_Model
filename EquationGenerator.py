@@ -11,6 +11,7 @@ class EquationGenerator:
         greek_letters_upper: List[str] = [letter.capitalize() for letter in greek_letters_lower]
         self.greek_letters = []
         self.digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        self.digits_at_1 = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
         self.two_digit_nums = [d1 + d2 for d1 in self.digits for d2 in self.digits]
         # self.three_digit_nums = [d1 + d2 for d1 in self.digits for d2 in self.two_digit_nums]
         # self.four_digit_nums_without_comma = [d1 + d2 for d1 in self.digits for d2 in self.three_digit_nums]
