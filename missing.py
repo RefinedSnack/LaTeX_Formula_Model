@@ -1,6 +1,6 @@
 import os
 
-def find_missing_files(folder_path, start=0, end=7436):
+def find_missing_files(folder_path, start=0, end=8436):
     expected_files = set(f"{str(i).zfill(4)}.pdf" for i in range(start, end + 1))
     actual_files = set(file for file in os.listdir(folder_path) if file.endswith('.pdf'))
     missing_files = expected_files - actual_files
