@@ -35,8 +35,8 @@ def render_latex_equation_to_pdf(filename, latex_equation):
         f.write(latex_code)
     
     # Compile LaTeX code into a PDF file
-    # subprocess.run(['pdflatex', '-halt-on-error', '-output-directory', "logs", f'tex/{filename}.tex'])
-    subprocess.run(['pdflatex', '-halt-on-error', '-output-directory', "logs", f'tex/{filename}.tex'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    subprocess.run(['pdflatex', '-halt-on-error', '-output-directory', "logs", f'tex/{filename}.tex'])
+    # subprocess.run(['pdflatex', '-halt-on-error', '-output-directory', "logs", f'tex/{filename}.tex'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     
     # Move the generated PDF file to the desired location
     pdf_file = f'logs/{filename}.pdf'  # Corrected line
@@ -133,9 +133,11 @@ def generate_data_set(num_files, max_num_symbols):
         append_to_csv([pad_int_to_4_digits(next_x),eq], "key.csv")
         next_x += 1
 
-    run_csv("key.csv")
+    
     
 
 
 # test_all_symbols()
-generate_data_set(1000, 5)
+# generate_data_set(1000, 5)
+# run_csv("key.csv")
+generate_pdf(2008, "15 \dashv I")
