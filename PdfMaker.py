@@ -35,8 +35,8 @@ def render_latex_equation_to_pdf(filename, latex_equation):
         f.write(latex_code)
     
     # Compile LaTeX code into a PDF file
-    subprocess.run(['pdflatex', '-halt-on-error', '-output-directory', "logs", f'tex/{filename}.tex'])
-    # subprocess.run(['pdflatex', '-halt-on-error', '-output-directory', "logs", f'tex/{filename}.tex'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    # subprocess.run(['pdflatex', '-halt-on-error', '-output-directory', "logs", f'tex/{filename}.tex'])
+    subprocess.run(['pdflatex', '-halt-on-error', '-output-directory', "logs", f'tex/{filename}.tex'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     
     # Move the generated PDF file to the desired location
     pdf_file = f'logs/{filename}.pdf'  # Corrected line
@@ -78,6 +78,7 @@ def generate_pdf(x: int, eq: str):
     
 def run_csv(csv_filename):
     data: List[List[str]] = csv_to_list(csv_filename)
+    # data = data[7437:]
     with ThreadPoolExecutor(max_workers=16) as executor:
         futures = [executor.submit(generate_pdf, int(filename), equation) for filename, equation in data]
 
@@ -95,6 +96,7 @@ def generate_data_set(num_files, max_num_symbols):
     create_csv_from_list_of_lists(output, "key.csv")
     equation_generator: EquationGenerator = EquationGenerator()
     next_x: int = 0
+    # next_x: int = 7437
     for i, eq in enumerate(equation_generator.symbols):
         print((pad_int_to_4_digits(i),eq))
         append_to_csv([pad_int_to_4_digits(i),eq], "key.csv")
@@ -132,12 +134,21 @@ def generate_data_set(num_files, max_num_symbols):
         print((pad_int_to_4_digits(next_x),eq))
         append_to_csv([pad_int_to_4_digits(next_x),eq], "key.csv")
         next_x += 1
+    
+    for _ in range(num_files):
+        top: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
+        bot: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
+        cent: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
+        eq = equation_generator.generate_product(top, bot, cent)
+        print((pad_int_to_4_digits(next_x),eq))
+        append_to_csv([pad_int_to_4_digits(next_x),eq], "key.csv")
+        next_x += 1
 
     
     
 
 
 # test_all_symbols()
-# generate_data_set(1000, 5)
-# run_csv("key.csv")
-generate_pdf(2008, "15 \dashv I")
+generate_data_set(1000, 5)
+run_csv("key.csv")
+# generate_pdf(2008, "15 \dashv I")
