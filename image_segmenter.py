@@ -1,3 +1,4 @@
+import imp
 import cv2 
 import numpy as np
 import concurrent
@@ -6,52 +7,9 @@ import shutil
 from concurrent.futures import ThreadPoolExecutor
 import csv
 import random
+from configs import *
 
-CLASSES_TO_LATEX : dict[str, str] = {
-    'zero': '0',
-    'one': '1',
-    'two': '2',
-    'three': '3',
-    'four': '4',
-    'five': '5',
-    'six': '6',
-    'seven': '7',
-    'eight': '8',
-    'nine': '9',
-    'plus': '+', 
-    'subtraction': '-', 
-    'division': r'\div', 
-    'multiplication': r'\times', 
-    'dot': '.',
-    'x': 'x', 
-    'y': 'y', 
-    'z': 'z'
-}
-LATEX_TO_CLASSES : dict[str, str] = {
-    '0': 'zero',
-    '1': 'one',
-    '2': 'two',
-    '3': 'three',
-    '4': 'four',
-    '5': 'five',
-    '6': 'six',
-    '7': 'seven',
-    '8': 'eight',
-    '9': 'nine',
-    '+': 'plus', 
-    '-': 'subtraction', 
-    r'\div': 'division', 
-    r'\times': 'multiplication', 
-    '.': 'dot',
-    'x': 'x', 
-    'y': 'y', 
-    'z': 'z'
-}
 
-KEY_CSV: str = "key.csv"
-BOARDER: int = 2
-SHOW_IMGS = False
-TEMP_DIR = "temp_dir"
 def is_between(im1_x, im1_width, im2_x):
     if im1_x <= im2_x and im2_x <= im1_x+im1_width:
         return True
@@ -158,7 +116,7 @@ def process_img(folder_path, file_name, output_dir, delete_if_exists=True):
     split_str: list[str] = result[1].split(' ')
     for i,val in enumerate(split_str):
         file_class = LATEX_TO_CLASSES[val]
-        shutil.move(f'temp_dir/symbol_{i}.png', f'{output_dir}/{file_class}/{file_name_without_extension}_{i}.png')
+        shutil.move(f'{TEMP_DIR}/symbol_{i}.png', f'{output_dir}/{file_class}/{file_name_without_extension}_{i}.png')
     # print(f"done with {file_name}")
     
 def process_all_imgs(folder_path, output_dir, delete_if_exists=True):
@@ -178,4 +136,10 @@ def process_all_imgs(folder_path, output_dir, delete_if_exists=True):
             continue
         process_img(folder_path, file_name, output_dir, delete_if_exists)
 
-process_all_imgs("png_dataset", "dataset_with_classes")
+# process_all_imgs("png_dataset", "dataset_with_classes")
+# input_folder = 'dataset'  # Replace with the path to your input folder containing PDFs
+# output_folder = 'png_dataset'  # Replace with the path to your output folder for PNGs
+# width = 500  # Replace with the desired width in pixels
+# height = 500  # Replace with the desired height in pixels
+
+# convert_pdfs_in_folder(input_folder, output_folder, width, height)

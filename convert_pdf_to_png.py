@@ -1,4 +1,5 @@
 import os
+import shutil
 from pdf2image import convert_from_path
 from concurrent.futures import ThreadPoolExecutor
 
@@ -13,10 +14,10 @@ def convert_pdf_to_image(pdf_path, output_path, width, height, dpi=300, format='
     images[0].save(output_path, format=format)
     print(f"Done with {output_path}")
         
-def convert_pdfs_in_folder(input_folder, output_folder, width, height):
-    # Create the output folder if it doesn't exist
-    if not os.path.exists(output_folder):
-        os.makedirs(output_folder)
+def convert_pdfs_in_folder(input_folder, output_folder, width, height, delete_if_exists=True):
+    if delete_if_exists and os.path.exists(output_folder):
+        shutil.rmtree(output_folder)
+    os.makedirs(output_folder, exist_ok=True)
 
     # List all PDF files in the input folder
     pdf_files = [os.path.join(input_folder, filename) for filename in os.listdir(input_folder) if filename.endswith('.pdf')]
@@ -28,12 +29,3 @@ def convert_pdfs_in_folder(input_folder, output_folder, width, height):
             output_path = os.path.join(output_folder, os.path.splitext(os.path.basename(pdf_file))[0] + '.png')
             executor.submit(convert_pdf_to_image, pdf_file, output_path, width, height)
             
-
-# Example usage:
-input_folder = 'dataset'  # Replace with the path to your input folder containing PDFs
-output_folder = 'png_dataset'  # Replace with the path to your output folder for PNGs
-width = 500  # Replace with the desired width in pixels
-height = 500  # Replace with the desired height in pixels
-
-convert_pdfs_in_folder(input_folder, output_folder, width, height)
-# convert_pdf_to_image("dataset/6358.pdf", output_folder + "/6358.png", width, height)
