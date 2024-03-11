@@ -10,23 +10,20 @@ import shutil
 import threading
 import concurrent
 from concurrent.futures import ThreadPoolExecutor
-
-
-
-
+import subprocess
 
 def render_latex_equation_to_pdf(filename, latex_equation):
     
     latex_template = r"""
-    \documentclass{{standalone}}
-    \usepackage{{amsmath}}
-    \usepackage{{amsfonts}}
-    \usepackage{{amssymb}}
-    \begin{{document}}
-    \huge
-    ${}$
-    \end{{document}}
-    """
+                    \documentclass[border=10pt]{{standalone}}
+                    \usepackage{{amsmath}}
+                    \usepackage{{amsfonts}}
+                    \usepackage{{amssymb}}
+                    \begin{{document}}
+                    \huge
+                    ${}$
+                    \end{{document}}
+                    """
     
     latex_code = latex_template.format(latex_equation)
     
@@ -63,7 +60,6 @@ def test_all_symbols():
     print(eq)
     render_latex_equation_to_pdf(f"output/Equation.pdf", eq)
 
-
     
 def csv_to_list(csv_file_path: str) -> List[List[str]]:
     data: List[List[str]] = []
@@ -79,7 +75,8 @@ def generate_pdf(x: int, eq: str):
 def run_csv(csv_filename):
     data: List[List[str]] = csv_to_list(csv_filename)
     # data = data[7437:]
-    with ThreadPoolExecutor(max_workers=16) as executor:
+    # generate_pdf(int(data[0][0]), data[0][1])
+    with ThreadPoolExecutor(max_workers=12) as executor:
         futures = [executor.submit(generate_pdf, int(filename), equation) for filename, equation in data]
 
         for future in concurrent.futures.as_completed(futures):
@@ -109,46 +106,46 @@ def generate_data_set(num_files, max_num_symbols):
             append_to_csv([pad_int_to_4_digits(next_x),eq], "key.csv")
             next_x += 1
 
-    for _ in range(num_files):
-        top: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
-        bot: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
-        eq = equation_generator.generate_fraction(top, bot)
-        print((pad_int_to_4_digits(next_x),eq))
-        append_to_csv([pad_int_to_4_digits(next_x),eq], "key.csv")
-        next_x += 1
+    # for _ in range(num_files):
+    #     top: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
+    #     bot: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
+    #     eq = equation_generator.generate_fraction(top, bot)
+    #     print((pad_int_to_4_digits(next_x),eq))
+    #     append_to_csv([pad_int_to_4_digits(next_x),eq], "key.csv")
+    #     next_x += 1
     
-    for _ in range(num_files):
-        top: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
-        bot: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
-        cent: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
-        eq = equation_generator.generate_integral(top, bot, cent)
-        print((pad_int_to_4_digits(next_x),eq))
-        append_to_csv([pad_int_to_4_digits(next_x),eq], "key.csv")
-        next_x += 1
+    # for _ in range(num_files):
+    #     top: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
+    #     bot: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
+    #     cent: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
+    #     eq = equation_generator.generate_integral(top, bot, cent)
+    #     print((pad_int_to_4_digits(next_x),eq))
+    #     append_to_csv([pad_int_to_4_digits(next_x),eq], "key.csv")
+    #     next_x += 1
     
-    for _ in range(num_files):
-        top: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
-        bot: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
-        cent: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
-        eq = equation_generator.generate_summation(top, bot, cent)
-        print((pad_int_to_4_digits(next_x),eq))
-        append_to_csv([pad_int_to_4_digits(next_x),eq], "key.csv")
-        next_x += 1
+    # for _ in range(num_files):
+    #     top: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
+    #     bot: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
+    #     cent: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
+    #     eq = equation_generator.generate_summation(top, bot, cent)
+    #     print((pad_int_to_4_digits(next_x),eq))
+    #     append_to_csv([pad_int_to_4_digits(next_x),eq], "key.csv")
+    #     next_x += 1
     
-    for _ in range(num_files):
-        top: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
-        bot: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
-        cent: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
-        eq = equation_generator.generate_product(top, bot, cent)
-        print((pad_int_to_4_digits(next_x),eq))
-        append_to_csv([pad_int_to_4_digits(next_x),eq], "key.csv")
-        next_x += 1
+    # for _ in range(num_files):
+    #     top: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
+    #     bot: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
+    #     cent: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
+    #     eq = equation_generator.generate_product(top, bot, cent)
+    #     print((pad_int_to_4_digits(next_x),eq))
+    #     append_to_csv([pad_int_to_4_digits(next_x),eq], "key.csv")
+    #     next_x += 1
 
     
     
 
 
 # test_all_symbols()
-generate_data_set(1000, 5)
+generate_data_set(300, 5)
 run_csv("key.csv")
 # generate_pdf(2008, "15 \dashv I")

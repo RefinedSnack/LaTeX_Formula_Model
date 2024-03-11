@@ -82,19 +82,23 @@ class EquationGenerator:
                         r'\cong', r'\ncong', r'\sim', r'\nsim',
                         r'\|', r'\nparallel', r'\perp', r'\not\perp'
                     ]
+        self.arethmetic_operators: List[str] = ['+', '-', r'\div', r'\times', "."]
+        self.xyz: List[str] = ["x", "y", "z"]
         
         self.symbols: List[str] = []
         self.symbols.extend(self.digits)
-        self.symbols.extend(self.two_digit_nums)
-        self.symbols.extend(self.greek_letters)
-        self.symbols.extend(self.english_letters)
-        self.symbols.extend(self.logical_symbols)
-        self.symbols.extend(self.binary_operators)
-        self.symbols.extend(self.negated_binary_operators)
-        self.symbols.extend(self.arrows)
-        self.symbols.extend(self.relational_operators)
-        self.symbols.extend(self.geometry)
-        self.symbols.extend(self.unary_operators)
+        self.symbols.extend(self.arethmetic_operators)
+        self.symbols.extend(self.xyz)
+        # self.symbols.extend(self.two_digit_nums)
+        # self.symbols.extend(self.greek_letters)
+        # self.symbols.extend(self.english_letters)
+        # self.symbols.extend(self.logical_symbols)
+        # self.symbols.extend(self.binary_operators)
+        # self.symbols.extend(self.negated_binary_operators)
+        # self.symbols.extend(self.arrows)
+        # self.symbols.extend(self.relational_operators)
+        # self.symbols.extend(self.geometry)
+        # self.symbols.extend(self.unary_operators)
         # self.symbols.extend(self.three_digit_nums)
         # self.symbols.extend(self.four_digit_nums_without_comma)
         # self.symbols.extend(self.four_digit_nums_with_comma)

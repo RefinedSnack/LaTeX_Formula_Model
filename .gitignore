@@ -8,5 +8,9 @@ dataset
 tex
 png_dataset
 png_dataset.zip
+*.zip
 png_dataset_backup
 png_training_data
+dataset_backup
+archive
+dataset_with_classes

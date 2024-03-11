@@ -28,6 +28,7 @@ from keras.applications.xception import Xception
 from keras.applications.densenet import DenseNet201
 from keras.applications.efficientnet import EfficientNetB6
 from keras.preprocessing.image import ImageDataGenerator
+from keras.preprocessing.image import i
 import os
 
 NUM_CLASSES = len(os.listdir(r'./png_training_data/test'))

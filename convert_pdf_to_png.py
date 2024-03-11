@@ -7,10 +7,10 @@ def convert_pdf_to_image(pdf_path, output_path, width, height, dpi=300, format='
     images = convert_from_path(pdf_path, dpi=dpi)
     
     # Resize each image to the specified width and height
-    resized_images = [image.resize((width, height)) for image in images]
+    # resized_images = [image.resize((width, height)) for image in images]
     
     # Save the resized images
-    resized_images[0].save(output_path, format=format)
+    images[0].save(output_path, format=format)
     print(f"Done with {output_path}")
         
 def convert_pdfs_in_folder(input_folder, output_folder, width, height):
@@ -35,5 +35,5 @@ output_folder = 'png_dataset'  # Replace with the path to your output folder for
 width = 500  # Replace with the desired width in pixels
 height = 500  # Replace with the desired height in pixels
 
-# convert_pdfs_in_folder(input_folder, output_folder, width, height)
-convert_pdf_to_image("dataset/6358.pdf", output_folder + "/6358.png", width, height)
+convert_pdfs_in_folder(input_folder, output_folder, width, height)
+# convert_pdf_to_image("dataset/6358.pdf", output_folder + "/6358.png", width, height)
