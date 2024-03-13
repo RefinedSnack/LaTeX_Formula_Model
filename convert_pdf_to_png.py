@@ -12,7 +12,7 @@ def convert_pdf_to_image(pdf_path, output_path, width, height, dpi=300, format='
     
     # Save the resized images
     images[0].save(output_path, format=format)
-    print(f"Done with {output_path}")
+    print(f"Converted {output_path}.pdf to png")
         
 def convert_pdfs_in_folder(input_folder, output_folder, width, height, delete_if_exists=True):
     if delete_if_exists and os.path.exists(output_folder):

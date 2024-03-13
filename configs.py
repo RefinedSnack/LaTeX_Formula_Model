@@ -1,3 +1,4 @@
+
 CLASSES_TO_LATEX : dict[str, str] = {
     'zero': '0',
     'one': '1',
@@ -16,7 +17,13 @@ CLASSES_TO_LATEX : dict[str, str] = {
     'dot': '.',
     'x': 'x', 
     'y': 'y', 
-    'z': 'z'
+    'z': 'z',
+    "leftarrow": r'\leftarrow', 
+    "rightarrow": r'\rightarrow', 
+    "leftrightarrow": r'\leftrightarrow', 
+    "uparrow": r'\uparrow', 
+    "downarrow": r'\downarrow', 
+    "updownarrow": r'\updownarrow'
 }
 LATEX_TO_CLASSES : dict[str, str] = {
     '0': 'zero',
@@ -36,7 +43,13 @@ LATEX_TO_CLASSES : dict[str, str] = {
     '.': 'dot',
     'x': 'x', 
     'y': 'y', 
-    'z': 'z'
+    'z': 'z',
+    r'\leftarrow': "leftarrow", 
+    r'\rightarrow': "rightarrow", 
+    r'\leftrightarrow': "leftrightarrow", 
+    r'\uparrow': "uparrow", 
+    r'\downarrow': "downarrow", 
+    r'\updownarrow': "updownarrow"
 }
 
 KEY_CSV: str = "key.csv"

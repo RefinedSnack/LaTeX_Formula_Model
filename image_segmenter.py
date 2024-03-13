@@ -15,15 +15,28 @@ def is_between(im1_x, im1_width, im2_x):
         return True
     return False
 
-def merge(contour1, contour2, contour3) -> tuple[int,int,int,int]:
-    x1, y1, w1, h1 = cv2.boundingRect(contour1)
-    x2, y2, w2, h2 = cv2.boundingRect(contour2)
-    x3, y3, w3, h3 = cv2.boundingRect(contour3)
-    x = min([x1, x2, x3])
-    y = min([y1, y2, y3])
-    w = max([w1, w2, w3])
-    h = max([h1, h2, h3]) + np.abs(max([y1, y2, y3]) - min(y1, y2, y3))
-    return (x,y,w,h)
+def merge_contours(contours: list[np.ndarray]) -> tuple[int, int, int, int]:
+    if not contours:
+        return (0, 0, 0, 0)
+    
+    x_coords: list[int] = []
+    y_coords: list[int] = []
+    widths: list[int] = []
+    heights: list[int] = []
+    
+    for contour in contours:
+        x, y, w, h = cv2.boundingRect(contour)
+        x_coords.append(x)
+        y_coords.append(y)
+        widths.append(w)
+        heights.append(h)
+    
+    x = min(x_coords)
+    y = min(y_coords)
+    w = max(widths)
+    h = max(heights) + np.abs(max(y_coords) - min(y_coords))
+    
+    return (x, y, w, h)
 
 def segment_img(input_path: str, output_dir: str, delete_if_exists=True, boarder_size=BOARDER) -> None:
     if delete_if_exists and os.path.exists(output_dir):
@@ -48,30 +61,26 @@ def segment_img(input_path: str, output_dir: str, delete_if_exists=True, boarder
 
 
 
-    skip1 = False
-    skip2 = False
+    to_skip: int = 0
     num_skipped = 0
 
     # Iterate through each contour and save as individual image
     for i, contour in enumerate(contours):
-        if skip1:
-            skip1 = False
+        if to_skip > 0:
+            to_skip -= 1
             num_skipped +=1 
-            continue
-        if skip2:
-            skip2 = False
-            num_skipped += 1
             continue
         # Get bounding box of the contour
         x, y, w, h = cv2.boundingRect(contour)
-        
-        if len(contours) - i > 2:
-            x2, y2, w2, h2 = cv2.boundingRect(contours[i+1])
-            x3, y3, w3, h3 = cv2.boundingRect(contours[i+2])
-            if is_between(x, w, x2) and is_between(x, w, x3):
-                x, y, w, h = merge(contour, contours[i+1], contours[i+2])
-                skip1 = True
-                skip2 = True
+        to_merge: list = [contour]
+        for j in range(i, len(contours)):
+            x2, _, _, _ = cv2.boundingRect(contours[j])
+            if is_between(x, w, x2):
+                to_merge.append(contour[j])
+            else:
+                break
+        if len(to_merge) > 1:
+            x, y, w, h = merge_contours(to_merge)
         # Crop the symbol region
         symbol = image[y-boarder_size:y+h+boarder_size, x-boarder_size:x+w+boarder_size]
         if SHOW_IMGS: cv2.imshow(f"image {i - num_skipped}", symbol)
@@ -80,7 +89,7 @@ def segment_img(input_path: str, output_dir: str, delete_if_exists=True, boarder
         cv2.imwrite(f'{output_dir}/symbol_{i - num_skipped}.png', symbol)
 
     if SHOW_IMGS: cv2.waitKey(0)
-    print(f"processed img: {input_path}.")
+    
 
 def search_csv(csv_file, search_string):
     # Open the CSV file
@@ -117,7 +126,7 @@ def process_img(folder_path, file_name, output_dir, delete_if_exists=True):
     for i,val in enumerate(split_str):
         file_class = LATEX_TO_CLASSES[val]
         shutil.move(f'{TEMP_DIR}/symbol_{i}.png', f'{output_dir}/{file_class}/{file_name_without_extension}_{i}.png')
-    # print(f"done with {file_name}")
+    print(f"segmented and sorted img: {file_name}.")
     
 def process_all_imgs(folder_path, output_dir, delete_if_exists=True):
     if not os.path.isdir(folder_path):
@@ -125,7 +134,7 @@ def process_all_imgs(folder_path, output_dir, delete_if_exists=True):
         return
     make_classes(output_dir, delete_if_exists)
     
-    # List all files in the directory
+    # list all files in the directory
     files = os.listdir(folder_path)
 
     # Print the files

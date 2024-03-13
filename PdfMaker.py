@@ -1,4 +1,5 @@
 import imp
+from operator import eq
 import matplotlib.pyplot as plt
 import random
 import subprocess
@@ -40,7 +41,7 @@ def render_latex_equation_to_pdf(filename, latex_equation):
     # Move the generated PDF file to the desired location
     pdf_file = f'logs/{filename}.pdf'  # Corrected line
     subprocess.run(['mv', pdf_file, f'dataset/{filename}.pdf'])
-    print(f"done with {filename}")
+    print(f"file: {filename} saved with equation: \'{latex_equation}\'")
 
 
 def pad_int_to_4_digits(num: int) -> str:
@@ -55,6 +56,7 @@ def append_to_csv(data: List[str], filename: str) -> None:
     with open(filename, 'a', newline='') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(data)
+    print(f"equation: {data[1]} saved as case: {data[0]}")
 
 def test_all_symbols():
     equation_generator: EquationGenerator = EquationGenerator()
@@ -97,14 +99,14 @@ def generate_data_set(num_files, max_num_symbols):
     next_x: int = 0
     # next_x: int = 7437
     for i, eq in enumerate(equation_generator.symbols):
-        print((pad_int_to_4_digits(i),eq))
+        
         append_to_csv([pad_int_to_4_digits(i),eq], KEY_CSV)
         next_x += 1
     
     for num_symbols in range(2, max_num_symbols+1):
         for _ in range(num_files):
             eq: str = equation_generator.generate_random_symbol(num_symbols)
-            print((pad_int_to_4_digits(next_x),eq))
+            
             append_to_csv([pad_int_to_4_digits(next_x),eq], KEY_CSV)
             next_x += 1
 
@@ -112,7 +114,7 @@ def generate_data_set(num_files, max_num_symbols):
     #     top: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
     #     bot: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
     #     eq = equation_generator.generate_fraction(top, bot)
-    #     print((pad_int_to_4_digits(next_x),eq))
+    #     
     #     append_to_csv([pad_int_to_4_digits(next_x),eq], KEY_CSV)
     #     next_x += 1
     
@@ -121,7 +123,7 @@ def generate_data_set(num_files, max_num_symbols):
     #     bot: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
     #     cent: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
     #     eq = equation_generator.generate_integral(top, bot, cent)
-    #     print((pad_int_to_4_digits(next_x),eq))
+    #     
     #     append_to_csv([pad_int_to_4_digits(next_x),eq], KEY_CSV)
     #     next_x += 1
     
@@ -130,7 +132,7 @@ def generate_data_set(num_files, max_num_symbols):
     #     bot: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
     #     cent: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
     #     eq = equation_generator.generate_summation(top, bot, cent)
-    #     print((pad_int_to_4_digits(next_x),eq))
+    #     
     #     append_to_csv([pad_int_to_4_digits(next_x),eq], KEY_CSV)
     #     next_x += 1
     
@@ -139,7 +141,7 @@ def generate_data_set(num_files, max_num_symbols):
     #     bot: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
     #     cent: str = equation_generator.generate_random_symbol(random.choice([1,2,3]))
     #     eq = equation_generator.generate_product(top, bot, cent)
-    #     print((pad_int_to_4_digits(next_x),eq))
+    #     
     #     append_to_csv([pad_int_to_4_digits(next_x),eq], KEY_CSV)
     #     next_x += 1
 

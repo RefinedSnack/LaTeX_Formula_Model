@@ -1,6 +1,6 @@
 import random
 from typing import List
-
+from configs import *
 class EquationGenerator:
     def __init__(self) -> None:
         greek_letters_lower: List[str] = [
@@ -86,9 +86,11 @@ class EquationGenerator:
         self.xyz: List[str] = ["x", "y", "z"]
         
         self.symbols: List[str] = []
-        self.symbols.extend(self.digits)
-        self.symbols.extend(self.arethmetic_operators)
-        self.symbols.extend(self.xyz)
+        self.symbols.extend(LATEX_TO_CLASSES.keys())
+        # self.symbols.extend(self.digits)
+        # self.symbols.extend(self.arethmetic_operators)
+        # self.symbols.extend(self.xyz)
+        # self.symbols.extend(self.arrows)
         # self.symbols.extend(self.two_digit_nums)
         # self.symbols.extend(self.greek_letters)
         # self.symbols.extend(self.english_letters)
