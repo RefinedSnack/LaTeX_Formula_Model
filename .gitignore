@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .vscode
 output
 *.log
@@ -8,9 +9,13 @@ dataset
 tex
 png_dataset
 png_dataset.zip
-*.zip
 png_dataset_backup
 png_training_data
+writtenPNGdata
+*.zip
 dataset_backup
 archive
 dataset_with_classes
+trained_model
+.ipynb*
+__*

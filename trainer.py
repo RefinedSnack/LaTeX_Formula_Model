@@ -28,14 +28,15 @@ from keras.applications.xception import Xception
 from keras.applications.densenet import DenseNet201
 from keras.applications.efficientnet import EfficientNetB6
 from keras.preprocessing.image import ImageDataGenerator
-from keras.preprocessing.image import i
 import os
+import splitfolders
 
-NUM_CLASSES = len(os.listdir(r'./png_training_data/test'))
+splitfolders.ratio("./writtenPNGdata/dataset", output="./writtenPNGdata/",seed=1337, ratio=(0.6, 0.2,0.2), group_prefix=None)
+NUM_CLASSES = len(os.listdir(r'./writtenPNGdata/test'))
 
 train_datagen=ImageDataGenerator(preprocessing_function=preprocess_input) #included in our dependencies
 
-train_generator=train_datagen.flow_from_directory(r'./png_training_data/train',
+train_generator=train_datagen.flow_from_directory(r'./writtenPNGdata/train',
                                                  target_size=(224,224),
                                                  color_mode='rgb',
                                                  batch_size=24,
@@ -44,14 +45,14 @@ train_generator=train_datagen.flow_from_directory(r'./png_training_data/train',
 
 val_datagen=ImageDataGenerator(preprocessing_function=preprocess_input) #included in our dependencies
 
-val_generator=val_datagen.flow_from_directory(r'./png_training_data/val', # this is where you specify the path to the main data folder
+val_generator=val_datagen.flow_from_directory(r'./writtenPNGdata/val', # this is where you specify the path to the main data folder
                                                  target_size=(224,224),
                                                  color_mode='rgb',
                                                  batch_size=24,
                                                  class_mode='categorical',
                                                  shuffle=True)
 
-md = EfficientNetB6(weights='imagenet', include_top=False,  input_shape=(500, 500, 3), pooling='avg')
+md = EfficientNetB6(weights='imagenet', include_top=False,  input_shape=(224, 224, 3), pooling='avg')
 
 from keras.utils import plot_model
 model = keras.models.Sequential([
@@ -70,3 +71,4 @@ model.compile(optimizer=Adam(lr=0.00001),loss='categorical_crossentropy', metric
 step_size_train=train_generator.n//train_generator.batch_size
 step_size_val=val_generator.n//val_generator.batch_size
 history = model.fit_generator(generator=train_generator, steps_per_epoch=step_size_train, validation_data=val_generator, validation_steps=step_size_val, epochs=25, callbacks=callback)
+model.save('./trained_model')
