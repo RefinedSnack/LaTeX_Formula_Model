@@ -38,7 +38,7 @@ def merge_contours(contours: list[np.ndarray]) -> tuple[int, int, int, int]:
     
     return (x, y, w, h)
 
-def segment_img(input_path: str, output_dir: str, delete_if_exists=True, boarder_size=BOARDER) -> None:
+def segment_img(input_path: str, output_dir: str, delete_if_exists=True, boarder_size=BOARDER) -> int:
     if delete_if_exists and os.path.exists(output_dir):
         shutil.rmtree(output_dir)
     os.makedirs(output_dir, exist_ok=True)
@@ -63,6 +63,7 @@ def segment_img(input_path: str, output_dir: str, delete_if_exists=True, boarder
 
     to_skip: int = 0
     num_skipped = 0
+    size = 0
 
     # Iterate through each contour and save as individual image
     for i, contour in enumerate(contours):
@@ -87,8 +88,11 @@ def segment_img(input_path: str, output_dir: str, delete_if_exists=True, boarder
         
         # Save the symbol as individual image
         cv2.imwrite(f'{output_dir}/symbol_{i - num_skipped}.png', symbol)
+        size += 1
 
     if SHOW_IMGS: cv2.waitKey(0)
+    return size
+    
     
 
 def search_csv(csv_file, search_string):
