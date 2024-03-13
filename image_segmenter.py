@@ -75,9 +75,11 @@ def segment_img(input_path: str, output_dir: str, delete_if_exists=True, boarder
         x, y, w, h = cv2.boundingRect(contour)
         to_merge: list = [contour]
         for j in range(i, len(contours)):
+            if j >= len(contours):
+                break
             x2, _, _, _ = cv2.boundingRect(contours[j])
             if is_between(x, w, x2):
-                to_merge.append(contour[j])
+                to_merge.append(contours[j])
             else:
                 break
         if len(to_merge) > 1:

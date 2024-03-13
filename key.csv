@@ -16,1209 +16,1210 @@
 0015,x
 0016,y
 0017,z
-0018,\leftarrow
-0019,\rightarrow
-0020,\leftrightarrow
-0021,\uparrow
-0022,\downarrow
-0023,\updownarrow
-0024,4 -
-0025,. \uparrow
-0026,\div 2
-0027,\div x
-0028,7 x
-0029,\rightarrow 6
-0030,2 \updownarrow
-0031,z \times
-0032,6 \rightarrow
-0033,\rightarrow 5
-0034,x y
-0035,\div z
-0036,9 2
-0037,\downarrow 4
-0038,- .
-0039,4 4
-0040,4 \leftarrow
-0041,\uparrow 9
-0042,\uparrow \updownarrow
-0043,+ -
-0044,0 -
-0045,\leftrightarrow y
-0046,\downarrow y
-0047,0 \times
-0048,\uparrow 2
-0049,6 \downarrow
-0050,3 6
-0051,8 z
-0052,\rightarrow \leftrightarrow
-0053,9 3
-0054,4 \leftrightarrow
-0055,\uparrow \rightarrow
-0056,9 1
-0057,1 \leftarrow
-0058,\times y
-0059,- z
-0060,\leftarrow 8
-0061,7 \rightarrow
-0062,4 1
-0063,- 3
-0064,7 \downarrow
-0065,- .
-0066,\downarrow y
-0067,\updownarrow 8
-0068,\times .
-0069,\uparrow 5
-0070,\uparrow \downarrow
-0071,\leftrightarrow 0
-0072,5 \times
-0073,\updownarrow \downarrow
-0074,. 6
-0075,0 -
-0076,\rightarrow 6
-0077,\times \uparrow
-0078,\times 4
-0079,x 0
-0080,2 4
-0081,x .
-0082,2 4
-0083,\downarrow 9
-0084,+ x
-0085,\leftarrow 2
-0086,\times \div
-0087,y \updownarrow
-0088,\uparrow \uparrow
-0089,8 \times
-0090,\leftarrow 2
-0091,\downarrow \div
-0092,3 6
-0093,6 y
-0094,9 y
-0095,\downarrow x
-0096,z 3
-0097,0 6
-0098,7 +
-0099,z \downarrow
-0100,0 \times
-0101,3 \updownarrow
-0102,6 1
-0103,9 \times
-0104,8 \div
-0105,\leftrightarrow \downarrow
-0106,\downarrow 5
-0107,3 9
-0108,9 8
-0109,9 1
-0110,\updownarrow 5
-0111,- .
-0112,\times 5
-0113,\leftarrow \downarrow
-0114,3 y
-0115,6 2
-0116,3 9
-0117,5 1
-0118,9 8
-0119,1 .
-0120,\uparrow \updownarrow
-0121,1 \downarrow
-0122,0 .
-0123,5 \rightarrow
-0124,5 \uparrow
-0125,- \downarrow
-0126,0 \uparrow
-0127,9 \div
-0128,7 5
-0129,4 \times
-0130,\leftarrow y
-0131,3 6
-0132,\div 4
-0133,\downarrow \downarrow
-0134,1 -
-0135,\uparrow \times
-0136,2 \times
-0137,\leftarrow 2
-0138,9 9
-0139,\leftrightarrow 6
-0140,z 4
-0141,6 7
-0142,x 6
-0143,+ 5
-0144,\updownarrow +
-0145,\rightarrow +
-0146,x x
-0147,\times .
-0148,3 4
-0149,3 y
-0150,4 \leftarrow
-0151,7 \updownarrow
-0152,\times .
-0153,3 9
-0154,2 +
-0155,0 y
-0156,1 5
-0157,x 5
-0158,2 -
-0159,\rightarrow \downarrow
-0160,5 z
-0161,3 \downarrow
-0162,5 9
-0163,7 -
-0164,9 .
-0165,\leftarrow 4
-0166,\times y
-0167,2 0
-0168,+ x
-0169,\updownarrow \leftrightarrow
-0170,5 3
-0171,\leftrightarrow \updownarrow
-0172,\uparrow \updownarrow
-0173,4 0
-0174,\times 5
-0175,. 0
-0176,6 -
-0177,3 6
-0178,4 \leftrightarrow
-0179,3 \rightarrow
-0180,\updownarrow +
-0181,y \rightarrow
-0182,2 3
-0183,\times \uparrow
-0184,0 1
-0185,6 y
-0186,\downarrow 7
-0187,. x
-0188,8 x
-0189,x 4
-0190,\uparrow \leftarrow
-0191,4 1
-0192,\uparrow \downarrow
-0193,2 6
-0194,\times x
-0195,7 5
-0196,8 y
-0197,4 +
-0198,2 6
-0199,x 2
-0200,y 0
-0201,+ 9
-0202,- 6
-0203,0 9
-0204,\downarrow 5
-0205,6 z
-0206,\uparrow x
-0207,+ \leftrightarrow
-0208,7 4
-0209,y 0
-0210,7 0
-0211,+ 2
-0212,- \downarrow
-0213,7 0
-0214,7 9
-0215,\leftrightarrow y
-0216,8 1
-0217,\div 2
-0218,x x
-0219,y \leftarrow
-0220,\uparrow 3
-0221,y 9
-0222,. \times
-0223,+ 7
-0224,+ 5
-0225,9 \rightarrow
-0226,- \rightarrow
-0227,6 7
-0228,z 2
+0018,=
+0019,\leftarrow
+0020,\rightarrow
+0021,\leftrightarrow
+0022,\uparrow
+0023,\downarrow
+0024,\updownarrow
+0025,- 1
+0026,3 0
+0027,8 8
+0028,\div \leftrightarrow
+0029,- 0
+0030,9 =
+0031,\uparrow \updownarrow
+0032,\rightarrow \updownarrow
+0033,. +
+0034,x x
+0035,- =
+0036,\updownarrow \updownarrow
+0037,y 5
+0038,= +
+0039,+ 4
+0040,= \div
+0041,y .
+0042,\updownarrow 5
+0043,\times .
+0044,. 5
+0045,2 .
+0046,7 1
+0047,\rightarrow \times
+0048,- =
+0049,7 7
+0050,\downarrow 2
+0051,1 2
+0052,4 0
+0053,x z
+0054,\times \uparrow
+0055,\downarrow 9
+0056,z 2
+0057,\updownarrow .
+0058,= x
+0059,x 9
+0060,\updownarrow 5
+0061,3 \rightarrow
+0062,4 =
+0063,+ 5
+0064,\leftarrow 4
+0065,5 9
+0066,= 9
+0067,\rightarrow =
+0068,\div \leftarrow
+0069,\leftarrow 2
+0070,\rightarrow 0
+0071,\rightarrow -
+0072,y 2
+0073,. 9
+0074,. 3
+0075,+ -
+0076,x x
+0077,\div y
+0078,6 +
+0079,9 9
+0080,\uparrow 0
+0081,\uparrow \downarrow
+0082,0 =
+0083,\updownarrow \times
+0084,5 1
+0085,\times 6
+0086,\leftrightarrow \times
+0087,6 6
+0088,\updownarrow \times
+0089,z \updownarrow
+0090,9 \downarrow
+0091,1 7
+0092,7 \downarrow
+0093,. 4
+0094,8 5
+0095,- 2
+0096,8 1
+0097,5 4
+0098,+ 3
+0099,5 3
+0100,= 7
+0101,2 =
+0102,8 \updownarrow
+0103,6 \times
+0104,1 4
+0105,5 2
+0106,7 +
+0107,+ 0
+0108,1 1
+0109,. 3
+0110,\uparrow 9
+0111,2 8
+0112,6 3
+0113,9 \updownarrow
+0114,x +
+0115,\times 8
+0116,2 =
+0117,0 9
+0118,0 \downarrow
+0119,7 0
+0120,6 -
+0121,9 x
+0122,4 4
+0123,\rightarrow \rightarrow
+0124,\uparrow 0
+0125,1 \updownarrow
+0126,2 \times
+0127,z +
+0128,- x
+0129,\times y
+0130,\leftarrow 9
+0131,\times 5
+0132,y 7
+0133,- z
+0134,y z
+0135,- +
+0136,z 8
+0137,7 3
+0138,3 +
+0139,= \div
+0140,7 +
+0141,5 8
+0142,9 \div
+0143,7 y
+0144,. y
+0145,\leftarrow \uparrow
+0146,0 6
+0147,8 +
+0148,1 \uparrow
+0149,3 \updownarrow
+0150,\leftarrow -
+0151,1 +
+0152,- \rightarrow
+0153,5 \downarrow
+0154,\div \leftarrow
+0155,7 -
+0156,8 x
+0157,- 4
+0158,6 3
+0159,+ \leftrightarrow
+0160,\downarrow \leftrightarrow
+0161,5 z
+0162,5 .
+0163,2 \div
+0164,\div 4
+0165,\rightarrow \uparrow
+0166,\uparrow \rightarrow
+0167,y 4
+0168,8 8
+0169,+ \leftrightarrow
+0170,- 0
+0171,. =
+0172,4 \leftarrow
+0173,9 z
+0174,\downarrow 7
+0175,\downarrow 9
+0176,6 7
+0177,5 \updownarrow
+0178,\leftarrow 6
+0179,5 1
+0180,0 =
+0181,- x
+0182,\leftrightarrow \uparrow
+0183,\times 7
+0184,0 6
+0185,6 \rightarrow
+0186,3 .
+0187,\downarrow .
+0188,z y
+0189,8 9
+0190,8 8
+0191,\leftarrow \leftarrow
+0192,\leftarrow 4
+0193,= 2
+0194,- \div
+0195,3 9
+0196,6 \times
+0197,\downarrow \downarrow
+0198,6 z
+0199,\uparrow 4
+0200,9 \uparrow
+0201,2 1
+0202,= z
+0203,0 \downarrow
+0204,9 \downarrow
+0205,= 7
+0206,6 x
+0207,= 6
+0208,. 6
+0209,\div \div
+0210,\updownarrow 1
+0211,0 -
+0212,1 \updownarrow
+0213,+ =
+0214,\uparrow +
+0215,7 x
+0216,4 3
+0217,3 \div
+0218,4 \updownarrow
+0219,6 \leftrightarrow
+0220,= \updownarrow
+0221,8 \updownarrow
+0222,\div 7
+0223,8 =
+0224,\times \downarrow
+0225,\leftrightarrow \div
+0226,\times -
+0227,9 =
+0228,\uparrow \updownarrow
 0229,z \leftrightarrow
-0230,4 .
-0231,\updownarrow z
-0232,\leftrightarrow \rightarrow
-0233,+ 0
-0234,5 \downarrow
-0235,- \updownarrow
-0236,2 \leftrightarrow
-0237,3 -
-0238,6 z
-0239,9 1
-0240,5 4
-0241,\leftarrow \leftrightarrow
-0242,\downarrow \downarrow
-0243,5 \leftarrow
-0244,. 4
-0245,2 \uparrow
-0246,2 4
-0247,5 -
-0248,- \times
-0249,. \times
-0250,4 z
-0251,0 \times
-0252,8 -
-0253,5 \div
-0254,0 \uparrow
-0255,\leftrightarrow \uparrow
-0256,5 \div
-0257,3 1
-0258,- z
-0259,5 0
-0260,\rightarrow 8
-0261,4 7
-0262,\uparrow \updownarrow
-0263,2 \updownarrow
-0264,9 \updownarrow
-0265,\downarrow 2
-0266,9 -
-0267,\times 2
-0268,9 3
-0269,8 4
-0270,\updownarrow 2
-0271,8 5
-0272,2 .
-0273,\updownarrow -
-0274,8 \leftrightarrow
-0275,\times \rightarrow
-0276,\leftarrow z
-0277,\rightarrow \uparrow
-0278,\updownarrow 9
-0279,. y
-0280,+ 9
-0281,8 8
-0282,\rightarrow 7
-0283,6 .
-0284,. 1
-0285,\rightarrow 4
-0286,\leftrightarrow \div
-0287,2 2
-0288,5 \times
-0289,\leftrightarrow \uparrow
-0290,3 +
-0291,\uparrow \div
-0292,7 5
-0293,\updownarrow 0
-0294,4 3
-0295,\uparrow 5
-0296,6 \leftarrow
-0297,1 8
-0298,\div \downarrow
-0299,\leftrightarrow y
-0300,3 9
-0301,4 0
-0302,9 \leftarrow
-0303,3 4
-0304,x \downarrow
-0305,7 \updownarrow
-0306,6 y
-0307,z \leftarrow
-0308,\rightarrow \rightarrow
-0309,1 8
-0310,- 6
-0311,6 \div
-0312,9 \downarrow
-0313,\div 0
-0314,3 1
-0315,6 6
-0316,9 +
-0317,. 9
-0318,9 \leftrightarrow
-0319,6 \rightarrow
-0320,\downarrow \updownarrow
-0321,z 1
-0322,\uparrow \downarrow
-0323,z 7
-0324,6 \rightarrow .
-0325,\downarrow y \uparrow
-0326,\leftrightarrow \updownarrow 0
-0327,+ 0 +
-0328,\times 0 7
-0329,0 y 9
-0330,2 z 7
-0331,. 0 1
-0332,. x 0
-0333,3 y \uparrow
-0334,8 \downarrow \div
-0335,+ 9 5
-0336,4 \updownarrow y
-0337,y - 7
-0338,8 6 \rightarrow
-0339,z 8 \updownarrow
-0340,\downarrow 4 \leftarrow
-0341,x - -
-0342,\div \rightarrow y
-0343,\leftrightarrow \div 0
-0344,+ \div -
-0345,\div \leftrightarrow \downarrow
-0346,z 6 z
-0347,6 \downarrow \leftrightarrow
-0348,7 z +
-0349,4 \div \downarrow
-0350,\uparrow 6 2
-0351,9 2 z
-0352,\leftrightarrow z \updownarrow
-0353,. y z
-0354,\rightarrow \uparrow 5
-0355,5 2 \times
-0356,z - 5
-0357,2 8 5
-0358,7 \rightarrow \leftrightarrow
-0359,\leftarrow 0 7
-0360,\leftarrow \uparrow \rightarrow
-0361,+ \times 8
-0362,x \rightarrow 2
-0363,\leftrightarrow 7 \times
-0364,x . \downarrow
-0365,8 \leftarrow \leftarrow
-0366,\leftarrow 4 \updownarrow
-0367,- \times \leftarrow
-0368,4 9 6
-0369,y 2 \times
-0370,0 0 \uparrow
-0371,7 x +
-0372,6 8 y
-0373,- y y
-0374,0 + \times
-0375,\uparrow \uparrow \rightarrow
-0376,y \updownarrow \leftarrow
-0377,\downarrow 5 1
-0378,\rightarrow - y
-0379,\uparrow 3 \times
-0380,5 \div \leftrightarrow
-0381,\leftrightarrow 3 \rightarrow
-0382,z \uparrow 6
-0383,x 3 \downarrow
-0384,y 2 2
-0385,8 x 4
-0386,4 8 \div
-0387,\leftrightarrow \leftrightarrow 1
-0388,y 8 x
-0389,8 \leftrightarrow +
-0390,- . 6
-0391,z 6 5
-0392,\leftarrow y 2
-0393,8 \downarrow \downarrow
-0394,z \div 0
-0395,\leftrightarrow \times 3
-0396,\uparrow 1 2
-0397,- \updownarrow .
-0398,0 . 7
-0399,3 . +
-0400,2 - 0
-0401,\div \uparrow 7
-0402,\uparrow \downarrow .
-0403,\leftrightarrow y \uparrow
-0404,\rightarrow . 8
-0405,\leftrightarrow \uparrow x
-0406,0 7 2
-0407,3 1 \rightarrow
-0408,\times 7 .
-0409,3 4 2
-0410,\downarrow \uparrow \uparrow
-0411,8 2 y
-0412,\leftrightarrow 0 z
-0413,\uparrow 0 \downarrow
-0414,2 \leftrightarrow 8
-0415,3 8 +
-0416,5 7 \uparrow
-0417,7 y .
-0418,x 5 8
-0419,. y 3
-0420,\times \times \uparrow
-0421,\rightarrow 0 8
-0422,\rightarrow . 1
-0423,6 . 2
-0424,x 7 0
-0425,\uparrow 3 -
-0426,1 2 4
-0427,\times \uparrow .
-0428,+ \uparrow \updownarrow
-0429,+ . \leftrightarrow
-0430,\rightarrow - 2
-0431,8 x \div
-0432,- \downarrow \times
-0433,4 2 \uparrow
-0434,. 0 x
-0435,0 z x
-0436,2 x 5
-0437,5 y y
-0438,7 5 1
-0439,0 z 8
-0440,3 \times y
-0441,\rightarrow y \updownarrow
-0442,\leftrightarrow \leftarrow 2
-0443,. 4 x
-0444,\uparrow \uparrow \leftrightarrow
-0445,1 y 7
-0446,0 - \leftrightarrow
-0447,\times 6 -
-0448,x y 2
-0449,z \times .
-0450,\updownarrow \downarrow 3
-0451,\leftrightarrow y 3
-0452,\times 1 4
-0453,z \downarrow \div
-0454,8 \rightarrow 8
-0455,\times 2 3
-0456,4 4 0
-0457,y 0 \div
-0458,\uparrow 3 \rightarrow
-0459,y \uparrow 4
-0460,\leftarrow 3 0
-0461,\downarrow \updownarrow y
-0462,6 4 \leftarrow
-0463,4 8 7
-0464,3 5 6
-0465,\leftrightarrow 6 -
-0466,\uparrow \leftarrow +
-0467,\rightarrow \rightarrow 4
-0468,7 y \rightarrow
-0469,\times + 9
-0470,\updownarrow y y
-0471,y 0 z
-0472,. 7 z
-0473,8 \div .
-0474,\updownarrow 8 5
-0475,0 1 \div
-0476,6 1 \leftrightarrow
-0477,9 3 0
-0478,- - y
-0479,\times \uparrow \leftrightarrow
-0480,1 z .
-0481,- \uparrow 8
-0482,+ 8 8
-0483,1 6 9
-0484,x + \updownarrow
-0485,\downarrow 5 4
-0486,\leftrightarrow 2 \uparrow
-0487,- 2 \leftrightarrow
-0488,9 7 -
-0489,\div x 2
-0490,\div \times 5
-0491,\downarrow 1 -
-0492,1 3 0
-0493,6 \times .
-0494,- . 0
-0495,\leftrightarrow \leftarrow -
-0496,x \downarrow \times
-0497,0 \downarrow 0
-0498,2 5 z
-0499,1 7 6
-0500,. - 1
-0501,1 5 7
-0502,\updownarrow 0 9
-0503,. 3 5
-0504,\downarrow \uparrow 8
-0505,- 1 8
-0506,\rightarrow z 4
-0507,\rightarrow \leftarrow .
-0508,\times 9 \leftrightarrow
-0509,3 . \downarrow
-0510,7 8 \leftrightarrow
-0511,0 \times +
-0512,y \times 3
-0513,+ \downarrow 0
-0514,6 7 x
-0515,2 + 7
-0516,4 \downarrow 2
-0517,. 1 \times
-0518,- . \downarrow
-0519,1 . 2
-0520,z \leftarrow 0
-0521,1 y \rightarrow
-0522,\downarrow 7 1
-0523,0 x z
-0524,\times \downarrow \leftarrow
-0525,8 9 0
-0526,\downarrow \downarrow -
-0527,2 0 x
-0528,. . 6
-0529,9 . 8
-0530,. \times \leftarrow
-0531,y z \div
-0532,y \leftrightarrow 9
-0533,+ 3 \rightarrow
-0534,\rightarrow 2 -
-0535,y y \leftrightarrow
-0536,+ \div \leftrightarrow
-0537,z \leftrightarrow 6
-0538,y 2 x
-0539,z \rightarrow \uparrow
-0540,\updownarrow \uparrow x
-0541,\leftrightarrow 1 4
-0542,\times 6 \times
-0543,4 8 \times
-0544,8 6 8
-0545,0 2 y
-0546,8 \downarrow 2
-0547,6 5 x
-0548,y 7 0
-0549,z \rightarrow 5
-0550,y z 3
-0551,. 6 -
-0552,6 z 2
-0553,1 0 .
-0554,\downarrow \uparrow \leftarrow
-0555,\div - z
-0556,\rightarrow 0 z
-0557,z 8 1
-0558,8 x .
-0559,\updownarrow - \uparrow
-0560,. 0 3
-0561,\times 1 z
-0562,+ 3 7
-0563,0 \times 4
-0564,\leftarrow 5 y
-0565,7 4 2
-0566,6 5 4
-0567,7 0 \leftrightarrow
-0568,0 8 2
-0569,9 \downarrow 9
-0570,\leftrightarrow \downarrow \rightarrow
-0571,z \leftrightarrow 4
-0572,\div . -
-0573,0 \rightarrow \uparrow
-0574,y \times \leftrightarrow
-0575,3 6 1
-0576,0 2 \times
-0577,6 9 z
-0578,x \leftarrow \rightarrow
-0579,6 \times 9
-0580,3 7 \times
-0581,\div \times 7
-0582,\leftrightarrow 9 x
-0583,. \times \uparrow
-0584,\rightarrow + \times
-0585,\times \leftarrow \rightarrow
-0586,8 7 6
-0587,. 7 \uparrow
-0588,\leftrightarrow 4 \updownarrow
-0589,5 \uparrow \downarrow
-0590,\times \leftrightarrow 7
-0591,z x \leftrightarrow
-0592,1 2 1
-0593,- 4 7
-0594,\uparrow 1 \leftrightarrow
-0595,. 6 1
-0596,+ 0 \uparrow
-0597,y y \leftarrow
-0598,x \div 9
-0599,+ \updownarrow 2
-0600,1 1 1
-0601,1 3 \div
-0602,\times \leftrightarrow \uparrow
-0603,1 \leftarrow 8
-0604,z 0 0
-0605,y \rightarrow 8
-0606,1 + \times
-0607,\rightarrow - -
-0608,8 + 2
-0609,0 5 .
-0610,\rightarrow \times .
-0611,0 7 7
-0612,\updownarrow 8 \updownarrow
-0613,\div \uparrow \uparrow
-0614,\leftarrow - 4
-0615,7 3 z
-0616,1 x -
-0617,2 8 8
-0618,\leftarrow \updownarrow z
-0619,z 6 4
-0620,\updownarrow 6 x
-0621,8 \rightarrow \downarrow
-0622,y \leftarrow 8
-0623,\div \leftrightarrow +
-0624,z \uparrow \downarrow .
-0625,5 . - 9
-0626,3 z \div 7
-0627,1 \div + z
-0628,x 9 \uparrow 7
-0629,\updownarrow x \leftarrow 7
-0630,\uparrow 5 x \div
-0631,4 9 + 4
-0632,+ \uparrow \uparrow \leftarrow
-0633,0 9 \rightarrow \uparrow
-0634,2 1 \times 6
-0635,\uparrow \leftarrow z 7
-0636,\div \leftarrow \downarrow 6
-0637,\leftarrow \uparrow \times y
-0638,\updownarrow 4 \times 7
-0639,6 \leftrightarrow \times y
-0640,8 \downarrow 7 \div
-0641,9 8 9 z
-0642,y x - 6
-0643,\uparrow \uparrow \uparrow \rightarrow
-0644,9 \downarrow 6 7
-0645,z 8 0 .
-0646,5 1 \rightarrow \div
-0647,9 5 + \leftrightarrow
-0648,+ 6 3 7
-0649,y 5 \div \uparrow
-0650,4 \rightarrow - 3
-0651,1 z 3 -
-0652,\div \leftrightarrow \downarrow z
-0653,\leftarrow + 0 .
-0654,\leftarrow 9 7 +
-0655,9 \leftarrow 8 \times
-0656,9 \uparrow 1 \leftarrow
-0657,5 \updownarrow \updownarrow 7
-0658,. 3 \times 1
-0659,4 2 y \leftarrow
-0660,4 \uparrow 0 y
-0661,+ - x 3
-0662,\times 3 x \updownarrow
-0663,4 8 7 \leftarrow
-0664,9 2 \updownarrow \div
-0665,1 \leftarrow \times -
-0666,4 8 \updownarrow y
-0667,2 4 1 3
-0668,2 1 2 \leftarrow
-0669,\leftarrow \downarrow 8 8
-0670,y 3 \div 0
-0671,6 6 \rightarrow +
-0672,2 \updownarrow \div 9
-0673,\div 2 \times 3
-0674,\uparrow \leftrightarrow 8 \div
-0675,y \downarrow \times \times
-0676,\uparrow 6 0 \times
-0677,z 9 \times x
-0678,. \uparrow 3 7
-0679,z 1 \updownarrow 8
-0680,\leftarrow \leftrightarrow 0 .
-0681,\leftrightarrow \div 7 \rightarrow
-0682,5 5 5 \rightarrow
-0683,- 9 \times \leftrightarrow
-0684,2 6 \leftarrow \div
-0685,5 \leftarrow 4 2
-0686,\updownarrow \leftarrow 6 x
-0687,0 x \updownarrow \downarrow
-0688,8 \leftrightarrow z 6
-0689,- x 8 7
-0690,\rightarrow 9 \div -
-0691,0 5 9 \times
-0692,x \downarrow - x
-0693,\div 1 3 4
-0694,1 \div x +
-0695,8 7 \leftarrow \times
-0696,3 + 2 5
-0697,\downarrow 7 + \uparrow
-0698,\updownarrow 8 2 1
-0699,5 8 9 4
-0700,\times 7 4 \downarrow
-0701,2 \leftrightarrow 6 x
-0702,\downarrow - . \times
-0703,\leftrightarrow 0 \leftrightarrow 8
-0704,6 8 6 \updownarrow
-0705,9 \updownarrow 9 1
-0706,5 2 3 \leftarrow
-0707,\div 3 \times 0
-0708,2 6 \leftrightarrow \uparrow
-0709,2 x \rightarrow \leftrightarrow
-0710,\times 9 8 z
-0711,\leftrightarrow 1 \downarrow +
-0712,. z 4 \downarrow
-0713,\leftarrow . - 8
-0714,x 8 z \leftrightarrow
-0715,. x \times z
-0716,6 7 \div \updownarrow
-0717,y 9 8 1
-0718,\uparrow 2 2 4
-0719,. 1 . \updownarrow
-0720,\leftarrow 3 2 \leftrightarrow
-0721,\times 2 \updownarrow \rightarrow
-0722,0 4 5 2
-0723,\updownarrow \div \updownarrow 4
-0724,3 \leftrightarrow 6 \rightarrow
-0725,8 6 \times \rightarrow
-0726,\updownarrow \times \times -
-0727,\leftrightarrow - - -
-0728,y 3 4 -
-0729,. \leftarrow 9 7
-0730,\rightarrow 7 8 z
-0731,4 \rightarrow 5 2
-0732,x x 9 \leftrightarrow
-0733,\leftarrow \leftrightarrow 5 9
-0734,. 2 0 \rightarrow
-0735,3 8 \updownarrow 0
-0736,+ \uparrow 0 \leftarrow
-0737,y x 2 \downarrow
-0738,\div 1 8 \times
-0739,z 6 8 0
-0740,9 \leftarrow + x
-0741,0 \leftarrow \downarrow \rightarrow
-0742,6 - y 3
-0743,z + \leftarrow -
-0744,\rightarrow 7 \leftarrow y
-0745,3 9 y \leftarrow
-0746,3 3 + \leftarrow
-0747,- - \leftrightarrow .
-0748,\leftrightarrow 2 9 3
-0749,. \rightarrow \leftrightarrow z
-0750,\leftarrow \leftarrow \downarrow 4
-0751,. . 4 4
-0752,\times 6 \updownarrow \downarrow
-0753,9 8 1 +
-0754,\leftarrow \times 3 -
-0755,1 \rightarrow \updownarrow z
-0756,\div 0 9 6
-0757,2 \rightarrow 8 \div
-0758,\rightarrow 4 + x
-0759,+ 4 \downarrow 4
-0760,\div x + 7
-0761,5 8 \times 4
-0762,4 5 + 7
-0763,\updownarrow + \updownarrow .
-0764,7 4 \div \leftarrow
-0765,1 \rightarrow \uparrow 7
-0766,4 6 8 0
-0767,z 6 \leftarrow 9
-0768,5 \rightarrow 3 z
-0769,1 7 8 +
-0770,1 8 \uparrow z
-0771,5 . 7 \rightarrow
-0772,z 7 \times .
-0773,5 1 + \leftarrow
-0774,7 x \leftrightarrow 5
-0775,0 4 . -
-0776,0 \downarrow \leftarrow \div
-0777,\div \leftarrow \downarrow 6
-0778,\updownarrow \div 0 5
-0779,+ z . y
-0780,5 z 8 7
-0781,+ \downarrow 8 +
-0782,x 9 8 5
-0783,z 7 1 4
-0784,y \rightarrow y z
-0785,x \updownarrow \updownarrow 9
-0786,7 \times 0 0
-0787,4 \updownarrow \times +
-0788,7 3 - .
-0789,\times . \leftrightarrow y
-0790,9 5 \downarrow +
-0791,3 + 0 1
-0792,\updownarrow y + 5
-0793,6 3 \rightarrow 3
-0794,3 4 \rightarrow \times
-0795,\times \div \leftarrow .
-0796,9 \updownarrow 7 6
-0797,- 5 0 3
-0798,8 8 - \div
-0799,\updownarrow 9 3 7
-0800,9 + 5 1
-0801,z 6 + \times
-0802,6 + 8 6
-0803,\uparrow 5 z \updownarrow
-0804,\leftrightarrow z x x
-0805,- 1 \div +
-0806,\updownarrow x \uparrow z
-0807,7 \updownarrow x 3
-0808,5 . - 4
-0809,\uparrow 4 9 \times
-0810,\uparrow 3 x \rightarrow
-0811,3 4 x 4
-0812,4 4 3 z
-0813,9 \downarrow \downarrow 1
-0814,6 \leftarrow 2 9
-0815,+ \leftarrow \leftarrow \updownarrow
-0816,3 \leftrightarrow x 3
-0817,\div 8 x z
-0818,y x \leftarrow -
-0819,\downarrow \updownarrow 4 -
-0820,1 \uparrow \times 5
-0821,0 + 8 2
-0822,5 x 3 0
-0823,\times 4 \uparrow 3
-0824,\times 1 8 .
-0825,y 6 \uparrow .
-0826,1 8 \div \rightarrow
-0827,y - - +
-0828,\leftarrow . \div 2
-0829,9 x \uparrow \updownarrow
-0830,x + 2 +
-0831,2 3 0 3
-0832,y 1 2 2
-0833,1 4 \leftarrow z
-0834,\div 5 \leftarrow 0
-0835,\updownarrow 8 6 \downarrow
-0836,\leftrightarrow 2 0 2
-0837,- \rightarrow 9 \leftarrow
-0838,9 - - \downarrow
-0839,\updownarrow \leftarrow . -
-0840,\times 4 2 8
-0841,\updownarrow 2 2 7
-0842,3 \div 0 y
-0843,z 5 \times 3
-0844,2 x \rightarrow \leftarrow
-0845,9 x z 2
-0846,6 \rightarrow \div z
-0847,0 \updownarrow \times x
-0848,\uparrow 6 0 8
-0849,\leftarrow 0 \leftarrow 6
-0850,\leftarrow \div \updownarrow 0
-0851,\uparrow 3 \leftrightarrow .
-0852,4 5 z \uparrow
-0853,4 1 \downarrow \updownarrow
-0854,7 x 5 7
-0855,\div \updownarrow \times 2
-0856,8 z \updownarrow \updownarrow
-0857,\leftrightarrow \leftrightarrow \rightarrow 0
-0858,7 9 1 \downarrow
-0859,\uparrow 0 y .
-0860,- 1 + \updownarrow
-0861,5 y 8 \div
-0862,0 0 7 \downarrow
-0863,8 7 6 \times
-0864,+ 3 z \uparrow
-0865,6 6 - .
-0866,- 2 y +
-0867,9 7 6 .
-0868,\downarrow 1 0 4
-0869,6 - 6 -
-0870,y \times 4 \times
-0871,x - 5 6
-0872,\uparrow \leftrightarrow + \downarrow
-0873,z x \leftrightarrow 8
-0874,\downarrow 0 \rightarrow -
-0875,\updownarrow y \leftrightarrow 5
-0876,\div z \rightarrow \rightarrow
-0877,\leftarrow \times . 7
-0878,x \updownarrow \uparrow 9
-0879,x y y y
-0880,6 + \rightarrow -
-0881,1 \uparrow x \leftrightarrow
-0882,\div 2 \leftrightarrow -
-0883,\downarrow \downarrow 4 1
-0884,7 5 \div 0
-0885,\rightarrow \leftarrow \rightarrow 0
-0886,1 5 8 +
-0887,\uparrow 4 2 1
-0888,9 \div 8 \div
-0889,\uparrow - 1 \downarrow
-0890,. y \leftrightarrow \updownarrow
-0891,\uparrow \downarrow . \rightarrow
-0892,\leftrightarrow - - 8
-0893,y 1 3 \div
-0894,2 z \rightarrow \updownarrow
-0895,1 \updownarrow 5 -
-0896,z \rightarrow \times \uparrow
-0897,\downarrow \rightarrow 9 7
-0898,z 3 0 \uparrow
-0899,\updownarrow - 3 -
-0900,0 z . 8
-0901,9 z 1 x
-0902,0 6 x 7
-0903,5 \div 3 \uparrow
-0904,\updownarrow \times y .
-0905,\downarrow 2 \downarrow 6
-0906,4 \div \downarrow \times
-0907,\leftarrow 6 \leftrightarrow 1
-0908,- 0 3 2
-0909,2 8 6 7
-0910,y y \leftarrow -
-0911,2 9 9 z
-0912,2 \leftrightarrow x \leftrightarrow
-0913,\uparrow 3 5 1
-0914,\downarrow z \times 8
-0915,\downarrow 5 \leftarrow \div
-0916,2 2 \div 4
-0917,\times . z 4
-0918,. \div - x
-0919,- 2 \div 5
-0920,1 y \leftrightarrow 0
-0921,\times y \leftrightarrow \downarrow
-0922,3 - 2 6
-0923,\downarrow 9 + y
-0924,0 1 \leftarrow 8 x
-0925,\leftarrow 3 6 \leftrightarrow 4
-0926,\updownarrow + 7 - \times
-0927,\uparrow 4 y \updownarrow \downarrow
-0928,+ x 4 3 \leftrightarrow
-0929,4 \uparrow z - +
-0930,2 \downarrow \times 1 8
-0931,\leftrightarrow \rightarrow 1 \times 2
-0932,6 . 1 \times 6
-0933,y 4 \downarrow x -
-0934,\rightarrow 8 y 5 +
-0935,\rightarrow x 9 8 1
-0936,6 7 5 x \leftarrow
-0937,\leftrightarrow 1 y . \downarrow
-0938,\downarrow 5 \updownarrow x \times
-0939,\updownarrow 5 . 5 x
-0940,1 5 - + .
-0941,+ 7 - \leftrightarrow 7
-0942,3 0 \leftarrow 8 x
-0943,x 9 \div \leftrightarrow .
-0944,\leftrightarrow - x 4 x
-0945,6 1 6 + 2
-0946,\rightarrow \updownarrow + 6 \rightarrow
-0947,x \rightarrow . 8 \leftarrow
-0948,2 y 4 \leftarrow 9
-0949,\rightarrow 9 5 \leftarrow \uparrow
-0950,\leftrightarrow 1 4 \div \leftarrow
-0951,\times 5 0 x \div
-0952,2 \uparrow - \div +
-0953,7 z y . 5
-0954,y 7 + 4 8
-0955,+ . + x \div
-0956,1 3 0 \leftrightarrow 5
-0957,9 2 \div 5 \rightarrow
-0958,\div 2 x 6 \updownarrow
-0959,\updownarrow 8 1 5 6
-0960,x . - 6 3
-0961,9 8 6 y 5
-0962,\uparrow 2 7 x y
-0963,6 8 \leftrightarrow \times \updownarrow
-0964,3 \updownarrow 4 6 \rightarrow
-0965,\updownarrow 6 \updownarrow x \leftarrow
-0966,4 \leftarrow 0 3 1
-0967,\updownarrow . 1 3 \div
-0968,8 + y 9 z
-0969,y 9 x + \times
-0970,\div 7 \updownarrow 3 .
-0971,0 9 . 3 7
-0972,\times x 4 \uparrow \rightarrow
-0973,6 \times \leftarrow + \div
-0974,7 8 7 \rightarrow \rightarrow
-0975,9 4 8 5 2
-0976,1 \uparrow . + 6
-0977,\leftrightarrow y - + 0
-0978,\rightarrow 9 \uparrow z 6
-0979,1 \uparrow 4 . +
-0980,\leftarrow 6 \updownarrow \leftrightarrow 3
-0981,1 7 8 \downarrow .
-0982,5 \times 6 7 +
-0983,8 3 1 \updownarrow -
-0984,7 . 4 \uparrow y
-0985,5 \div 5 5 \updownarrow
-0986,x 2 - \updownarrow 9
-0987,x \rightarrow + z 3
-0988,9 \times + . 1
-0989,3 \times 6 \rightarrow \rightarrow
-0990,y 3 x 0 x
-0991,7 \leftarrow 9 9 2
-0992,\updownarrow 3 . y -
-0993,- \leftrightarrow y + x
-0994,\div 2 - \times 1
-0995,\rightarrow 2 7 . \div
-0996,\leftrightarrow \rightarrow 5 z 9
-0997,4 \rightarrow 0 2 -
-0998,9 \downarrow z \div \div
-0999,5 \times \times 9 .
-1000,3 + \leftrightarrow 8 x
-1001,7 \updownarrow 0 3 8
-1002,\leftarrow \times + \uparrow 5
-1003,\leftarrow \div \times 9 1
-1004,4 + \uparrow \times \downarrow
-1005,4 \rightarrow z + 6
-1006,y 9 z \uparrow 8
-1007,+ 8 8 \rightarrow 8
-1008,\rightarrow \leftarrow - \div \leftarrow
-1009,\downarrow 4 . - 7
-1010,1 \updownarrow 5 y x
-1011,\rightarrow - 9 9 9
-1012,\uparrow y \uparrow \leftarrow \times
-1013,3 0 3 . y
-1014,\rightarrow 6 1 7 .
-1015,\downarrow z \leftarrow 1 1
-1016,6 5 5 6 \times
-1017,7 4 - y \leftrightarrow
-1018,\uparrow y 9 \times 1
-1019,5 . 7 8 8
-1020,1 \uparrow \downarrow \updownarrow 9
-1021,\uparrow 1 5 + 6
-1022,4 y y + 6
-1023,\updownarrow 8 z \leftarrow 1
-1024,y 0 5 x \rightarrow
-1025,- 5 \leftrightarrow 1 3
-1026,6 7 \div 6 \downarrow
-1027,2 y y 9 0
-1028,x 5 \times \leftarrow \div
-1029,4 z 9 \times 2
-1030,\times \div \leftarrow \leftrightarrow 5
-1031,. \leftarrow \div 7 \updownarrow
-1032,9 z 0 + \uparrow
-1033,7 9 \leftrightarrow 2 +
-1034,+ \uparrow \updownarrow 6 4
-1035,9 \leftarrow 9 5 2
-1036,\div 8 \rightarrow x \rightarrow
-1037,8 - x 2 .
-1038,\updownarrow \div + 9 \rightarrow
-1039,\times + \uparrow \rightarrow \uparrow
-1040,\updownarrow 8 0 z 7
-1041,0 y - \rightarrow 7
-1042,9 x - 5 7
-1043,7 \uparrow 3 3 \updownarrow
-1044,8 2 + 0 \times
-1045,2 2 1 3 9
-1046,\updownarrow 9 5 . 6
-1047,1 y y 7 \leftarrow
-1048,6 x x \uparrow 3
-1049,9 \updownarrow 6 \div 3
-1050,+ 2 + 8 2
-1051,z \div y x y
-1052,\rightarrow \rightarrow \rightarrow \times 8
-1053,\times \downarrow x 3 2
-1054,\div + x \rightarrow 7
-1055,2 5 \times + 6
-1056,9 \updownarrow 4 5 5
-1057,1 \times \uparrow - .
-1058,\updownarrow 0 3 x .
-1059,\updownarrow . 9 z +
-1060,7 \leftrightarrow y 5 \leftrightarrow
-1061,4 6 7 0 \leftarrow
-1062,2 0 \updownarrow \rightarrow x
-1063,+ 5 \leftrightarrow 5 \downarrow
-1064,4 1 y z \downarrow
-1065,9 + 3 \uparrow \times
-1066,x \downarrow z 6 4
-1067,\updownarrow x \updownarrow \rightarrow y
-1068,\downarrow 5 \updownarrow . 8
-1069,\div 2 5 3 1
-1070,\times . 9 2 \rightarrow
-1071,\updownarrow \updownarrow x 1 7
-1072,. 7 8 y 7
-1073,. \updownarrow 6 \leftrightarrow \updownarrow
-1074,\leftarrow 9 0 x \div
-1075,- 4 5 - \leftarrow
-1076,+ \leftrightarrow 7 7 .
-1077,\rightarrow \rightarrow + \times -
-1078,\leftrightarrow 8 \updownarrow \uparrow 5
-1079,+ y - + 6
-1080,\div 9 4 2 \downarrow
-1081,6 7 5 \rightarrow 1
-1082,\times - 0 4 9
-1083,z \leftarrow + 0 x
-1084,\rightarrow 6 y \updownarrow \times
-1085,\leftrightarrow 9 7 + 7
-1086,\leftarrow . 0 z \div
-1087,x \div \updownarrow \rightarrow z
-1088,z 1 \div + 6
-1089,+ 3 \leftarrow 1 .
-1090,y \updownarrow - 4 -
-1091,1 \rightarrow 5 3 \updownarrow
-1092,x \times 2 7 \downarrow
-1093,\updownarrow . 1 \rightarrow 0
-1094,\leftarrow \downarrow 2 - \leftarrow
-1095,\updownarrow 8 \div 5 +
-1096,\times . 3 1 0
-1097,3 4 \downarrow \leftarrow 7
-1098,\leftarrow \times 6 2 1
-1099,\downarrow \times . 2 6
-1100,x z 7 \uparrow 8
-1101,+ 2 + 3 4
-1102,0 . 4 \leftrightarrow y
-1103,7 7 \leftrightarrow \leftrightarrow y
-1104,7 . 0 \updownarrow 6
-1105,. 9 \leftarrow 6 \leftrightarrow
-1106,8 \leftarrow z 2 \uparrow
-1107,\leftrightarrow \downarrow 9 \div \updownarrow
-1108,8 7 \div 1 6
-1109,. \downarrow - \rightarrow 5
-1110,\rightarrow \updownarrow \uparrow 3 5
-1111,\uparrow \div 2 9 6
-1112,6 \uparrow 9 x x
-1113,\updownarrow y \uparrow z 0
-1114,+ 1 \downarrow \downarrow \div
-1115,. \updownarrow 8 0 6
-1116,\leftrightarrow - x 0 +
-1117,\downarrow x 3 . \uparrow
-1118,y z z \uparrow \downarrow
-1119,y + - 5 x
-1120,3 \downarrow 5 . x
-1121,9 8 y y 6
-1122,z \leftarrow 1 8 \leftarrow
-1123,8 \times \rightarrow \updownarrow y
-1124,\leftrightarrow 3 + x +
-1125,\div 5 8 . x
-1126,z x \uparrow \div 7
-1127,x \uparrow \updownarrow \times 8
-1128,\leftarrow 1 \rightarrow z \updownarrow
-1129,1 2 6 2 .
-1130,y \updownarrow 7 \downarrow \uparrow
-1131,z 6 \uparrow \times 8
-1132,9 2 \rightarrow \rightarrow +
-1133,7 0 5 \leftrightarrow \uparrow
-1134,\div 3 \updownarrow \rightarrow \leftrightarrow
-1135,3 8 y 8 -
-1136,1 \rightarrow + + 7
-1137,x + 5 - 0
-1138,x \leftrightarrow 3 \rightarrow y
-1139,8 \uparrow 6 + x
-1140,4 x . z y
-1141,\uparrow \div \rightarrow + 6
-1142,0 \rightarrow 5 \updownarrow y
-1143,\updownarrow 2 5 \updownarrow y
-1144,5 z 7 8 \uparrow
-1145,\updownarrow \leftarrow 2 2 3
-1146,1 . \rightarrow x \times
-1147,\downarrow 2 \updownarrow \updownarrow 1
-1148,3 \times 7 6 x
-1149,z 8 y + 8
-1150,x + - z .
-1151,6 x 1 5 y
-1152,y 7 3 z \uparrow
-1153,\uparrow 4 \div \rightarrow 4
-1154,+ x \uparrow \downarrow 4
-1155,. 9 0 x 5
-1156,. 5 \rightarrow \rightarrow y
-1157,9 y 0 \times 2
-1158,\leftarrow \leftarrow \leftarrow . 1
-1159,\downarrow 4 z z -
-1160,8 + 8 - .
-1161,x \leftrightarrow 4 7 9
-1162,. 6 1 6 y
-1163,\leftrightarrow \leftarrow 5 \div \div
-1164,\times 5 \leftrightarrow 1 \downarrow
-1165,2 \div z y \rightarrow
-1166,z \times . 7 0
-1167,+ 3 z 7 6
-1168,y 3 2 - 4
-1169,0 \div 3 + \downarrow
-1170,+ \leftarrow \leftrightarrow 9 z
-1171,9 x 4 4 \uparrow
-1172,1 \downarrow x + z
-1173,x \rightarrow \leftrightarrow \times \div
-1174,+ \leftarrow 6 \times \downarrow
-1175,\uparrow 5 1 \div -
-1176,\updownarrow + . \leftrightarrow \div
-1177,. \div 1 7 \uparrow
-1178,\updownarrow 9 8 5 \times
-1179,\rightarrow \updownarrow - z 9
-1180,\times \updownarrow \uparrow 3 \div
-1181,4 \div 0 7 5
-1182,\times 7 . . 0
-1183,\times 2 5 8 \times
-1184,9 2 \updownarrow . \leftarrow
-1185,\div \uparrow 0 \times 7
-1186,\leftrightarrow 4 - 4 2
-1187,\downarrow 4 1 \div 9
-1188,3 2 9 1 3
-1189,3 3 8 0 \div
-1190,2 6 8 \rightarrow 2
-1191,\updownarrow 5 x 1 9
-1192,\downarrow \div \times 1 \uparrow
-1193,\downarrow 3 - \downarrow \times
-1194,2 \times \downarrow 3 \rightarrow
-1195,\div 6 4 \leftarrow +
-1196,1 + 6 \div 0
-1197,1 - 1 y 2
-1198,x . \times \rightarrow \leftrightarrow
-1199,\leftrightarrow \rightarrow 2 \times 4
-1200,5 \downarrow \leftrightarrow \leftarrow y
-1201,\uparrow \downarrow y + \leftarrow
-1202,9 1 6 1 +
-1203,x \leftrightarrow \leftrightarrow y \downarrow
-1204,y 1 7 2 7
-1205,1 6 4 6 4
-1206,9 \leftarrow 8 0 \downarrow
-1207,z 3 + 9 0
-1208,\leftrightarrow \uparrow y x 6
-1209,\rightarrow 2 1 \leftrightarrow \leftarrow
-1210,7 5 x \downarrow 9
-1211,4 y 0 + \downarrow
-1212,\leftrightarrow \uparrow 7 4 \rightarrow
-1213,\leftrightarrow \uparrow x 1 -
-1214,8 \leftarrow . \rightarrow \downarrow
-1215,2 8 z 2 -
-1216,\downarrow \rightarrow x + \leftrightarrow
-1217,0 x - 4 z
-1218,\rightarrow - 7 9 \leftrightarrow
-1219,\rightarrow 1 7 3 \uparrow
-1220,2 \leftrightarrow 0 8 3
-1221,\leftrightarrow 2 . y +
-1222,5 9 \updownarrow \leftrightarrow 6
-1223,6 6 . \times 1
+0230,\uparrow z
+0231,\leftarrow 1
+0232,6 \rightarrow
+0233,3 7
+0234,\div 1
+0235,- 2
+0236,7 +
+0237,. -
+0238,\updownarrow 2
+0239,z \rightarrow
+0240,\leftrightarrow =
+0241,\leftarrow 7
+0242,\downarrow y
+0243,. =
+0244,\times \times
+0245,9 =
+0246,\leftarrow 2
+0247,z .
+0248,\times \uparrow
+0249,\uparrow -
+0250,\times z
+0251,\leftrightarrow 3
+0252,5 \times
+0253,\downarrow \times
+0254,- 2
+0255,8 2
+0256,x 7
+0257,4 \rightarrow
+0258,6 .
+0259,\leftarrow 6
+0260,4 1
+0261,\leftrightarrow 5
+0262,6 2
+0263,x \updownarrow
+0264,5 z
+0265,\rightarrow \rightarrow
+0266,9 x
+0267,\updownarrow \times
+0268,1 0
+0269,8 5
+0270,8 \leftrightarrow
+0271,\times \leftrightarrow
+0272,0 \downarrow
+0273,3 1
+0274,\downarrow \times
+0275,\downarrow 7
+0276,= 9
+0277,2 \uparrow
+0278,\uparrow 0
+0279,\times x
+0280,1 7
+0281,8 +
+0282,9 \leftrightarrow
+0283,\div =
+0284,\times -
+0285,\updownarrow 9
+0286,\leftarrow \downarrow
+0287,\times \updownarrow
+0288,y 6
+0289,+ -
+0290,8 \leftarrow
+0291,3 \div
+0292,\leftarrow 2
+0293,\downarrow \div
+0294,1 \div
+0295,7 z
+0296,\rightarrow \leftarrow
+0297,\times \downarrow
+0298,\downarrow 8
+0299,= 0
+0300,. -
+0301,9 =
+0302,= 9
+0303,9 6
+0304,5 \times
+0305,. 5
+0306,+ 1
+0307,7 \rightarrow
+0308,z 0
+0309,\leftrightarrow .
+0310,z \times
+0311,\downarrow \leftarrow
+0312,\leftarrow 3
+0313,\times 0
+0314,5 .
+0315,6 +
+0316,1 9
+0317,2 5
+0318,y 8
+0319,2 \times
+0320,+ 8
+0321,= +
+0322,\times y
+0323,8 4
+0324,5 .
+0325,\leftrightarrow . =
+0326,8 5 6
+0327,- 0 \rightarrow
+0328,y 6 x
+0329,4 3 6
+0330,. 9 5
+0331,- 8 7
+0332,+ x 1
+0333,6 9 1
+0334,\rightarrow \leftrightarrow 2
+0335,. z 3
+0336,2 + 4
+0337,\times . -
+0338,5 \uparrow +
+0339,4 \div =
+0340,1 . 9
+0341,\updownarrow 0 .
+0342,z \downarrow .
+0343,\div \downarrow \downarrow
+0344,0 x 9
+0345,x 0 y
+0346,2 \leftrightarrow 3
+0347,. 1 y
+0348,2 2 \updownarrow
+0349,\rightarrow 8 3
+0350,\updownarrow \times \updownarrow
+0351,5 z 8
+0352,\leftrightarrow \downarrow \updownarrow
+0353,\leftrightarrow 6 \leftarrow
+0354,4 9 \downarrow
+0355,7 \times \leftarrow
+0356,= x 4
+0357,9 - x
+0358,\rightarrow \times \updownarrow
+0359,5 7 \times
+0360,5 = -
+0361,5 x \uparrow
+0362,= \uparrow \rightarrow
+0363,\leftarrow 3 7
+0364,1 \leftarrow 2
+0365,\div 4 +
+0366,= \times 6
+0367,6 = 1
+0368,\leftrightarrow 7 4
+0369,8 1 4
+0370,\rightarrow 3 7
+0371,\leftarrow 6 \uparrow
+0372,- \rightarrow z
+0373,- 1 \updownarrow
+0374,= + \downarrow
+0375,6 \rightarrow 2
+0376,\rightarrow z 4
+0377,\times \times =
+0378,. 2 \rightarrow
+0379,2 1 .
+0380,- 1 1
+0381,y \updownarrow \rightarrow
+0382,- 4 \leftarrow
+0383,\rightarrow 1 \updownarrow
+0384,\updownarrow + -
+0385,4 8 \updownarrow
+0386,9 7 7
+0387,\updownarrow 7 0
+0388,\times 2 z
+0389,\downarrow . x
+0390,x 8 .
+0391,z 6 \rightarrow
+0392,x 0 y
+0393,0 x \rightarrow
+0394,7 3 \leftrightarrow
+0395,\leftarrow 9 \downarrow
+0396,\downarrow 7 y
+0397,1 1 8
+0398,= 8 z
+0399,6 \updownarrow \downarrow
+0400,\times \leftarrow 8
+0401,\leftarrow \leftarrow x
+0402,0 9 3
+0403,\uparrow \leftrightarrow 5
+0404,= \uparrow 9
+0405,8 \times \updownarrow
+0406,z 8 1
+0407,8 \downarrow x
+0408,7 5 4
+0409,7 3 \leftarrow
+0410,7 \updownarrow 8
+0411,- + 6
+0412,- z x
+0413,. 7 6
+0414,\updownarrow = \times
+0415,z \rightarrow \uparrow
+0416,\uparrow + .
+0417,y \times 7
+0418,4 + +
+0419,\div 9 \rightarrow
+0420,\times 1 0
+0421,2 6 \updownarrow
+0422,2 7 2
+0423,7 \uparrow x
+0424,0 3 \div
+0425,4 \updownarrow 4
+0426,\leftarrow 5 3
+0427,9 + 3
+0428,\updownarrow 9 1
+0429,\leftarrow \downarrow y
+0430,\times 7 \updownarrow
+0431,1 5 x
+0432,3 \rightarrow y
+0433,+ \leftarrow \div
+0434,+ \div 1
+0435,\downarrow 2 -
+0436,3 1 x
+0437,\downarrow \div y
+0438,x \leftarrow 2
+0439,4 z 8
+0440,y x \updownarrow
+0441,+ 3 1
+0442,\div y 5
+0443,\uparrow . \updownarrow
+0444,\times + 9
+0445,9 \leftrightarrow \rightarrow
+0446,\uparrow + 8
+0447,1 3 .
+0448,\leftarrow y 8
+0449,2 \times 3
+0450,1 \div +
+0451,3 x x
+0452,. x 3
+0453,. 0 -
+0454,\updownarrow \div 2
+0455,2 5 8
+0456,\uparrow z 0
+0457,4 4 1
+0458,\leftrightarrow \downarrow +
+0459,3 3 6
+0460,5 \leftrightarrow x
+0461,2 9 =
+0462,\uparrow \rightarrow \leftrightarrow
+0463,z y 5
+0464,9 9 z
+0465,\leftarrow 6 \div
+0466,0 = 2
+0467,x 5 3
+0468,\rightarrow 9 .
+0469,z - +
+0470,\updownarrow 2 \leftrightarrow
+0471,- \downarrow 4
+0472,- 9 5
+0473,2 z 9
+0474,\uparrow \downarrow \rightarrow
+0475,. 7 +
+0476,0 \rightarrow -
+0477,\times 7 1
+0478,+ \leftarrow y
+0479,0 \rightarrow z
+0480,4 6 9
+0481,\downarrow 2 7
+0482,9 6 \times
+0483,\uparrow \leftarrow \rightarrow
+0484,\div 5 +
+0485,2 \downarrow 1
+0486,= 4 4
+0487,\times 6 =
+0488,7 \times \times
+0489,\updownarrow 6 7
+0490,8 = 5
+0491,\leftarrow x +
+0492,\leftrightarrow - x
+0493,\div + 8
+0494,5 + 2
+0495,\downarrow 2 \uparrow
+0496,8 1 \updownarrow
+0497,y \rightarrow \uparrow
+0498,x 7 2
+0499,4 - -
+0500,9 4 \uparrow
+0501,\updownarrow 6 -
+0502,= \uparrow 6
+0503,\times 0 1
+0504,. 0 -
+0505,\leftrightarrow \times 8
+0506,5 1 3
+0507,. 5 9
+0508,y 5 5
+0509,\downarrow \leftarrow .
+0510,+ 4 6
+0511,\updownarrow 3 \div
+0512,x \div z
+0513,x 8 3
+0514,0 y y
+0515,6 \uparrow 9
+0516,. y 0
+0517,= 7 5
+0518,y 7 3
+0519,\leftrightarrow 0 \leftarrow
+0520,\uparrow 7 \div
+0521,8 7 \rightarrow
+0522,\div + z
+0523,4 x -
+0524,5 0 .
+0525,1 \downarrow \leftarrow
+0526,\updownarrow 2 9
+0527,0 8 7
+0528,7 1 3
+0529,\times 1 \downarrow
+0530,3 3 \div
+0531,\updownarrow 1 6
+0532,\uparrow \rightarrow 1
+0533,- 0 8
+0534,y 1 \leftrightarrow
+0535,\leftrightarrow 3 4
+0536,\times \times \times
+0537,8 \uparrow x
+0538,\downarrow + .
+0539,2 2 0
+0540,0 z \uparrow
+0541,6 . 5
+0542,6 + 8
+0543,0 = x
+0544,3 \uparrow \rightarrow
+0545,3 z y
+0546,\leftrightarrow \div \downarrow
+0547,\leftarrow 4 \div
+0548,\times 6 6
+0549,6 9 -
+0550,\uparrow x 6
+0551,= 4 1
+0552,- = \rightarrow
+0553,8 . 6
+0554,\updownarrow 3 5
+0555,= . x
+0556,- \rightarrow =
+0557,\updownarrow 6 \uparrow
+0558,5 7 \downarrow
+0559,= 0 0
+0560,\downarrow 1 6
+0561,1 \downarrow \leftarrow
+0562,\leftrightarrow z 1
+0563,- 1 9
+0564,x 8 =
+0565,\leftarrow . 6
+0566,6 \rightarrow z
+0567,7 8 9
+0568,8 \rightarrow \rightarrow
+0569,9 . \div
+0570,y \uparrow .
+0571,\leftarrow y \downarrow
+0572,0 \uparrow y
+0573,\uparrow x 9
+0574,\downarrow y 8
+0575,1 9 8
+0576,x 2 2
+0577,\times - \leftarrow
+0578,\times 4 3
+0579,\leftarrow 1 \leftarrow
+0580,\leftarrow . 1
+0581,x 4 3
+0582,+ x y
+0583,\div \downarrow \updownarrow
+0584,\downarrow 3 \rightarrow
+0585,. \uparrow 1
+0586,8 \rightarrow \uparrow
+0587,\div . \downarrow
+0588,\downarrow 1 4
+0589,- z 7
+0590,+ 7 4
+0591,7 - 5
+0592,z 8 \downarrow
+0593,6 7 \leftrightarrow
+0594,+ \div 1
+0595,\uparrow 1 1
+0596,7 7 8
+0597,9 2 \updownarrow
+0598,6 \leftarrow \updownarrow
+0599,= 6 5
+0600,x 0 3
+0601,8 6 5
+0602,z 8 \div
+0603,\div + 1
+0604,z 1 =
+0605,1 1 9
+0606,1 \leftrightarrow \div
+0607,\downarrow \leftarrow 1
+0608,\uparrow x \div
+0609,\leftarrow 9 \leftrightarrow
+0610,\times 3 3
+0611,9 + =
+0612,4 \leftrightarrow y
+0613,3 5 \uparrow
+0614,\rightarrow \leftrightarrow 0
+0615,5 \rightarrow y
+0616,9 \updownarrow \leftarrow
+0617,x 1 .
+0618,2 0 5
+0619,\leftarrow 0 1
+0620,7 8 9
+0621,x 2 =
+0622,9 - \leftrightarrow
+0623,\leftrightarrow + \rightarrow
+0624,7 2 \times
+0625,. 8 \leftrightarrow 2
+0626,\downarrow . \leftarrow =
+0627,\div \leftrightarrow 5 -
+0628,= 7 0 6
+0629,6 3 . \uparrow
+0630,5 3 = .
+0631,\downarrow = . 9
+0632,\leftarrow 0 . 1
+0633,4 1 \uparrow 2
+0634,\leftrightarrow \leftarrow 8 -
+0635,\rightarrow \uparrow y \leftarrow
+0636,z \leftrightarrow \rightarrow 4
+0637,\rightarrow \rightarrow \div .
+0638,3 . y \leftarrow
+0639,\div \div 8 4
+0640,\rightarrow + + \div
+0641,0 1 5 4
+0642,y \leftarrow \div -
+0643,7 0 - \downarrow
+0644,+ 2 y 7
+0645,9 \leftrightarrow 0 \div
+0646,0 \downarrow + 4
+0647,\uparrow z 1 \leftrightarrow
+0648,\div y \downarrow \updownarrow
+0649,\rightarrow 6 6 -
+0650,\div z 5 2
+0651,\updownarrow 7 \leftrightarrow 0
+0652,\leftarrow \leftrightarrow 6 =
+0653,8 \rightarrow = =
+0654,y 7 x \leftarrow
+0655,- 0 - \uparrow
+0656,7 - = \div
+0657,\downarrow \times 2 \div
+0658,\uparrow \uparrow y -
+0659,\updownarrow z \times 1
+0660,. - 5 \times
+0661,6 0 . 5
+0662,\updownarrow \updownarrow z y
+0663,z 1 7 \div
+0664,\updownarrow \leftarrow = \updownarrow
+0665,7 z 2 =
+0666,5 z z x
+0667,\uparrow \leftrightarrow 3 y
+0668,4 x 6 1
+0669,= 9 \leftrightarrow x
+0670,\times + \updownarrow 2
+0671,. - + 6
+0672,\div 0 1 4
+0673,8 8 - \times
+0674,0 \downarrow 8 0
+0675,\rightarrow \updownarrow 3 8
+0676,\downarrow 2 \downarrow 9
+0677,. - z 2
+0678,. \div y \times
+0679,\leftrightarrow \div 9 \uparrow
+0680,\updownarrow 7 \times +
+0681,7 5 \leftrightarrow =
+0682,\times \times \times \div
+0683,\leftarrow 0 2 x
+0684,3 . 9 9
+0685,7 4 x \uparrow
+0686,\div 1 y 7
+0687,+ 4 \div \rightarrow
+0688,\rightarrow z \div 4
+0689,\uparrow 5 2 -
+0690,y 9 7 \updownarrow
+0691,- z 5 0
+0692,+ 6 6 9
+0693,+ 6 2 5
+0694,9 0 - x
+0695,\div 2 \leftrightarrow \leftrightarrow
+0696,\times - 1 4
+0697,8 1 \downarrow 9
+0698,5 \uparrow 0 y
+0699,\rightarrow 1 4 .
+0700,\times 1 0 \downarrow
+0701,\div z + 6
+0702,9 4 6 1
+0703,\times 9 \times =
+0704,y 6 \times \div
+0705,8 1 . 8
+0706,z . 4 y
+0707,5 4 = x
+0708,\leftrightarrow z \div \updownarrow
+0709,\times \updownarrow 0 \leftarrow
+0710,3 \leftarrow 4 \leftrightarrow
+0711,+ 6 4 +
+0712,y 4 \updownarrow 7
+0713,7 \downarrow 7 \rightarrow
+0714,8 \updownarrow \times .
+0715,y 7 \updownarrow 5
+0716,\rightarrow \downarrow \times \updownarrow
+0717,\leftrightarrow \times \rightarrow 2
+0718,. 3 \uparrow \updownarrow
+0719,\leftarrow - 3 1
+0720,\rightarrow \leftarrow \updownarrow y
+0721,x \downarrow + -
+0722,9 7 . \leftrightarrow
+0723,\updownarrow \leftrightarrow \downarrow \updownarrow
+0724,\div \rightarrow 1 9
+0725,\downarrow 1 3 4
+0726,\updownarrow \updownarrow . 5
+0727,+ \times z 9
+0728,. \rightarrow \div \updownarrow
+0729,x x z y
+0730,\downarrow y 1 3
+0731,\leftrightarrow 9 \updownarrow 1
+0732,+ + \times x
+0733,z 9 8 \leftrightarrow
+0734,0 0 = 0
+0735,= 5 9 4
+0736,0 6 x \leftrightarrow
+0737,\updownarrow . \uparrow -
+0738,0 z 9 3
+0739,. 6 - \leftrightarrow
+0740,3 \leftarrow y 6
+0741,z + \div 9
+0742,7 \uparrow 5 \updownarrow
+0743,6 6 - \div
+0744,z \div + 4
+0745,- 1 \downarrow .
+0746,\uparrow . \rightarrow \leftrightarrow
+0747,6 z \leftrightarrow 0
+0748,. 2 \uparrow 8
+0749,5 \downarrow . y
+0750,- \updownarrow 5 7
+0751,\rightarrow \uparrow \downarrow 0
+0752,0 x 0 3
+0753,\uparrow = \leftarrow \updownarrow
+0754,6 \downarrow \leftrightarrow 8
+0755,\updownarrow \leftrightarrow \uparrow 4
+0756,8 z 2 \downarrow
+0757,5 \rightarrow + +
+0758,\rightarrow - 4 -
+0759,. \leftrightarrow 3 y
+0760,7 - \downarrow 1
+0761,\downarrow \leftrightarrow 1 =
+0762,\times + 9 7
+0763,\updownarrow z 8 z
+0764,- \leftrightarrow + .
+0765,\times \updownarrow \downarrow \rightarrow
+0766,y y - -
+0767,. 5 \uparrow -
+0768,\updownarrow 4 6 7
+0769,x 1 3 -
+0770,= 6 \leftarrow x
+0771,= y . -
+0772,9 = \uparrow x
+0773,8 5 \updownarrow 5
+0774,8 \leftarrow = \leftrightarrow
+0775,= 3 9 2
+0776,- 9 2 8
+0777,+ - . 2
+0778,9 1 4 z
+0779,7 \div 4 +
+0780,z \leftrightarrow \rightarrow \updownarrow
+0781,\downarrow 9 7 3
+0782,= \rightarrow \times -
+0783,. . 7 x
+0784,6 \uparrow \times 2
+0785,\leftarrow \div 9 -
+0786,\times + 0 \uparrow
+0787,\leftarrow x 9 \div
+0788,1 = \div 9
+0789,6 6 0 \updownarrow
+0790,\leftarrow + \downarrow x
+0791,+ 1 \updownarrow 9
+0792,\leftrightarrow 2 0 5
+0793,z 6 6 y
+0794,\downarrow 3 . \div
+0795,= x y \leftrightarrow
+0796,= . 7 \times
+0797,7 z 9 +
+0798,y 0 - 4
+0799,\rightarrow 9 \downarrow 8
+0800,1 x \uparrow 5
+0801,= 2 . 5
+0802,5 \div 8 9
+0803,= 4 3 3
+0804,5 x \times 0
+0805,\times \times 0 =
+0806,9 0 7 6
+0807,\uparrow 1 \leftrightarrow =
+0808,4 \updownarrow \updownarrow 6
+0809,= 8 7 2
+0810,= \downarrow 7 z
+0811,6 5 1 8
+0812,\updownarrow 5 . .
+0813,- 0 \leftrightarrow 7
+0814,1 . + y
+0815,3 1 \leftarrow \times
+0816,\rightarrow 5 = \leftarrow
+0817,\div \times 1 -
+0818,\leftarrow 6 - -
+0819,2 5 \downarrow \times
+0820,2 = . \downarrow
+0821,z \leftarrow 1 8
+0822,\times 5 3 x
+0823,1 \downarrow x \div
+0824,y \updownarrow 9 8
+0825,6 \times \leftrightarrow \updownarrow
+0826,3 = \leftrightarrow \rightarrow
+0827,\updownarrow 4 6 x
+0828,\updownarrow 5 \uparrow -
+0829,0 2 x y
+0830,x - z +
+0831,. 4 y 2
+0832,\uparrow 1 = 5
+0833,- \updownarrow \leftrightarrow +
+0834,2 3 4 z
+0835,\uparrow \updownarrow 8 4
+0836,\div \leftrightarrow \uparrow 9
+0837,+ - z z
+0838,4 + 3 0
+0839,3 \uparrow + 4
+0840,x z 7 5
+0841,y y 7 1
+0842,6 x = 0
+0843,\updownarrow \downarrow - 1
+0844,\downarrow . . \rightarrow
+0845,0 \rightarrow 7 6
+0846,\leftarrow . + 2
+0847,1 \times x y
+0848,0 9 6 \div
+0849,\updownarrow 8 9 \updownarrow
+0850,= \leftarrow \leftrightarrow 8
+0851,\leftrightarrow \updownarrow 6 y
+0852,\updownarrow 8 . -
+0853,4 \leftarrow 2 \leftrightarrow
+0854,\uparrow \div + 2
+0855,3 9 \div 6
+0856,9 \updownarrow 4 \div
+0857,x \div 9 6
+0858,x 3 6 \updownarrow
+0859,= z 6 \times
+0860,\downarrow z z z
+0861,6 \div 3 \leftrightarrow
+0862,\downarrow + 7 +
+0863,\uparrow + 3 \times
+0864,8 2 \leftrightarrow 8
+0865,z 9 \leftrightarrow +
+0866,. 4 8 5
+0867,z y 0 1
+0868,\leftrightarrow 2 0 9
+0869,2 7 0 \updownarrow
+0870,= 5 \uparrow \leftarrow
+0871,6 5 \uparrow \downarrow
+0872,- 0 . 4
+0873,\times \times \updownarrow 5
+0874,\times z \downarrow 5
+0875,y \uparrow y 6
+0876,= 0 \downarrow \leftarrow
+0877,4 6 + 4
+0878,9 . - 6
+0879,\leftarrow + 2 \rightarrow
+0880,\leftrightarrow + 6 \leftarrow
+0881,z \leftrightarrow 2 \uparrow
+0882,+ 7 \leftrightarrow 3
+0883,\uparrow 7 = -
+0884,z 7 \times 1
+0885,+ y 4 +
+0886,\updownarrow \updownarrow 2 y
+0887,\leftarrow \updownarrow 3 4
+0888,2 \leftarrow 2 \leftarrow
+0889,\times z + .
+0890,9 3 + 9
+0891,- \uparrow \times -
+0892,\times - + y
+0893,8 \leftrightarrow x 4
+0894,\rightarrow - = 2
+0895,+ 8 4 4
+0896,1 5 3 \updownarrow
+0897,9 x . 5
+0898,2 1 \updownarrow z
+0899,9 1 1 7
+0900,y 1 \leftrightarrow 9
+0901,+ 4 y \leftarrow
+0902,- 5 4 4
+0903,\times 4 . \leftrightarrow
+0904,4 \uparrow \div =
+0905,8 \leftarrow \leftrightarrow \rightarrow
+0906,\times 2 \updownarrow 7
+0907,3 2 . 7
+0908,z 8 \downarrow 0
+0909,3 7 + 1
+0910,- x \div y
+0911,\div \rightarrow . 7
+0912,5 \times - \leftrightarrow
+0913,\times 5 . -
+0914,\div 5 2 4
+0915,8 9 + \uparrow
+0916,. = 6 =
+0917,7 9 \times 3
+0918,1 7 \times 4
+0919,- \leftarrow 4 =
+0920,7 . y -
+0921,= 6 \times \updownarrow
+0922,5 \leftrightarrow \leftarrow y
+0923,x z 0 8
+0924,\leftarrow + y \updownarrow
+0925,3 = \uparrow \leftarrow \times
+0926,5 \leftrightarrow z \times 3
+0927,3 5 \div 4 5
+0928,3 + 2 \times \times
+0929,4 \leftarrow 6 1 +
+0930,\leftarrow 5 z \leftarrow 3
+0931,\updownarrow 3 \leftarrow 4 z
+0932,4 5 + 2 \downarrow
+0933,\times + \leftrightarrow \rightarrow .
+0934,5 0 8 \leftarrow \uparrow
+0935,6 - \rightarrow \downarrow z
+0936,\updownarrow 2 0 1 5
+0937,3 . \div \leftarrow \div
+0938,\rightarrow 1 \div y \updownarrow
+0939,4 . 1 3 4
+0940,\div \leftarrow . + \updownarrow
+0941,5 \uparrow + \downarrow \leftarrow
+0942,4 z 5 5 0
+0943,\leftarrow z 9 8 \downarrow
+0944,x 8 y 3 \leftarrow
+0945,x 3 \times . y
+0946,= y y - 3
+0947,7 \times \uparrow y 9
+0948,0 3 \downarrow = 1
+0949,1 - 5 \times z
+0950,\leftrightarrow 0 \div + \leftrightarrow
+0951,. 2 + 7 6
+0952,0 \times z x 0
+0953,5 \times z 3 \leftarrow
+0954,+ \downarrow \leftrightarrow 2 \leftrightarrow
+0955,7 \rightarrow \uparrow \updownarrow \leftrightarrow
+0956,6 2 y 5 \updownarrow
+0957,6 y 8 3 x
+0958,3 5 1 + 0
+0959,\div \downarrow \downarrow 2 z
+0960,+ 6 \uparrow = x
+0961,8 3 y 1 \leftrightarrow
+0962,+ 9 4 9 4
+0963,3 \downarrow z x \leftarrow
+0964,\leftrightarrow z . 4 +
+0965,9 \leftarrow \times 9 4
+0966,y . \downarrow \leftarrow \times
+0967,0 \updownarrow . 0 7
+0968,\uparrow . \updownarrow \div 2
+0969,\times 7 \leftrightarrow 8 0
+0970,z z y \uparrow 7
+0971,3 = 8 4 8
+0972,\div 4 \times \times -
+0973,7 \uparrow + . 5
+0974,6 \times \times 6 +
+0975,0 2 9 \rightarrow 4
+0976,\leftarrow 5 7 x 1
+0977,\times . x . 1
+0978,8 x \leftarrow - y
+0979,1 \leftrightarrow 7 \leftrightarrow \rightarrow
+0980,- \downarrow . . 9
+0981,2 + \uparrow \rightarrow \leftarrow
+0982,4 \rightarrow \leftrightarrow \updownarrow z
+0983,= \rightarrow 6 7 .
+0984,8 \updownarrow 3 z \rightarrow
+0985,\downarrow 5 7 + \rightarrow
+0986,7 z \times \updownarrow 2
+0987,\leftarrow \uparrow 8 = 9
+0988,\leftarrow x 4 9 .
+0989,z \leftarrow 1 z x
+0990,\downarrow 7 7 9 \uparrow
+0991,\downarrow z . z -
+0992,y + + 8 3
+0993,9 \downarrow y 7 y
+0994,= \uparrow 5 6 2
+0995,+ = 8 1 +
+0996,\uparrow z 7 5 2
+0997,1 8 3 8 z
+0998,z y x \uparrow \times
+0999,6 . \div + \times
+1000,. 7 \div 3 1
+1001,8 4 \uparrow x 3
+1002,\div 1 \times z \times
+1003,= 8 2 z 6
+1004,\div \rightarrow 1 . \downarrow
+1005,1 \uparrow . \leftrightarrow \leftrightarrow
+1006,0 \leftrightarrow 2 \div \rightarrow
+1007,\updownarrow 4 y + 8
+1008,\rightarrow \leftrightarrow 1 \div y
+1009,3 \rightarrow \downarrow \updownarrow -
+1010,4 \rightarrow 3 0 7
+1011,\div 3 2 \downarrow =
+1012,3 = = 3 -
+1013,\downarrow + - 7 .
+1014,8 \uparrow 7 9 3
+1015,\rightarrow 1 \times \leftrightarrow 2
+1016,= = \rightarrow \downarrow \rightarrow
+1017,z y \div = 9
+1018,0 2 7 = 2
+1019,\times \updownarrow \div x .
+1020,0 \updownarrow 9 0 9
+1021,= 2 . x \leftrightarrow
+1022,\leftarrow 2 \div y \downarrow
+1023,. x \div 1 \times
+1024,6 + 2 \leftrightarrow 0
+1025,z x + - .
+1026,y . \downarrow 4 1
+1027,+ 9 \rightarrow 7 6
+1028,4 5 . + 6
+1029,\leftarrow - x . \updownarrow
+1030,\div - + z 8
+1031,\updownarrow + \leftarrow z \updownarrow
+1032,9 2 - 2 .
+1033,\rightarrow \leftrightarrow 9 3 1
+1034,\updownarrow 9 \updownarrow \leftrightarrow 7
+1035,2 8 2 \updownarrow z
+1036,\rightarrow = x 4 0
+1037,\leftrightarrow 6 8 \downarrow \times
+1038,2 9 . z \div
+1039,\rightarrow \leftarrow \downarrow 2 \leftarrow
+1040,4 \times \uparrow - y
+1041,\div . 1 - 8
+1042,5 9 4 9 3
+1043,9 4 8 \updownarrow 4
+1044,\uparrow \div 6 9 .
+1045,0 0 2 + \times
+1046,8 8 2 x 4
+1047,z 1 7 = -
+1048,\uparrow \uparrow \rightarrow \uparrow \uparrow
+1049,2 + 4 3 -
+1050,+ 3 x + \leftrightarrow
+1051,4 \uparrow 1 + 4
+1052,5 4 4 3 0
+1053,\leftrightarrow z 9 \updownarrow 9
+1054,\leftarrow \rightarrow \div 6 \leftarrow
+1055,\leftarrow 4 0 7 3
+1056,7 4 \times z .
+1057,\leftrightarrow 8 z x y
+1058,1 x y 5 \uparrow
+1059,\leftarrow x . \div +
+1060,8 \rightarrow \times 3 -
+1061,1 1 y \rightarrow .
+1062,\uparrow 5 0 x 0
+1063,7 \div 6 6 x
+1064,x \leftarrow . \leftrightarrow 4
+1065,7 0 \leftarrow 3 .
+1066,8 9 0 9 4
+1067,\div \downarrow 3 0 +
+1068,\updownarrow 4 y 1 +
+1069,7 \div \rightarrow \downarrow 1
+1070,\uparrow - = 9 \leftarrow
+1071,0 1 \leftarrow \updownarrow .
+1072,. \rightarrow 7 \div -
+1073,1 8 \leftrightarrow z 7
+1074,\rightarrow 1 4 \downarrow 0
+1075,. \downarrow \leftrightarrow . +
+1076,4 - 4 \rightarrow \times
+1077,1 2 \leftarrow 1 \div
+1078,\rightarrow 1 \rightarrow \times z
+1079,- 9 = \leftrightarrow \div
+1080,\rightarrow \div 3 \times \rightarrow
+1081,2 - y 4 y
+1082,\rightarrow \div 3 \leftarrow 6
+1083,y 9 9 1 =
+1084,9 \uparrow 7 0 =
+1085,0 + 3 \leftrightarrow \times
+1086,x 9 3 9 \leftrightarrow
+1087,\times y + \times \updownarrow
+1088,4 6 - 1 6
+1089,3 2 \rightarrow - =
+1090,= \updownarrow \div \downarrow \leftrightarrow
+1091,. 2 4 - 5
+1092,4 \div 2 = \times
+1093,1 5 - \div z
+1094,7 z . \leftarrow \leftrightarrow
+1095,\div \div 7 4 \uparrow
+1096,4 . \downarrow 9 7
+1097,\uparrow \downarrow . - \times
+1098,6 0 y \div z
+1099,\div 8 \uparrow 2 \times
+1100,9 1 0 3 =
+1101,1 4 = \downarrow -
+1102,\times = 9 6 .
+1103,- 4 5 7 4
+1104,- z 8 \div 7
+1105,3 . 5 8 9
+1106,\times - \updownarrow \leftarrow 0
+1107,- \div x 9 \leftrightarrow
+1108,x 0 \times + 5
+1109,4 x - \leftrightarrow y
+1110,5 \times 3 \div 5
+1111,z 2 \rightarrow - \updownarrow
+1112,\updownarrow 7 6 4 \rightarrow
+1113,6 \downarrow 2 7 =
+1114,\times \rightarrow \downarrow \times z
+1115,x x y 6 4
+1116,\times z . . 2
+1117,+ - z . \downarrow
+1118,- z \rightarrow \rightarrow \leftarrow
+1119,\times y 3 y \rightarrow
+1120,0 \leftarrow 7 5 \uparrow
+1121,\times 7 7 \updownarrow 1
+1122,\downarrow \uparrow 3 \updownarrow =
+1123,7 9 9 + x
+1124,- 5 4 . \leftrightarrow
+1125,. = 3 = \updownarrow
+1126,\rightarrow y y 9 \updownarrow
+1127,\downarrow - 0 6 1
+1128,4 . + 5 2
+1129,9 z 9 y -
+1130,\rightarrow . 9 + 9
+1131,\downarrow 0 + \downarrow z
+1132,9 \downarrow 7 z x
+1133,0 \rightarrow y \times \updownarrow
+1134,y z \leftarrow \downarrow 6
+1135,\div x 7 5 \downarrow
+1136,\updownarrow 9 1 \rightarrow \leftrightarrow
+1137,1 \times - 8 \rightarrow
+1138,\downarrow 4 3 1 \leftrightarrow
+1139,3 . \updownarrow z 6
+1140,- . 0 x \downarrow
+1141,\rightarrow x z 4 .
+1142,1 \leftrightarrow - 9 \div
+1143,0 \leftarrow 2 x -
+1144,x \leftarrow 1 3 x
+1145,\leftrightarrow y = . .
+1146,\downarrow 5 2 1 3
+1147,\downarrow \leftarrow 3 8 0
+1148,\leftrightarrow \uparrow \rightarrow \uparrow y
+1149,\div + x y y
+1150,y \rightarrow 7 = z
+1151,\downarrow y 2 0 -
+1152,+ z \uparrow \times 4
+1153,5 \updownarrow y 4 6
+1154,+ . z \div \updownarrow
+1155,. 5 3 y 6
+1156,9 - = . -
+1157,\rightarrow 7 \uparrow 2 4
+1158,0 + 2 \leftrightarrow -
+1159,9 \times 3 = \times
+1160,z 1 y \leftrightarrow \rightarrow
+1161,4 6 . 3 x
+1162,x 6 1 \updownarrow 2
+1163,7 2 1 2 5
+1164,\rightarrow 9 z 1 -
+1165,1 y y 8 \uparrow
+1166,\times \downarrow 6 \updownarrow y
+1167,\times x 9 \times 5
+1168,\rightarrow 3 2 \leftarrow y
+1169,\rightarrow z 6 + .
+1170,x 1 - \uparrow =
+1171,\leftrightarrow y \rightarrow \updownarrow x
+1172,4 3 2 0 +
+1173,\uparrow \leftarrow 6 1 8
+1174,\times \rightarrow x \times -
+1175,\downarrow = 4 = 8
+1176,\div 4 7 + \leftarrow
+1177,2 5 9 3 5
+1178,\leftrightarrow 1 \updownarrow 1 -
+1179,6 1 7 \leftarrow \leftarrow
+1180,5 0 6 \times 5
+1181,0 . \uparrow \updownarrow y
+1182,\updownarrow \updownarrow \downarrow \rightarrow 8
+1183,\updownarrow . 3 6 \uparrow
+1184,\leftarrow . 9 \div \uparrow
+1185,\times z 0 + y
+1186,- + y 6 \leftarrow
+1187,2 0 + x 1
+1188,- \times . . .
+1189,4 \leftrightarrow \rightarrow z x
+1190,6 9 \leftarrow \div y
+1191,\times 5 x y 7
+1192,z . y 3 4
+1193,0 \uparrow 7 \updownarrow +
+1194,\rightarrow 9 z 8 =
+1195,\rightarrow \times \times 5 3
+1196,9 \rightarrow 7 + 3
+1197,- 3 \leftrightarrow . \leftrightarrow
+1198,6 \leftrightarrow 5 \updownarrow 6
+1199,8 y \times \downarrow 2
+1200,2 1 - + \leftarrow
+1201,y 1 \times = 3
+1202,z 6 + . y
+1203,0 \uparrow 0 1 \updownarrow
+1204,7 2 \leftarrow 6 \downarrow
+1205,\uparrow y \div - 6
+1206,2 z \downarrow \times \leftarrow
+1207,. = 0 y z
+1208,\leftrightarrow \uparrow \leftrightarrow \rightarrow \times
+1209,7 7 \times 0 5
+1210,\downarrow 4 \leftarrow 6 \leftrightarrow
+1211,\leftrightarrow \leftrightarrow . 8 \rightarrow
+1212,0 \uparrow \leftrightarrow 0 \rightarrow
+1213,\uparrow \updownarrow \leftarrow 5 \leftarrow
+1214,+ \uparrow \leftarrow 5 \uparrow
+1215,z \leftrightarrow \leftrightarrow . 9
+1216,\leftarrow \uparrow . \div +
+1217,\div \uparrow = 4 -
+1218,1 4 - 8 -
+1219,\times = \times - 5
+1220,8 \div \leftrightarrow 8 x
+1221,+ 4 z \div \rightarrow
+1222,1 2 4 \times .
+1223,z x \leftrightarrow \div \leftarrow
+1224,6 \div 4 \downarrow 2
