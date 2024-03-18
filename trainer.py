@@ -16,7 +16,7 @@ import keras
 import matplotlib.pyplot as plt
 from keras.layers import Dense, Dropout, Flatten, ZeroPadding2D, Conv2D, MaxPooling2D, Activation, GlobalAveragePooling2D
 from keras.preprocessing import image
-from keras.applications.mobilenet_v2 import preprocess_input, MobileNetV2
+from keras.applications.mobilenet_v2 import preprocess_input, #MobileNetV2
 from keras.models import Model, Sequential
 from keras.optimizers import Adam
 from sklearn.model_selection import train_test_split
@@ -26,7 +26,7 @@ from keras.applications.inception_v3 import InceptionV3
 from keras.applications.inception_resnet_v2 import InceptionResNetV2
 from keras.applications.xception import Xception
 from keras.applications.densenet import DenseNet201
-#from keras.applications.efficientnet import EfficientNetB6
+from keras.applications.efficientnet import EfficientNetB6
 from keras.preprocessing.image import ImageDataGenerator
 from keras.utils import plot_model
 import splitfolders
@@ -56,7 +56,7 @@ val_generator=val_datagen.flow_from_directory(r'./dataset_with_classes_arrows_an
                                                  shuffle=True)
 
 #define Model
-base_model = MobileNetV2(weights='imagenet', include_top=False,  input_shape=(224, 224, 3), pooling='avg')
+base_model = EfficientNetB6(weights='imagenet', include_top=False,  input_shape=(224, 224, 3), pooling='avg')
 x = Dense(NUM_CLASSES, activation='softmax')(base_model.output)
 
 #model = keras.models.Sequential([
