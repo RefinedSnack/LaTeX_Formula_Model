@@ -56,8 +56,8 @@ def testall():
         
         print(i,x,lookup(x))
 
-# testall()
-convert_to_LaTeX(r'C:\Users\walte\Documents\cs470\Final_Project\archive\dataset_2 latex equations (simple_handwriting classes)\png_dataset\1169.png')
-convert_to_LaTeX(r'C:\Users\walte\Documents\cs470\Final_Project\archive\dataset_2 latex equations (simple_handwriting classes)\png_dataset\1170.png')
-convert_to_LaTeX(r'C:\Users\walte\Documents\cs470\Final_Project\archive\dataset_2 latex equations (simple_handwriting classes)\png_dataset\1171.png')
-convert_to_LaTeX(r'C:\Users\walte\Documents\cs470\Final_Project\archive\dataset_2 latex equations (simple_handwriting classes)\png_dataset\1172.png')
+# # testall()
+# convert_to_LaTeX(r'C:\Users\walte\Documents\cs470\Final_Project\archive\dataset_2 latex equations (simple_handwriting classes)\png_dataset\1169.png')
+# convert_to_LaTeX(r'C:\Users\walte\Documents\cs470\Final_Project\archive\dataset_2 latex equations (simple_handwriting classes)\png_dataset\1170.png')
+# convert_to_LaTeX(r'C:\Users\walte\Documents\cs470\Final_Project\archive\dataset_2 latex equations (simple_handwriting classes)\png_dataset\1171.png')
+# convert_to_LaTeX(r'C:\Users\walte\Documents\cs470\Final_Project\archive\dataset_2 latex equations (simple_handwriting classes)\png_dataset\1172.png')

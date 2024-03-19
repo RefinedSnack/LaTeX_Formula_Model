@@ -1,7 +1,5 @@
-import imp
 import cv2 
 import numpy as np
-import concurrent
 import os
 import shutil
 from concurrent.futures import ThreadPoolExecutor
@@ -74,15 +72,17 @@ def segment_img(input_path: str, output_dir: str, delete_if_exists=True, boarder
         # Get bounding box of the contour
         x, y, w, h = cv2.boundingRect(contour)
         to_merge: list = [contour]
-        for j in range(i, len(contours)):
+        for j in range(i+1, len(contours)):
             if j >= len(contours):
                 break
             x2, _, _, _ = cv2.boundingRect(contours[j])
             if is_between(x, w, x2):
                 to_merge.append(contours[j])
+                to_skip = len(to_merge) - 1
             else:
                 break
         if len(to_merge) > 1:
+            if SHOW_IMGS: print(str(len(to_merge)) + ": len of merged block")
             x, y, w, h = merge_contours(to_merge)
         # Crop the symbol region
         symbol = image[y-boarder_size:y+h+boarder_size, x-boarder_size:x+w+boarder_size]
@@ -158,3 +158,4 @@ def process_all_imgs(folder_path, output_dir, delete_if_exists=True):
 # height = 500  # Replace with the desired height in pixels
 
 # convert_pdfs_in_folder(input_folder, output_folder, width, height)
+# segment_img(r"png_dataset/0061.png", TEMP_DIR, True)

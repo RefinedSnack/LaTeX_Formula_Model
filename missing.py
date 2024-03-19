@@ -16,10 +16,10 @@ if missing_files_1:
         print(file)
 else:
     print("All files are present.")
-# missing_files_2 = find_missing_files(folder_path_2, "png")
-# if missing_files_2:
-#     print("Missing files:")
-#     for file in sorted(missing_files_2):
-#         print(file)
-# else:
-#     print("All files are present.")
+missing_files_2 = find_missing_files(folder_path_2, "png")
+if missing_files_2:
+    print("Missing files:")
+    for file in sorted(missing_files_2):
+        print(file)
+else:
+    print("All files are present.")
