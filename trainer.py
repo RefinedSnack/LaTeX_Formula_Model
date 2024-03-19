@@ -16,7 +16,7 @@ import keras
 import matplotlib.pyplot as plt
 from keras.layers import Dense, Dropout, Flatten, ZeroPadding2D, Conv2D, MaxPooling2D, Activation, GlobalAveragePooling2D
 from keras.preprocessing import image
-from keras.applications.mobilenet_v2 import preprocess_input, #MobileNetV2
+from keras.applications.mobilenet_v2 import preprocess_input #MobileNetV2
 from keras.models import Model, Sequential
 from keras.optimizers import Adam
 from sklearn.model_selection import train_test_split
@@ -32,10 +32,10 @@ from keras.utils import plot_model
 import splitfolders
 
 #Split folders into train, validation, and test sets
-splitfolders.ratio("./dataset_with_classes_arrows_and_equal/dataset_with_classes", output="./dataset_with_classes_arrows_and_equal/",seed=1337, ratio=(0.6, 0.2,0.2), group_prefix=None)
+splitfolders.ratio(r'.\dataset_4 BIGGER latex equations (arrows)\dataset_4 BIGGER latex equations (arrows)\dataset_with_classes', output=r'./dataset_4 Bigger latex equation (arrows)/',seed=1337, ratio=(0.6, 0.2,0.2), group_prefix=None)
 #define number of classes
-NUM_CLASSES = len(os.listdir(r'./dataset_with_classes_arrows_and_equal/test'))
-
+NUM_CLASSES = len(os.listdir(r'./dataset_4 Bigger latex equation (arrows)/test'))
+class_Labels = ['0','1','2','3','4','5','6','7','8','9','division','dot','downarrow','leftarrow','leftrightarrow','multiplication','plus','rightarrow','subtraction', 'uparrow','updownarrow','x','y','z']
 #data generators
 train_datagen=ImageDataGenerator(preprocessing_function=preprocess_input) #included in our dependencies
 
@@ -44,7 +44,8 @@ train_generator=train_datagen.flow_from_directory(r'./dataset_with_classes_arrow
                                                  color_mode='rgb',
                                                  batch_size=24,
                                                  class_mode='categorical',
-                                                 shuffle=True)
+                                                 shuffle=True,
+                                                 classes=class_Labels)
 
 val_datagen=ImageDataGenerator(preprocessing_function=preprocess_input) #included in our dependencies
 
@@ -53,7 +54,8 @@ val_generator=val_datagen.flow_from_directory(r'./dataset_with_classes_arrows_an
                                                  color_mode='rgb',
                                                  batch_size=24,
                                                  class_mode='categorical',
-                                                 shuffle=True)
+                                                 shuffle=True,
+                                                 classes=class_Labels)
 
 #define Model
 base_model = EfficientNetB6(weights='imagenet', include_top=False,  input_shape=(224, 224, 3), pooling='avg')
@@ -75,5 +77,5 @@ model.compile(optimizer=Adam(lr=0.00001),loss='categorical_crossentropy', metric
 
 step_size_train=train_generator.n//train_generator.batch_size
 step_size_val=val_generator.n//val_generator.batch_size
-history = model.fit_generator(generator=train_generator, steps_per_epoch=step_size_train, validation_data=val_generator, validation_steps=step_size_val, epochs=20, callbacks=callback)
+history = model.fit_generator(generator=train_generator, steps_per_epoch=step_size_train, validation_data=val_generator, validation_steps=step_size_val, epochs=1, callbacks=callback)
 model.save('./trained_model')
