@@ -45,11 +45,7 @@ class_Labels = ['0','1','2','3','4','5','6','7','8','9','division','dot','downar
 #data generators
 train_datagen=ImageDataGenerator(preprocessing_function=preprocess_input) #included in our dependencies
 
-<<<<<<< HEAD
-train_generator=train_datagen.flow_from_directory(r'./dataset_4 Bigger latex equation (arrows)/train',
-=======
 train_generator=train_datagen.flow_from_directory(split_folder + r'/test',
->>>>>>> f0f780fb1edc96264da5d14666df045a70c98f8e
                                                  target_size=(224,224),
                                                  color_mode='rgb',
                                                  batch_size=24,
@@ -99,12 +95,6 @@ model.compile(optimizer=Adam(lr=0.00001),loss='categorical_crossentropy', metric
 
 step_size_train=train_generator.n//train_generator.batch_size
 step_size_val=val_generator.n//val_generator.batch_size
-<<<<<<< HEAD
-history = model.fit_generator(generator=train_generator, steps_per_epoch=step_size_train, validation_data=val_generator, validation_steps=step_size_val, epochs=10, callbacks=callback)
-
-model.save('./trained_model')
-=======
 history = model.fit_generator(generator=train_generator, steps_per_epoch=step_size_train, validation_data=val_generator, validation_steps=step_size_val, epochs=1, callbacks=callback)
 model.export(exported_model_folder)
 model.save(saved_model_folder)
->>>>>>> f0f780fb1edc96264da5d14666df045a70c98f8e

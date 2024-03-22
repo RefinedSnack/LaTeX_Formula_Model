@@ -1,0 +1,2865 @@
+
+walte@Lenny-Legion MINGW64 /
+$ cd documents
+bash: cd: documents: No such file or directory
+
+walte@Lenny-Legion MINGW64 /
+$ documents
+
+walte@Lenny-Legion MINGW64 ~/Documents
+$ cd cs470/
+
+walte@Lenny-Legion MINGW64 ~/Documents/cs470
+$ cd Final_Project/
+
+walte@Lenny-Legion MINGW64 ~/Documents/cs470/Final_Project (main)
+$ python trainer.py
+2024-03-20 15:07:09.640883: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computatio
+n orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING:tensorflow:From C:\Users\walte\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.
+losses.sparse_softmax_cross_entropy instead.
+
+Found 1420 images belonging to 24 classes.
+Found 1400 images belonging to 24 classes.
+WARNING:tensorflow:From C:\Users\walte\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\backend.py:1398: The name tf.executing_eagerly_outside_functions is deprecated. Please use tf.compat.v1
+.executing_eagerly_outside_functions instead.
+
+2024-03-20 15:07:19.960614: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE SSE2 SSE3 SSE4.1 SSE4.2 AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:From C:\Users\walte\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\layers\normalization\batch_normalization.py:979: The name tf.nn.fused_batch_norm is deprecated. Please
+use tf.compat.v1.nn.fused_batch_norm instead.
+
+Model: "model"
+__________________________________________________________________________________________________
+ Layer (type)                Output Shape                 Param #   Connected to
+==================================================================================================
+ input_1 (InputLayer)        [(None, 224, 224, 3)]        0         []
+
+ rescaling (Rescaling)       (None, 224, 224, 3)          0         ['input_1[0][0]']
+
+ normalization (Normalizati  (None, 224, 224, 3)          7         ['rescaling[0][0]']
+ on)
+
+ rescaling_1 (Rescaling)     (None, 224, 224, 3)          0         ['normalization[0][0]']
+
+ stem_conv_pad (ZeroPadding  (None, 225, 225, 3)          0         ['rescaling_1[0][0]']
+ 2D)
+
+ stem_conv (Conv2D)          (None, 112, 112, 56)         1512      ['stem_conv_pad[0][0]']
+
+ stem_bn (BatchNormalizatio  (None, 112, 112, 56)         224       ['stem_conv[0][0]']
+ n)
+
+ stem_activation (Activatio  (None, 112, 112, 56)         0         ['stem_bn[0][0]']
+ n)
+
+ block1a_dwconv (DepthwiseC  (None, 112, 112, 56)         504       ['stem_activation[0][0]']
+ onv2D)
+
+ block1a_bn (BatchNormaliza  (None, 112, 112, 56)         224       ['block1a_dwconv[0][0]']
+ tion)
+
+ block1a_activation (Activa  (None, 112, 112, 56)         0         ['block1a_bn[0][0]']
+ tion)
+
+ block1a_se_squeeze (Global  (None, 56)                   0         ['block1a_activation[0][0]']
+ AveragePooling2D)
+
+ block1a_se_reshape (Reshap  (None, 1, 1, 56)             0         ['block1a_se_squeeze[0][0]']
+ e)
+
+ block1a_se_reduce (Conv2D)  (None, 1, 1, 14)             798       ['block1a_se_reshape[0][0]']
+
+ block1a_se_expand (Conv2D)  (None, 1, 1, 56)             840       ['block1a_se_reduce[0][0]']
+
+ block1a_se_excite (Multipl  (None, 112, 112, 56)         0         ['block1a_activation[0][0]',
+ y)                                                                  'block1a_se_expand[0][0]']
+
+ block1a_project_conv (Conv  (None, 112, 112, 32)         1792      ['block1a_se_excite[0][0]']
+ 2D)
+
+ block1a_project_bn (BatchN  (None, 112, 112, 32)         128       ['block1a_project_conv[0][0]']
+ ormalization)
+
+ block1b_dwconv (DepthwiseC  (None, 112, 112, 32)         288       ['block1a_project_bn[0][0]']
+ onv2D)
+
+ block1b_bn (BatchNormaliza  (None, 112, 112, 32)         128       ['block1b_dwconv[0][0]']
+ tion)
+
+ block1b_activation (Activa  (None, 112, 112, 32)         0         ['block1b_bn[0][0]']
+ tion)
+
+ block1b_se_squeeze (Global  (None, 32)                   0         ['block1b_activation[0][0]']
+ AveragePooling2D)
+
+ block1b_se_reshape (Reshap  (None, 1, 1, 32)             0         ['block1b_se_squeeze[0][0]']
+ e)
+
+ block1b_se_reduce (Conv2D)  (None, 1, 1, 8)              264       ['block1b_se_reshape[0][0]']
+
+ block1b_se_expand (Conv2D)  (None, 1, 1, 32)             288       ['block1b_se_reduce[0][0]']
+
+ block1b_se_excite (Multipl  (None, 112, 112, 32)         0         ['block1b_activation[0][0]',
+ y)                                                                  'block1b_se_expand[0][0]']
+
+ block1b_project_conv (Conv  (None, 112, 112, 32)         1024      ['block1b_se_excite[0][0]']
+ 2D)
+
+ block1b_project_bn (BatchN  (None, 112, 112, 32)         128       ['block1b_project_conv[0][0]']
+ ormalization)
+
+ block1b_drop (Dropout)      (None, 112, 112, 32)         0         ['block1b_project_bn[0][0]']
+
+ block1b_add (Add)           (None, 112, 112, 32)         0         ['block1b_drop[0][0]',
+                                                                     'block1a_project_bn[0][0]']
+
+ block1c_dwconv (DepthwiseC  (None, 112, 112, 32)         288       ['block1b_add[0][0]']
+ onv2D)
+
+ block1c_bn (BatchNormaliza  (None, 112, 112, 32)         128       ['block1c_dwconv[0][0]']
+ tion)
+
+ block1c_activation (Activa  (None, 112, 112, 32)         0         ['block1c_bn[0][0]']
+ tion)
+
+ block1c_se_squeeze (Global  (None, 32)                   0         ['block1c_activation[0][0]']
+ AveragePooling2D)
+
+ block1c_se_reshape (Reshap  (None, 1, 1, 32)             0         ['block1c_se_squeeze[0][0]']
+ e)
+
+ block1c_se_reduce (Conv2D)  (None, 1, 1, 8)              264       ['block1c_se_reshape[0][0]']
+
+ block1c_se_expand (Conv2D)  (None, 1, 1, 32)             288       ['block1c_se_reduce[0][0]']
+
+ block1c_se_excite (Multipl  (None, 112, 112, 32)         0         ['block1c_activation[0][0]',
+ y)                                                                  'block1c_se_expand[0][0]']
+
+ block1c_project_conv (Conv  (None, 112, 112, 32)         1024      ['block1c_se_excite[0][0]']
+ 2D)
+
+ block1c_project_bn (BatchN  (None, 112, 112, 32)         128       ['block1c_project_conv[0][0]']
+ ormalization)
+
+ block1c_drop (Dropout)      (None, 112, 112, 32)         0         ['block1c_project_bn[0][0]']
+
+ block1c_add (Add)           (None, 112, 112, 32)         0         ['block1c_drop[0][0]',
+                                                                     'block1b_add[0][0]']
+
+ block2a_expand_conv (Conv2  (None, 112, 112, 192)        6144      ['block1c_add[0][0]']
+ D)
+
+ block2a_expand_bn (BatchNo  (None, 112, 112, 192)        768       ['block2a_expand_conv[0][0]']
+ rmalization)
+
+ block2a_expand_activation   (None, 112, 112, 192)        0         ['block2a_expand_bn[0][0]']
+ (Activation)
+
+ block2a_dwconv_pad (ZeroPa  (None, 113, 113, 192)        0         ['block2a_expand_activation[0]
+ dding2D)                                                           [0]']
+
+ block2a_dwconv (DepthwiseC  (None, 56, 56, 192)          1728      ['block2a_dwconv_pad[0][0]']
+ onv2D)
+
+ block2a_bn (BatchNormaliza  (None, 56, 56, 192)          768       ['block2a_dwconv[0][0]']
+ tion)
+
+ block2a_activation (Activa  (None, 56, 56, 192)          0         ['block2a_bn[0][0]']
+ tion)
+
+ block2a_se_squeeze (Global  (None, 192)                  0         ['block2a_activation[0][0]']
+ AveragePooling2D)
+
+ block2a_se_reshape (Reshap  (None, 1, 1, 192)            0         ['block2a_se_squeeze[0][0]']
+ e)
+
+ block2a_se_reduce (Conv2D)  (None, 1, 1, 8)              1544      ['block2a_se_reshape[0][0]']
+
+ block2a_se_expand (Conv2D)  (None, 1, 1, 192)            1728      ['block2a_se_reduce[0][0]']
+
+ block2a_se_excite (Multipl  (None, 56, 56, 192)          0         ['block2a_activation[0][0]',
+ y)                                                                  'block2a_se_expand[0][0]']
+
+ block2a_project_conv (Conv  (None, 56, 56, 40)           7680      ['block2a_se_excite[0][0]']
+ 2D)
+
+ block2a_project_bn (BatchN  (None, 56, 56, 40)           160       ['block2a_project_conv[0][0]']
+ ormalization)
+
+ block2b_expand_conv (Conv2  (None, 56, 56, 240)          9600      ['block2a_project_bn[0][0]']
+ D)
+
+ block2b_expand_bn (BatchNo  (None, 56, 56, 240)          960       ['block2b_expand_conv[0][0]']
+ rmalization)
+
+ block2b_expand_activation   (None, 56, 56, 240)          0         ['block2b_expand_bn[0][0]']
+ (Activation)
+
+ block2b_dwconv (DepthwiseC  (None, 56, 56, 240)          2160      ['block2b_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block2b_bn (BatchNormaliza  (None, 56, 56, 240)          960       ['block2b_dwconv[0][0]']
+ tion)
+
+ block2b_activation (Activa  (None, 56, 56, 240)          0         ['block2b_bn[0][0]']
+ tion)
+
+ block2b_se_squeeze (Global  (None, 240)                  0         ['block2b_activation[0][0]']
+ AveragePooling2D)
+
+ block2b_se_reshape (Reshap  (None, 1, 1, 240)            0         ['block2b_se_squeeze[0][0]']
+ e)
+
+ block2b_se_reduce (Conv2D)  (None, 1, 1, 10)             2410      ['block2b_se_reshape[0][0]']
+
+ block2b_se_expand (Conv2D)  (None, 1, 1, 240)            2640      ['block2b_se_reduce[0][0]']
+
+ block2b_se_excite (Multipl  (None, 56, 56, 240)          0         ['block2b_activation[0][0]',
+ y)                                                                  'block2b_se_expand[0][0]']
+
+ block2b_project_conv (Conv  (None, 56, 56, 40)           9600      ['block2b_se_excite[0][0]']
+ 2D)
+
+ block2b_project_bn (BatchN  (None, 56, 56, 40)           160       ['block2b_project_conv[0][0]']
+ ormalization)
+
+ block2b_drop (Dropout)      (None, 56, 56, 40)           0         ['block2b_project_bn[0][0]']
+
+ block2b_add (Add)           (None, 56, 56, 40)           0         ['block2b_drop[0][0]',
+                                                                     'block2a_project_bn[0][0]']
+
+ block2c_expand_conv (Conv2  (None, 56, 56, 240)          9600      ['block2b_add[0][0]']
+ D)
+
+ block2c_expand_bn (BatchNo  (None, 56, 56, 240)          960       ['block2c_expand_conv[0][0]']
+ rmalization)
+
+ block2c_expand_activation   (None, 56, 56, 240)          0         ['block2c_expand_bn[0][0]']
+ (Activation)
+
+ block2c_dwconv (DepthwiseC  (None, 56, 56, 240)          2160      ['block2c_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block2c_bn (BatchNormaliza  (None, 56, 56, 240)          960       ['block2c_dwconv[0][0]']
+ tion)
+
+ block2c_activation (Activa  (None, 56, 56, 240)          0         ['block2c_bn[0][0]']
+ tion)
+
+ block2c_se_squeeze (Global  (None, 240)                  0         ['block2c_activation[0][0]']
+ AveragePooling2D)
+
+ block2c_se_reshape (Reshap  (None, 1, 1, 240)            0         ['block2c_se_squeeze[0][0]']
+ e)
+
+ block2c_se_reduce (Conv2D)  (None, 1, 1, 10)             2410      ['block2c_se_reshape[0][0]']
+
+ block2c_se_expand (Conv2D)  (None, 1, 1, 240)            2640      ['block2c_se_reduce[0][0]']
+
+ block2c_se_excite (Multipl  (None, 56, 56, 240)          0         ['block2c_activation[0][0]',
+ y)                                                                  'block2c_se_expand[0][0]']
+
+ block2c_project_conv (Conv  (None, 56, 56, 40)           9600      ['block2c_se_excite[0][0]']
+ 2D)
+
+ block2c_project_bn (BatchN  (None, 56, 56, 40)           160       ['block2c_project_conv[0][0]']
+ ormalization)
+
+ block2c_drop (Dropout)      (None, 56, 56, 40)           0         ['block2c_project_bn[0][0]']
+
+ block2c_add (Add)           (None, 56, 56, 40)           0         ['block2c_drop[0][0]',
+                                                                     'block2b_add[0][0]']
+
+ block2d_expand_conv (Conv2  (None, 56, 56, 240)          9600      ['block2c_add[0][0]']
+ D)
+
+ block2d_expand_bn (BatchNo  (None, 56, 56, 240)          960       ['block2d_expand_conv[0][0]']
+ rmalization)
+
+ block2d_expand_activation   (None, 56, 56, 240)          0         ['block2d_expand_bn[0][0]']
+ (Activation)
+
+ block2d_dwconv (DepthwiseC  (None, 56, 56, 240)          2160      ['block2d_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block2d_bn (BatchNormaliza  (None, 56, 56, 240)          960       ['block2d_dwconv[0][0]']
+ tion)
+
+ block2d_activation (Activa  (None, 56, 56, 240)          0         ['block2d_bn[0][0]']
+ tion)
+
+ block2d_se_squeeze (Global  (None, 240)                  0         ['block2d_activation[0][0]']
+ AveragePooling2D)
+
+ block2d_se_reshape (Reshap  (None, 1, 1, 240)            0         ['block2d_se_squeeze[0][0]']
+ e)
+
+ block2d_se_reduce (Conv2D)  (None, 1, 1, 10)             2410      ['block2d_se_reshape[0][0]']
+
+ block2d_se_expand (Conv2D)  (None, 1, 1, 240)            2640      ['block2d_se_reduce[0][0]']
+
+ block2d_se_excite (Multipl  (None, 56, 56, 240)          0         ['block2d_activation[0][0]',
+ y)                                                                  'block2d_se_expand[0][0]']
+
+ block2d_project_conv (Conv  (None, 56, 56, 40)           9600      ['block2d_se_excite[0][0]']
+ 2D)
+
+ block2d_project_bn (BatchN  (None, 56, 56, 40)           160       ['block2d_project_conv[0][0]']
+ ormalization)
+
+ block2d_drop (Dropout)      (None, 56, 56, 40)           0         ['block2d_project_bn[0][0]']
+
+ block2d_add (Add)           (None, 56, 56, 40)           0         ['block2d_drop[0][0]',
+                                                                     'block2c_add[0][0]']
+
+ block2e_expand_conv (Conv2  (None, 56, 56, 240)          9600      ['block2d_add[0][0]']
+ D)
+
+ block2e_expand_bn (BatchNo  (None, 56, 56, 240)          960       ['block2e_expand_conv[0][0]']
+ rmalization)
+
+ block2e_expand_activation   (None, 56, 56, 240)          0         ['block2e_expand_bn[0][0]']
+ (Activation)
+
+ block2e_dwconv (DepthwiseC  (None, 56, 56, 240)          2160      ['block2e_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block2e_bn (BatchNormaliza  (None, 56, 56, 240)          960       ['block2e_dwconv[0][0]']
+ tion)
+
+ block2e_activation (Activa  (None, 56, 56, 240)          0         ['block2e_bn[0][0]']
+ tion)
+
+ block2e_se_squeeze (Global  (None, 240)                  0         ['block2e_activation[0][0]']
+ AveragePooling2D)
+
+ block2e_se_reshape (Reshap  (None, 1, 1, 240)            0         ['block2e_se_squeeze[0][0]']
+ e)
+
+ block2e_se_reduce (Conv2D)  (None, 1, 1, 10)             2410      ['block2e_se_reshape[0][0]']
+
+ block2e_se_expand (Conv2D)  (None, 1, 1, 240)            2640      ['block2e_se_reduce[0][0]']
+
+ block2e_se_excite (Multipl  (None, 56, 56, 240)          0         ['block2e_activation[0][0]',
+ y)                                                                  'block2e_se_expand[0][0]']
+
+ block2e_project_conv (Conv  (None, 56, 56, 40)           9600      ['block2e_se_excite[0][0]']
+ 2D)
+
+ block2e_project_bn (BatchN  (None, 56, 56, 40)           160       ['block2e_project_conv[0][0]']
+ ormalization)
+
+ block2e_drop (Dropout)      (None, 56, 56, 40)           0         ['block2e_project_bn[0][0]']
+
+ block2e_add (Add)           (None, 56, 56, 40)           0         ['block2e_drop[0][0]',
+                                                                     'block2d_add[0][0]']
+
+ block2f_expand_conv (Conv2  (None, 56, 56, 240)          9600      ['block2e_add[0][0]']
+ D)
+
+ block2f_expand_bn (BatchNo  (None, 56, 56, 240)          960       ['block2f_expand_conv[0][0]']
+ rmalization)
+
+ block2f_expand_activation   (None, 56, 56, 240)          0         ['block2f_expand_bn[0][0]']
+ (Activation)
+
+ block2f_dwconv (DepthwiseC  (None, 56, 56, 240)          2160      ['block2f_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block2f_bn (BatchNormaliza  (None, 56, 56, 240)          960       ['block2f_dwconv[0][0]']
+ tion)
+
+ block2f_activation (Activa  (None, 56, 56, 240)          0         ['block2f_bn[0][0]']
+ tion)
+
+ block2f_se_squeeze (Global  (None, 240)                  0         ['block2f_activation[0][0]']
+ AveragePooling2D)
+
+ block2f_se_reshape (Reshap  (None, 1, 1, 240)            0         ['block2f_se_squeeze[0][0]']
+ e)
+
+ block2f_se_reduce (Conv2D)  (None, 1, 1, 10)             2410      ['block2f_se_reshape[0][0]']
+
+ block2f_se_expand (Conv2D)  (None, 1, 1, 240)            2640      ['block2f_se_reduce[0][0]']
+
+ block2f_se_excite (Multipl  (None, 56, 56, 240)          0         ['block2f_activation[0][0]',
+ y)                                                                  'block2f_se_expand[0][0]']
+
+ block2f_project_conv (Conv  (None, 56, 56, 40)           9600      ['block2f_se_excite[0][0]']
+ 2D)
+
+ block2f_project_bn (BatchN  (None, 56, 56, 40)           160       ['block2f_project_conv[0][0]']
+ ormalization)
+
+ block2f_drop (Dropout)      (None, 56, 56, 40)           0         ['block2f_project_bn[0][0]']
+
+ block2f_add (Add)           (None, 56, 56, 40)           0         ['block2f_drop[0][0]',
+                                                                     'block2e_add[0][0]']
+
+ block3a_expand_conv (Conv2  (None, 56, 56, 240)          9600      ['block2f_add[0][0]']
+ D)
+
+ block3a_expand_bn (BatchNo  (None, 56, 56, 240)          960       ['block3a_expand_conv[0][0]']
+ rmalization)
+
+ block3a_expand_activation   (None, 56, 56, 240)          0         ['block3a_expand_bn[0][0]']
+ (Activation)
+
+ block3a_dwconv_pad (ZeroPa  (None, 59, 59, 240)          0         ['block3a_expand_activation[0]
+ dding2D)                                                           [0]']
+
+ block3a_dwconv (DepthwiseC  (None, 28, 28, 240)          6000      ['block3a_dwconv_pad[0][0]']
+ onv2D)
+
+ block3a_bn (BatchNormaliza  (None, 28, 28, 240)          960       ['block3a_dwconv[0][0]']
+ tion)
+
+ block3a_activation (Activa  (None, 28, 28, 240)          0         ['block3a_bn[0][0]']
+ tion)
+
+ block3a_se_squeeze (Global  (None, 240)                  0         ['block3a_activation[0][0]']
+ AveragePooling2D)
+
+ block3a_se_reshape (Reshap  (None, 1, 1, 240)            0         ['block3a_se_squeeze[0][0]']
+ e)
+
+ block3a_se_reduce (Conv2D)  (None, 1, 1, 10)             2410      ['block3a_se_reshape[0][0]']
+
+ block3a_se_expand (Conv2D)  (None, 1, 1, 240)            2640      ['block3a_se_reduce[0][0]']
+
+ block3a_se_excite (Multipl  (None, 28, 28, 240)          0         ['block3a_activation[0][0]',
+ y)                                                                  'block3a_se_expand[0][0]']
+
+ block3a_project_conv (Conv  (None, 28, 28, 72)           17280     ['block3a_se_excite[0][0]']
+ 2D)
+
+ block3a_project_bn (BatchN  (None, 28, 28, 72)           288       ['block3a_project_conv[0][0]']
+ ormalization)
+
+ block3b_expand_conv (Conv2  (None, 28, 28, 432)          31104     ['block3a_project_bn[0][0]']
+ D)
+
+ block3b_expand_bn (BatchNo  (None, 28, 28, 432)          1728      ['block3b_expand_conv[0][0]']
+ rmalization)
+
+ block3b_expand_activation   (None, 28, 28, 432)          0         ['block3b_expand_bn[0][0]']
+ (Activation)
+
+ block3b_dwconv (DepthwiseC  (None, 28, 28, 432)          10800     ['block3b_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block3b_bn (BatchNormaliza  (None, 28, 28, 432)          1728      ['block3b_dwconv[0][0]']
+ tion)
+
+ block3b_activation (Activa  (None, 28, 28, 432)          0         ['block3b_bn[0][0]']
+ tion)
+
+ block3b_se_squeeze (Global  (None, 432)                  0         ['block3b_activation[0][0]']
+ AveragePooling2D)
+
+ block3b_se_reshape (Reshap  (None, 1, 1, 432)            0         ['block3b_se_squeeze[0][0]']
+ e)
+
+ block3b_se_reduce (Conv2D)  (None, 1, 1, 18)             7794      ['block3b_se_reshape[0][0]']
+
+ block3b_se_expand (Conv2D)  (None, 1, 1, 432)            8208      ['block3b_se_reduce[0][0]']
+
+ block3b_se_excite (Multipl  (None, 28, 28, 432)          0         ['block3b_activation[0][0]',
+ y)                                                                  'block3b_se_expand[0][0]']
+
+ block3b_project_conv (Conv  (None, 28, 28, 72)           31104     ['block3b_se_excite[0][0]']
+ 2D)
+
+ block3b_project_bn (BatchN  (None, 28, 28, 72)           288       ['block3b_project_conv[0][0]']
+ ormalization)
+
+ block3b_drop (Dropout)      (None, 28, 28, 72)           0         ['block3b_project_bn[0][0]']
+
+ block3b_add (Add)           (None, 28, 28, 72)           0         ['block3b_drop[0][0]',
+                                                                     'block3a_project_bn[0][0]']
+
+ block3c_expand_conv (Conv2  (None, 28, 28, 432)          31104     ['block3b_add[0][0]']
+ D)
+
+ block3c_expand_bn (BatchNo  (None, 28, 28, 432)          1728      ['block3c_expand_conv[0][0]']
+ rmalization)
+
+ block3c_expand_activation   (None, 28, 28, 432)          0         ['block3c_expand_bn[0][0]']
+ (Activation)
+
+ block3c_dwconv (DepthwiseC  (None, 28, 28, 432)          10800     ['block3c_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block3c_bn (BatchNormaliza  (None, 28, 28, 432)          1728      ['block3c_dwconv[0][0]']
+ tion)
+
+ block3c_activation (Activa  (None, 28, 28, 432)          0         ['block3c_bn[0][0]']
+ tion)
+
+ block3c_se_squeeze (Global  (None, 432)                  0         ['block3c_activation[0][0]']
+ AveragePooling2D)
+
+ block3c_se_reshape (Reshap  (None, 1, 1, 432)            0         ['block3c_se_squeeze[0][0]']
+ e)
+
+ block3c_se_reduce (Conv2D)  (None, 1, 1, 18)             7794      ['block3c_se_reshape[0][0]']
+
+ block3c_se_expand (Conv2D)  (None, 1, 1, 432)            8208      ['block3c_se_reduce[0][0]']
+
+ block3c_se_excite (Multipl  (None, 28, 28, 432)          0         ['block3c_activation[0][0]',
+ y)                                                                  'block3c_se_expand[0][0]']
+
+ block3c_project_conv (Conv  (None, 28, 28, 72)           31104     ['block3c_se_excite[0][0]']
+ 2D)
+
+ block3c_project_bn (BatchN  (None, 28, 28, 72)           288       ['block3c_project_conv[0][0]']
+ ormalization)
+
+ block3c_drop (Dropout)      (None, 28, 28, 72)           0         ['block3c_project_bn[0][0]']
+
+ block3c_add (Add)           (None, 28, 28, 72)           0         ['block3c_drop[0][0]',
+                                                                     'block3b_add[0][0]']
+
+ block3d_expand_conv (Conv2  (None, 28, 28, 432)          31104     ['block3c_add[0][0]']
+ D)
+
+ block3d_expand_bn (BatchNo  (None, 28, 28, 432)          1728      ['block3d_expand_conv[0][0]']
+ rmalization)
+
+ block3d_expand_activation   (None, 28, 28, 432)          0         ['block3d_expand_bn[0][0]']
+ (Activation)
+
+ block3d_dwconv (DepthwiseC  (None, 28, 28, 432)          10800     ['block3d_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block3d_bn (BatchNormaliza  (None, 28, 28, 432)          1728      ['block3d_dwconv[0][0]']
+ tion)
+
+ block3d_activation (Activa  (None, 28, 28, 432)          0         ['block3d_bn[0][0]']
+ tion)
+
+ block3d_se_squeeze (Global  (None, 432)                  0         ['block3d_activation[0][0]']
+ AveragePooling2D)
+
+ block3d_se_reshape (Reshap  (None, 1, 1, 432)            0         ['block3d_se_squeeze[0][0]']
+ e)
+
+ block3d_se_reduce (Conv2D)  (None, 1, 1, 18)             7794      ['block3d_se_reshape[0][0]']
+
+ block3d_se_expand (Conv2D)  (None, 1, 1, 432)            8208      ['block3d_se_reduce[0][0]']
+
+ block3d_se_excite (Multipl  (None, 28, 28, 432)          0         ['block3d_activation[0][0]',
+ y)                                                                  'block3d_se_expand[0][0]']
+
+ block3d_project_conv (Conv  (None, 28, 28, 72)           31104     ['block3d_se_excite[0][0]']
+ 2D)
+
+ block3d_project_bn (BatchN  (None, 28, 28, 72)           288       ['block3d_project_conv[0][0]']
+ ormalization)
+
+ block3d_drop (Dropout)      (None, 28, 28, 72)           0         ['block3d_project_bn[0][0]']
+
+ block3d_add (Add)           (None, 28, 28, 72)           0         ['block3d_drop[0][0]',
+                                                                     'block3c_add[0][0]']
+
+ block3e_expand_conv (Conv2  (None, 28, 28, 432)          31104     ['block3d_add[0][0]']
+ D)
+
+ block3e_expand_bn (BatchNo  (None, 28, 28, 432)          1728      ['block3e_expand_conv[0][0]']
+ rmalization)
+
+ block3e_expand_activation   (None, 28, 28, 432)          0         ['block3e_expand_bn[0][0]']
+ (Activation)
+
+ block3e_dwconv (DepthwiseC  (None, 28, 28, 432)          10800     ['block3e_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block3e_bn (BatchNormaliza  (None, 28, 28, 432)          1728      ['block3e_dwconv[0][0]']
+ tion)
+
+ block3e_activation (Activa  (None, 28, 28, 432)          0         ['block3e_bn[0][0]']
+ tion)
+
+ block3e_se_squeeze (Global  (None, 432)                  0         ['block3e_activation[0][0]']
+ AveragePooling2D)
+
+ block3e_se_reshape (Reshap  (None, 1, 1, 432)            0         ['block3e_se_squeeze[0][0]']
+ e)
+
+ block3e_se_reduce (Conv2D)  (None, 1, 1, 18)             7794      ['block3e_se_reshape[0][0]']
+
+ block3e_se_expand (Conv2D)  (None, 1, 1, 432)            8208      ['block3e_se_reduce[0][0]']
+
+ block3e_se_excite (Multipl  (None, 28, 28, 432)          0         ['block3e_activation[0][0]',
+ y)                                                                  'block3e_se_expand[0][0]']
+
+ block3e_project_conv (Conv  (None, 28, 28, 72)           31104     ['block3e_se_excite[0][0]']
+ 2D)
+
+ block3e_project_bn (BatchN  (None, 28, 28, 72)           288       ['block3e_project_conv[0][0]']
+ ormalization)
+
+ block3e_drop (Dropout)      (None, 28, 28, 72)           0         ['block3e_project_bn[0][0]']
+
+ block3e_add (Add)           (None, 28, 28, 72)           0         ['block3e_drop[0][0]',
+                                                                     'block3d_add[0][0]']
+
+ block3f_expand_conv (Conv2  (None, 28, 28, 432)          31104     ['block3e_add[0][0]']
+ D)
+
+ block3f_expand_bn (BatchNo  (None, 28, 28, 432)          1728      ['block3f_expand_conv[0][0]']
+ rmalization)
+
+ block3f_expand_activation   (None, 28, 28, 432)          0         ['block3f_expand_bn[0][0]']
+ (Activation)
+
+ block3f_dwconv (DepthwiseC  (None, 28, 28, 432)          10800     ['block3f_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block3f_bn (BatchNormaliza  (None, 28, 28, 432)          1728      ['block3f_dwconv[0][0]']
+ tion)
+
+ block3f_activation (Activa  (None, 28, 28, 432)          0         ['block3f_bn[0][0]']
+ tion)
+
+ block3f_se_squeeze (Global  (None, 432)                  0         ['block3f_activation[0][0]']
+ AveragePooling2D)
+
+ block3f_se_reshape (Reshap  (None, 1, 1, 432)            0         ['block3f_se_squeeze[0][0]']
+ e)
+
+ block3f_se_reduce (Conv2D)  (None, 1, 1, 18)             7794      ['block3f_se_reshape[0][0]']
+
+ block3f_se_expand (Conv2D)  (None, 1, 1, 432)            8208      ['block3f_se_reduce[0][0]']
+
+ block3f_se_excite (Multipl  (None, 28, 28, 432)          0         ['block3f_activation[0][0]',
+ y)                                                                  'block3f_se_expand[0][0]']
+
+ block3f_project_conv (Conv  (None, 28, 28, 72)           31104     ['block3f_se_excite[0][0]']
+ 2D)
+
+ block3f_project_bn (BatchN  (None, 28, 28, 72)           288       ['block3f_project_conv[0][0]']
+ ormalization)
+
+ block3f_drop (Dropout)      (None, 28, 28, 72)           0         ['block3f_project_bn[0][0]']
+
+ block3f_add (Add)           (None, 28, 28, 72)           0         ['block3f_drop[0][0]',
+                                                                     'block3e_add[0][0]']
+
+ block4a_expand_conv (Conv2  (None, 28, 28, 432)          31104     ['block3f_add[0][0]']
+ D)
+
+ block4a_expand_bn (BatchNo  (None, 28, 28, 432)          1728      ['block4a_expand_conv[0][0]']
+ rmalization)
+
+ block4a_expand_activation   (None, 28, 28, 432)          0         ['block4a_expand_bn[0][0]']
+ (Activation)
+
+ block4a_dwconv_pad (ZeroPa  (None, 29, 29, 432)          0         ['block4a_expand_activation[0]
+ dding2D)                                                           [0]']
+
+ block4a_dwconv (DepthwiseC  (None, 14, 14, 432)          3888      ['block4a_dwconv_pad[0][0]']
+ onv2D)
+
+ block4a_bn (BatchNormaliza  (None, 14, 14, 432)          1728      ['block4a_dwconv[0][0]']
+ tion)
+
+ block4a_activation (Activa  (None, 14, 14, 432)          0         ['block4a_bn[0][0]']
+ tion)
+
+ block4a_se_squeeze (Global  (None, 432)                  0         ['block4a_activation[0][0]']
+ AveragePooling2D)
+
+ block4a_se_reshape (Reshap  (None, 1, 1, 432)            0         ['block4a_se_squeeze[0][0]']
+ e)
+
+ block4a_se_reduce (Conv2D)  (None, 1, 1, 18)             7794      ['block4a_se_reshape[0][0]']
+
+ block4a_se_expand (Conv2D)  (None, 1, 1, 432)            8208      ['block4a_se_reduce[0][0]']
+
+ block4a_se_excite (Multipl  (None, 14, 14, 432)          0         ['block4a_activation[0][0]',
+ y)                                                                  'block4a_se_expand[0][0]']
+
+ block4a_project_conv (Conv  (None, 14, 14, 144)          62208     ['block4a_se_excite[0][0]']
+ 2D)
+
+ block4a_project_bn (BatchN  (None, 14, 14, 144)          576       ['block4a_project_conv[0][0]']
+ ormalization)
+
+ block4b_expand_conv (Conv2  (None, 14, 14, 864)          124416    ['block4a_project_bn[0][0]']
+ D)
+
+ block4b_expand_bn (BatchNo  (None, 14, 14, 864)          3456      ['block4b_expand_conv[0][0]']
+ rmalization)
+
+ block4b_expand_activation   (None, 14, 14, 864)          0         ['block4b_expand_bn[0][0]']
+ (Activation)
+
+ block4b_dwconv (DepthwiseC  (None, 14, 14, 864)          7776      ['block4b_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block4b_bn (BatchNormaliza  (None, 14, 14, 864)          3456      ['block4b_dwconv[0][0]']
+ tion)
+
+ block4b_activation (Activa  (None, 14, 14, 864)          0         ['block4b_bn[0][0]']
+ tion)
+
+ block4b_se_squeeze (Global  (None, 864)                  0         ['block4b_activation[0][0]']
+ AveragePooling2D)
+
+ block4b_se_reshape (Reshap  (None, 1, 1, 864)            0         ['block4b_se_squeeze[0][0]']
+ e)
+
+ block4b_se_reduce (Conv2D)  (None, 1, 1, 36)             31140     ['block4b_se_reshape[0][0]']
+
+ block4b_se_expand (Conv2D)  (None, 1, 1, 864)            31968     ['block4b_se_reduce[0][0]']
+
+ block4b_se_excite (Multipl  (None, 14, 14, 864)          0         ['block4b_activation[0][0]',
+ y)                                                                  'block4b_se_expand[0][0]']
+
+ block4b_project_conv (Conv  (None, 14, 14, 144)          124416    ['block4b_se_excite[0][0]']
+ 2D)
+
+ block4b_project_bn (BatchN  (None, 14, 14, 144)          576       ['block4b_project_conv[0][0]']
+ ormalization)
+
+ block4b_drop (Dropout)      (None, 14, 14, 144)          0         ['block4b_project_bn[0][0]']
+
+ block4b_add (Add)           (None, 14, 14, 144)          0         ['block4b_drop[0][0]',
+                                                                     'block4a_project_bn[0][0]']
+
+ block4c_expand_conv (Conv2  (None, 14, 14, 864)          124416    ['block4b_add[0][0]']
+ D)
+
+ block4c_expand_bn (BatchNo  (None, 14, 14, 864)          3456      ['block4c_expand_conv[0][0]']
+ rmalization)
+
+ block4c_expand_activation   (None, 14, 14, 864)          0         ['block4c_expand_bn[0][0]']
+ (Activation)
+
+ block4c_dwconv (DepthwiseC  (None, 14, 14, 864)          7776      ['block4c_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block4c_bn (BatchNormaliza  (None, 14, 14, 864)          3456      ['block4c_dwconv[0][0]']
+ tion)
+
+ block4c_activation (Activa  (None, 14, 14, 864)          0         ['block4c_bn[0][0]']
+ tion)
+
+ block4c_se_squeeze (Global  (None, 864)                  0         ['block4c_activation[0][0]']
+ AveragePooling2D)
+
+ block4c_se_reshape (Reshap  (None, 1, 1, 864)            0         ['block4c_se_squeeze[0][0]']
+ e)
+
+ block4c_se_reduce (Conv2D)  (None, 1, 1, 36)             31140     ['block4c_se_reshape[0][0]']
+
+ block4c_se_expand (Conv2D)  (None, 1, 1, 864)            31968     ['block4c_se_reduce[0][0]']
+
+ block4c_se_excite (Multipl  (None, 14, 14, 864)          0         ['block4c_activation[0][0]',
+ y)                                                                  'block4c_se_expand[0][0]']
+
+ block4c_project_conv (Conv  (None, 14, 14, 144)          124416    ['block4c_se_excite[0][0]']
+ 2D)
+
+ block4c_project_bn (BatchN  (None, 14, 14, 144)          576       ['block4c_project_conv[0][0]']
+ ormalization)
+
+ block4c_drop (Dropout)      (None, 14, 14, 144)          0         ['block4c_project_bn[0][0]']
+
+ block4c_add (Add)           (None, 14, 14, 144)          0         ['block4c_drop[0][0]',
+                                                                     'block4b_add[0][0]']
+
+ block4d_expand_conv (Conv2  (None, 14, 14, 864)          124416    ['block4c_add[0][0]']
+ D)
+
+ block4d_expand_bn (BatchNo  (None, 14, 14, 864)          3456      ['block4d_expand_conv[0][0]']
+ rmalization)
+
+ block4d_expand_activation   (None, 14, 14, 864)          0         ['block4d_expand_bn[0][0]']
+ (Activation)
+
+ block4d_dwconv (DepthwiseC  (None, 14, 14, 864)          7776      ['block4d_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block4d_bn (BatchNormaliza  (None, 14, 14, 864)          3456      ['block4d_dwconv[0][0]']
+ tion)
+
+ block4d_activation (Activa  (None, 14, 14, 864)          0         ['block4d_bn[0][0]']
+ tion)
+
+ block4d_se_squeeze (Global  (None, 864)                  0         ['block4d_activation[0][0]']
+ AveragePooling2D)
+
+ block4d_se_reshape (Reshap  (None, 1, 1, 864)            0         ['block4d_se_squeeze[0][0]']
+ e)
+
+ block4d_se_reduce (Conv2D)  (None, 1, 1, 36)             31140     ['block4d_se_reshape[0][0]']
+
+ block4d_se_expand (Conv2D)  (None, 1, 1, 864)            31968     ['block4d_se_reduce[0][0]']
+
+ block4d_se_excite (Multipl  (None, 14, 14, 864)          0         ['block4d_activation[0][0]',
+ y)                                                                  'block4d_se_expand[0][0]']
+
+ block4d_project_conv (Conv  (None, 14, 14, 144)          124416    ['block4d_se_excite[0][0]']
+ 2D)
+
+ block4d_project_bn (BatchN  (None, 14, 14, 144)          576       ['block4d_project_conv[0][0]']
+ ormalization)
+
+ block4d_drop (Dropout)      (None, 14, 14, 144)          0         ['block4d_project_bn[0][0]']
+
+ block4d_add (Add)           (None, 14, 14, 144)          0         ['block4d_drop[0][0]',
+                                                                     'block4c_add[0][0]']
+
+ block4e_expand_conv (Conv2  (None, 14, 14, 864)          124416    ['block4d_add[0][0]']
+ D)
+
+ block4e_expand_bn (BatchNo  (None, 14, 14, 864)          3456      ['block4e_expand_conv[0][0]']
+ rmalization)
+
+ block4e_expand_activation   (None, 14, 14, 864)          0         ['block4e_expand_bn[0][0]']
+ (Activation)
+
+ block4e_dwconv (DepthwiseC  (None, 14, 14, 864)          7776      ['block4e_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block4e_bn (BatchNormaliza  (None, 14, 14, 864)          3456      ['block4e_dwconv[0][0]']
+ tion)
+
+ block4e_activation (Activa  (None, 14, 14, 864)          0         ['block4e_bn[0][0]']
+ tion)
+
+ block4e_se_squeeze (Global  (None, 864)                  0         ['block4e_activation[0][0]']
+ AveragePooling2D)
+
+ block4e_se_reshape (Reshap  (None, 1, 1, 864)            0         ['block4e_se_squeeze[0][0]']
+ e)
+
+ block4e_se_reduce (Conv2D)  (None, 1, 1, 36)             31140     ['block4e_se_reshape[0][0]']
+
+ block4e_se_expand (Conv2D)  (None, 1, 1, 864)            31968     ['block4e_se_reduce[0][0]']
+
+ block4e_se_excite (Multipl  (None, 14, 14, 864)          0         ['block4e_activation[0][0]',
+ y)                                                                  'block4e_se_expand[0][0]']
+
+ block4e_project_conv (Conv  (None, 14, 14, 144)          124416    ['block4e_se_excite[0][0]']
+ 2D)
+
+ block4e_project_bn (BatchN  (None, 14, 14, 144)          576       ['block4e_project_conv[0][0]']
+ ormalization)
+
+ block4e_drop (Dropout)      (None, 14, 14, 144)          0         ['block4e_project_bn[0][0]']
+
+ block4e_add (Add)           (None, 14, 14, 144)          0         ['block4e_drop[0][0]',
+                                                                     'block4d_add[0][0]']
+
+ block4f_expand_conv (Conv2  (None, 14, 14, 864)          124416    ['block4e_add[0][0]']
+ D)
+
+ block4f_expand_bn (BatchNo  (None, 14, 14, 864)          3456      ['block4f_expand_conv[0][0]']
+ rmalization)
+
+ block4f_expand_activation   (None, 14, 14, 864)          0         ['block4f_expand_bn[0][0]']
+ (Activation)
+
+ block4f_dwconv (DepthwiseC  (None, 14, 14, 864)          7776      ['block4f_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block4f_bn (BatchNormaliza  (None, 14, 14, 864)          3456      ['block4f_dwconv[0][0]']
+ tion)
+
+ block4f_activation (Activa  (None, 14, 14, 864)          0         ['block4f_bn[0][0]']
+ tion)
+
+ block4f_se_squeeze (Global  (None, 864)                  0         ['block4f_activation[0][0]']
+ AveragePooling2D)
+
+ block4f_se_reshape (Reshap  (None, 1, 1, 864)            0         ['block4f_se_squeeze[0][0]']
+ e)
+
+ block4f_se_reduce (Conv2D)  (None, 1, 1, 36)             31140     ['block4f_se_reshape[0][0]']
+
+ block4f_se_expand (Conv2D)  (None, 1, 1, 864)            31968     ['block4f_se_reduce[0][0]']
+
+ block4f_se_excite (Multipl  (None, 14, 14, 864)          0         ['block4f_activation[0][0]',
+ y)                                                                  'block4f_se_expand[0][0]']
+
+ block4f_project_conv (Conv  (None, 14, 14, 144)          124416    ['block4f_se_excite[0][0]']
+ 2D)
+
+ block4f_project_bn (BatchN  (None, 14, 14, 144)          576       ['block4f_project_conv[0][0]']
+ ormalization)
+
+ block4f_drop (Dropout)      (None, 14, 14, 144)          0         ['block4f_project_bn[0][0]']
+
+ block4f_add (Add)           (None, 14, 14, 144)          0         ['block4f_drop[0][0]',
+                                                                     'block4e_add[0][0]']
+
+ block4g_expand_conv (Conv2  (None, 14, 14, 864)          124416    ['block4f_add[0][0]']
+ D)
+
+ block4g_expand_bn (BatchNo  (None, 14, 14, 864)          3456      ['block4g_expand_conv[0][0]']
+ rmalization)
+
+ block4g_expand_activation   (None, 14, 14, 864)          0         ['block4g_expand_bn[0][0]']
+ (Activation)
+
+ block4g_dwconv (DepthwiseC  (None, 14, 14, 864)          7776      ['block4g_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block4g_bn (BatchNormaliza  (None, 14, 14, 864)          3456      ['block4g_dwconv[0][0]']
+ tion)
+
+ block4g_activation (Activa  (None, 14, 14, 864)          0         ['block4g_bn[0][0]']
+ tion)
+
+ block4g_se_squeeze (Global  (None, 864)                  0         ['block4g_activation[0][0]']
+ AveragePooling2D)
+
+ block4g_se_reshape (Reshap  (None, 1, 1, 864)            0         ['block4g_se_squeeze[0][0]']
+ e)
+
+ block4g_se_reduce (Conv2D)  (None, 1, 1, 36)             31140     ['block4g_se_reshape[0][0]']
+
+ block4g_se_expand (Conv2D)  (None, 1, 1, 864)            31968     ['block4g_se_reduce[0][0]']
+
+ block4g_se_excite (Multipl  (None, 14, 14, 864)          0         ['block4g_activation[0][0]',
+ y)                                                                  'block4g_se_expand[0][0]']
+
+ block4g_project_conv (Conv  (None, 14, 14, 144)          124416    ['block4g_se_excite[0][0]']
+ 2D)
+
+ block4g_project_bn (BatchN  (None, 14, 14, 144)          576       ['block4g_project_conv[0][0]']
+ ormalization)
+
+ block4g_drop (Dropout)      (None, 14, 14, 144)          0         ['block4g_project_bn[0][0]']
+
+ block4g_add (Add)           (None, 14, 14, 144)          0         ['block4g_drop[0][0]',
+                                                                     'block4f_add[0][0]']
+
+ block4h_expand_conv (Conv2  (None, 14, 14, 864)          124416    ['block4g_add[0][0]']
+ D)
+
+ block4h_expand_bn (BatchNo  (None, 14, 14, 864)          3456      ['block4h_expand_conv[0][0]']
+ rmalization)
+
+ block4h_expand_activation   (None, 14, 14, 864)          0         ['block4h_expand_bn[0][0]']
+ (Activation)
+
+ block4h_dwconv (DepthwiseC  (None, 14, 14, 864)          7776      ['block4h_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block4h_bn (BatchNormaliza  (None, 14, 14, 864)          3456      ['block4h_dwconv[0][0]']
+ tion)
+
+ block4h_activation (Activa  (None, 14, 14, 864)          0         ['block4h_bn[0][0]']
+ tion)
+
+ block4h_se_squeeze (Global  (None, 864)                  0         ['block4h_activation[0][0]']
+ AveragePooling2D)
+
+ block4h_se_reshape (Reshap  (None, 1, 1, 864)            0         ['block4h_se_squeeze[0][0]']
+ e)
+
+ block4h_se_reduce (Conv2D)  (None, 1, 1, 36)             31140     ['block4h_se_reshape[0][0]']
+
+ block4h_se_expand (Conv2D)  (None, 1, 1, 864)            31968     ['block4h_se_reduce[0][0]']
+
+ block4h_se_excite (Multipl  (None, 14, 14, 864)          0         ['block4h_activation[0][0]',
+ y)                                                                  'block4h_se_expand[0][0]']
+
+ block4h_project_conv (Conv  (None, 14, 14, 144)          124416    ['block4h_se_excite[0][0]']
+ 2D)
+
+ block4h_project_bn (BatchN  (None, 14, 14, 144)          576       ['block4h_project_conv[0][0]']
+ ormalization)
+
+ block4h_drop (Dropout)      (None, 14, 14, 144)          0         ['block4h_project_bn[0][0]']
+
+ block4h_add (Add)           (None, 14, 14, 144)          0         ['block4h_drop[0][0]',
+                                                                     'block4g_add[0][0]']
+
+ block5a_expand_conv (Conv2  (None, 14, 14, 864)          124416    ['block4h_add[0][0]']
+ D)
+
+ block5a_expand_bn (BatchNo  (None, 14, 14, 864)          3456      ['block5a_expand_conv[0][0]']
+ rmalization)
+
+ block5a_expand_activation   (None, 14, 14, 864)          0         ['block5a_expand_bn[0][0]']
+ (Activation)
+
+ block5a_dwconv (DepthwiseC  (None, 14, 14, 864)          21600     ['block5a_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block5a_bn (BatchNormaliza  (None, 14, 14, 864)          3456      ['block5a_dwconv[0][0]']
+ tion)
+
+ block5a_activation (Activa  (None, 14, 14, 864)          0         ['block5a_bn[0][0]']
+ tion)
+
+ block5a_se_squeeze (Global  (None, 864)                  0         ['block5a_activation[0][0]']
+ AveragePooling2D)
+
+ block5a_se_reshape (Reshap  (None, 1, 1, 864)            0         ['block5a_se_squeeze[0][0]']
+ e)
+
+ block5a_se_reduce (Conv2D)  (None, 1, 1, 36)             31140     ['block5a_se_reshape[0][0]']
+
+ block5a_se_expand (Conv2D)  (None, 1, 1, 864)            31968     ['block5a_se_reduce[0][0]']
+
+ block5a_se_excite (Multipl  (None, 14, 14, 864)          0         ['block5a_activation[0][0]',
+ y)                                                                  'block5a_se_expand[0][0]']
+
+ block5a_project_conv (Conv  (None, 14, 14, 200)          172800    ['block5a_se_excite[0][0]']
+ 2D)
+
+ block5a_project_bn (BatchN  (None, 14, 14, 200)          800       ['block5a_project_conv[0][0]']
+ ormalization)
+
+ block5b_expand_conv (Conv2  (None, 14, 14, 1200)         240000    ['block5a_project_bn[0][0]']
+ D)
+
+ block5b_expand_bn (BatchNo  (None, 14, 14, 1200)         4800      ['block5b_expand_conv[0][0]']
+ rmalization)
+
+ block5b_expand_activation   (None, 14, 14, 1200)         0         ['block5b_expand_bn[0][0]']
+ (Activation)
+
+ block5b_dwconv (DepthwiseC  (None, 14, 14, 1200)         30000     ['block5b_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block5b_bn (BatchNormaliza  (None, 14, 14, 1200)         4800      ['block5b_dwconv[0][0]']
+ tion)
+
+ block5b_activation (Activa  (None, 14, 14, 1200)         0         ['block5b_bn[0][0]']
+ tion)
+
+ block5b_se_squeeze (Global  (None, 1200)                 0         ['block5b_activation[0][0]']
+ AveragePooling2D)
+
+ block5b_se_reshape (Reshap  (None, 1, 1, 1200)           0         ['block5b_se_squeeze[0][0]']
+ e)
+
+ block5b_se_reduce (Conv2D)  (None, 1, 1, 50)             60050     ['block5b_se_reshape[0][0]']
+
+ block5b_se_expand (Conv2D)  (None, 1, 1, 1200)           61200     ['block5b_se_reduce[0][0]']
+
+ block5b_se_excite (Multipl  (None, 14, 14, 1200)         0         ['block5b_activation[0][0]',
+ y)                                                                  'block5b_se_expand[0][0]']
+
+ block5b_project_conv (Conv  (None, 14, 14, 200)          240000    ['block5b_se_excite[0][0]']
+ 2D)
+
+ block5b_project_bn (BatchN  (None, 14, 14, 200)          800       ['block5b_project_conv[0][0]']
+ ormalization)
+
+ block5b_drop (Dropout)      (None, 14, 14, 200)          0         ['block5b_project_bn[0][0]']
+
+ block5b_add (Add)           (None, 14, 14, 200)          0         ['block5b_drop[0][0]',
+                                                                     'block5a_project_bn[0][0]']
+
+ block5c_expand_conv (Conv2  (None, 14, 14, 1200)         240000    ['block5b_add[0][0]']
+ D)
+
+ block5c_expand_bn (BatchNo  (None, 14, 14, 1200)         4800      ['block5c_expand_conv[0][0]']
+ rmalization)
+
+ block5c_expand_activation   (None, 14, 14, 1200)         0         ['block5c_expand_bn[0][0]']
+ (Activation)
+
+ block5c_dwconv (DepthwiseC  (None, 14, 14, 1200)         30000     ['block5c_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block5c_bn (BatchNormaliza  (None, 14, 14, 1200)         4800      ['block5c_dwconv[0][0]']
+ tion)
+
+ block5c_activation (Activa  (None, 14, 14, 1200)         0         ['block5c_bn[0][0]']
+ tion)
+
+ block5c_se_squeeze (Global  (None, 1200)                 0         ['block5c_activation[0][0]']
+ AveragePooling2D)
+
+ block5c_se_reshape (Reshap  (None, 1, 1, 1200)           0         ['block5c_se_squeeze[0][0]']
+ e)
+
+ block5c_se_reduce (Conv2D)  (None, 1, 1, 50)             60050     ['block5c_se_reshape[0][0]']
+
+ block5c_se_expand (Conv2D)  (None, 1, 1, 1200)           61200     ['block5c_se_reduce[0][0]']
+
+ block5c_se_excite (Multipl  (None, 14, 14, 1200)         0         ['block5c_activation[0][0]',
+ y)                                                                  'block5c_se_expand[0][0]']
+
+ block5c_project_conv (Conv  (None, 14, 14, 200)          240000    ['block5c_se_excite[0][0]']
+ 2D)
+
+ block5c_project_bn (BatchN  (None, 14, 14, 200)          800       ['block5c_project_conv[0][0]']
+ ormalization)
+
+ block5c_drop (Dropout)      (None, 14, 14, 200)          0         ['block5c_project_bn[0][0]']
+
+ block5c_add (Add)           (None, 14, 14, 200)          0         ['block5c_drop[0][0]',
+                                                                     'block5b_add[0][0]']
+
+ block5d_expand_conv (Conv2  (None, 14, 14, 1200)         240000    ['block5c_add[0][0]']
+ D)
+
+ block5d_expand_bn (BatchNo  (None, 14, 14, 1200)         4800      ['block5d_expand_conv[0][0]']
+ rmalization)
+
+ block5d_expand_activation   (None, 14, 14, 1200)         0         ['block5d_expand_bn[0][0]']
+ (Activation)
+
+ block5d_dwconv (DepthwiseC  (None, 14, 14, 1200)         30000     ['block5d_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block5d_bn (BatchNormaliza  (None, 14, 14, 1200)         4800      ['block5d_dwconv[0][0]']
+ tion)
+
+ block5d_activation (Activa  (None, 14, 14, 1200)         0         ['block5d_bn[0][0]']
+ tion)
+
+ block5d_se_squeeze (Global  (None, 1200)                 0         ['block5d_activation[0][0]']
+ AveragePooling2D)
+
+ block5d_se_reshape (Reshap  (None, 1, 1, 1200)           0         ['block5d_se_squeeze[0][0]']
+ e)
+
+ block5d_se_reduce (Conv2D)  (None, 1, 1, 50)             60050     ['block5d_se_reshape[0][0]']
+
+ block5d_se_expand (Conv2D)  (None, 1, 1, 1200)           61200     ['block5d_se_reduce[0][0]']
+
+ block5d_se_excite (Multipl  (None, 14, 14, 1200)         0         ['block5d_activation[0][0]',
+ y)                                                                  'block5d_se_expand[0][0]']
+
+ block5d_project_conv (Conv  (None, 14, 14, 200)          240000    ['block5d_se_excite[0][0]']
+ 2D)
+
+ block5d_project_bn (BatchN  (None, 14, 14, 200)          800       ['block5d_project_conv[0][0]']
+ ormalization)
+
+ block5d_drop (Dropout)      (None, 14, 14, 200)          0         ['block5d_project_bn[0][0]']
+
+ block5d_add (Add)           (None, 14, 14, 200)          0         ['block5d_drop[0][0]',
+                                                                     'block5c_add[0][0]']
+
+ block5e_expand_conv (Conv2  (None, 14, 14, 1200)         240000    ['block5d_add[0][0]']
+ D)
+
+ block5e_expand_bn (BatchNo  (None, 14, 14, 1200)         4800      ['block5e_expand_conv[0][0]']
+ rmalization)
+
+ block5e_expand_activation   (None, 14, 14, 1200)         0         ['block5e_expand_bn[0][0]']
+ (Activation)
+
+ block5e_dwconv (DepthwiseC  (None, 14, 14, 1200)         30000     ['block5e_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block5e_bn (BatchNormaliza  (None, 14, 14, 1200)         4800      ['block5e_dwconv[0][0]']
+ tion)
+
+ block5e_activation (Activa  (None, 14, 14, 1200)         0         ['block5e_bn[0][0]']
+ tion)
+
+ block5e_se_squeeze (Global  (None, 1200)                 0         ['block5e_activation[0][0]']
+ AveragePooling2D)
+
+ block5e_se_reshape (Reshap  (None, 1, 1, 1200)           0         ['block5e_se_squeeze[0][0]']
+ e)
+
+ block5e_se_reduce (Conv2D)  (None, 1, 1, 50)             60050     ['block5e_se_reshape[0][0]']
+
+ block5e_se_expand (Conv2D)  (None, 1, 1, 1200)           61200     ['block5e_se_reduce[0][0]']
+
+ block5e_se_excite (Multipl  (None, 14, 14, 1200)         0         ['block5e_activation[0][0]',
+ y)                                                                  'block5e_se_expand[0][0]']
+
+ block5e_project_conv (Conv  (None, 14, 14, 200)          240000    ['block5e_se_excite[0][0]']
+ 2D)
+
+ block5e_project_bn (BatchN  (None, 14, 14, 200)          800       ['block5e_project_conv[0][0]']
+ ormalization)
+
+ block5e_drop (Dropout)      (None, 14, 14, 200)          0         ['block5e_project_bn[0][0]']
+
+ block5e_add (Add)           (None, 14, 14, 200)          0         ['block5e_drop[0][0]',
+                                                                     'block5d_add[0][0]']
+
+ block5f_expand_conv (Conv2  (None, 14, 14, 1200)         240000    ['block5e_add[0][0]']
+ D)
+
+ block5f_expand_bn (BatchNo  (None, 14, 14, 1200)         4800      ['block5f_expand_conv[0][0]']
+ rmalization)
+
+ block5f_expand_activation   (None, 14, 14, 1200)         0         ['block5f_expand_bn[0][0]']
+ (Activation)
+
+ block5f_dwconv (DepthwiseC  (None, 14, 14, 1200)         30000     ['block5f_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block5f_bn (BatchNormaliza  (None, 14, 14, 1200)         4800      ['block5f_dwconv[0][0]']
+ tion)
+
+ block5f_activation (Activa  (None, 14, 14, 1200)         0         ['block5f_bn[0][0]']
+ tion)
+
+ block5f_se_squeeze (Global  (None, 1200)                 0         ['block5f_activation[0][0]']
+ AveragePooling2D)
+
+ block5f_se_reshape (Reshap  (None, 1, 1, 1200)           0         ['block5f_se_squeeze[0][0]']
+ e)
+
+ block5f_se_reduce (Conv2D)  (None, 1, 1, 50)             60050     ['block5f_se_reshape[0][0]']
+
+ block5f_se_expand (Conv2D)  (None, 1, 1, 1200)           61200     ['block5f_se_reduce[0][0]']
+
+ block5f_se_excite (Multipl  (None, 14, 14, 1200)         0         ['block5f_activation[0][0]',
+ y)                                                                  'block5f_se_expand[0][0]']
+
+ block5f_project_conv (Conv  (None, 14, 14, 200)          240000    ['block5f_se_excite[0][0]']
+ 2D)
+
+ block5f_project_bn (BatchN  (None, 14, 14, 200)          800       ['block5f_project_conv[0][0]']
+ ormalization)
+
+ block5f_drop (Dropout)      (None, 14, 14, 200)          0         ['block5f_project_bn[0][0]']
+
+ block5f_add (Add)           (None, 14, 14, 200)          0         ['block5f_drop[0][0]',
+                                                                     'block5e_add[0][0]']
+
+ block5g_expand_conv (Conv2  (None, 14, 14, 1200)         240000    ['block5f_add[0][0]']
+ D)
+
+ block5g_expand_bn (BatchNo  (None, 14, 14, 1200)         4800      ['block5g_expand_conv[0][0]']
+ rmalization)
+
+ block5g_expand_activation   (None, 14, 14, 1200)         0         ['block5g_expand_bn[0][0]']
+ (Activation)
+
+ block5g_dwconv (DepthwiseC  (None, 14, 14, 1200)         30000     ['block5g_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block5g_bn (BatchNormaliza  (None, 14, 14, 1200)         4800      ['block5g_dwconv[0][0]']
+ tion)
+
+ block5g_activation (Activa  (None, 14, 14, 1200)         0         ['block5g_bn[0][0]']
+ tion)
+
+ block5g_se_squeeze (Global  (None, 1200)                 0         ['block5g_activation[0][0]']
+ AveragePooling2D)
+
+ block5g_se_reshape (Reshap  (None, 1, 1, 1200)           0         ['block5g_se_squeeze[0][0]']
+ e)
+
+ block5g_se_reduce (Conv2D)  (None, 1, 1, 50)             60050     ['block5g_se_reshape[0][0]']
+
+ block5g_se_expand (Conv2D)  (None, 1, 1, 1200)           61200     ['block5g_se_reduce[0][0]']
+
+ block5g_se_excite (Multipl  (None, 14, 14, 1200)         0         ['block5g_activation[0][0]',
+ y)                                                                  'block5g_se_expand[0][0]']
+
+ block5g_project_conv (Conv  (None, 14, 14, 200)          240000    ['block5g_se_excite[0][0]']
+ 2D)
+
+ block5g_project_bn (BatchN  (None, 14, 14, 200)          800       ['block5g_project_conv[0][0]']
+ ormalization)
+
+ block5g_drop (Dropout)      (None, 14, 14, 200)          0         ['block5g_project_bn[0][0]']
+
+ block5g_add (Add)           (None, 14, 14, 200)          0         ['block5g_drop[0][0]',
+                                                                     'block5f_add[0][0]']
+
+ block5h_expand_conv (Conv2  (None, 14, 14, 1200)         240000    ['block5g_add[0][0]']
+ D)
+
+ block5h_expand_bn (BatchNo  (None, 14, 14, 1200)         4800      ['block5h_expand_conv[0][0]']
+ rmalization)
+
+ block5h_expand_activation   (None, 14, 14, 1200)         0         ['block5h_expand_bn[0][0]']
+ (Activation)
+
+ block5h_dwconv (DepthwiseC  (None, 14, 14, 1200)         30000     ['block5h_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block5h_bn (BatchNormaliza  (None, 14, 14, 1200)         4800      ['block5h_dwconv[0][0]']
+ tion)
+
+ block5h_activation (Activa  (None, 14, 14, 1200)         0         ['block5h_bn[0][0]']
+ tion)
+
+ block5h_se_squeeze (Global  (None, 1200)                 0         ['block5h_activation[0][0]']
+ AveragePooling2D)
+
+ block5h_se_reshape (Reshap  (None, 1, 1, 1200)           0         ['block5h_se_squeeze[0][0]']
+ e)
+
+ block5h_se_reduce (Conv2D)  (None, 1, 1, 50)             60050     ['block5h_se_reshape[0][0]']
+
+ block5h_se_expand (Conv2D)  (None, 1, 1, 1200)           61200     ['block5h_se_reduce[0][0]']
+
+ block5h_se_excite (Multipl  (None, 14, 14, 1200)         0         ['block5h_activation[0][0]',
+ y)                                                                  'block5h_se_expand[0][0]']
+
+ block5h_project_conv (Conv  (None, 14, 14, 200)          240000    ['block5h_se_excite[0][0]']
+ 2D)
+
+ block5h_project_bn (BatchN  (None, 14, 14, 200)          800       ['block5h_project_conv[0][0]']
+ ormalization)
+
+ block5h_drop (Dropout)      (None, 14, 14, 200)          0         ['block5h_project_bn[0][0]']
+
+ block5h_add (Add)           (None, 14, 14, 200)          0         ['block5h_drop[0][0]',
+                                                                     'block5g_add[0][0]']
+
+ block6a_expand_conv (Conv2  (None, 14, 14, 1200)         240000    ['block5h_add[0][0]']
+ D)
+
+ block6a_expand_bn (BatchNo  (None, 14, 14, 1200)         4800      ['block6a_expand_conv[0][0]']
+ rmalization)
+
+ block6a_expand_activation   (None, 14, 14, 1200)         0         ['block6a_expand_bn[0][0]']
+ (Activation)
+
+ block6a_dwconv_pad (ZeroPa  (None, 17, 17, 1200)         0         ['block6a_expand_activation[0]
+ dding2D)                                                           [0]']
+
+ block6a_dwconv (DepthwiseC  (None, 7, 7, 1200)           30000     ['block6a_dwconv_pad[0][0]']
+ onv2D)
+
+ block6a_bn (BatchNormaliza  (None, 7, 7, 1200)           4800      ['block6a_dwconv[0][0]']
+ tion)
+
+ block6a_activation (Activa  (None, 7, 7, 1200)           0         ['block6a_bn[0][0]']
+ tion)
+
+ block6a_se_squeeze (Global  (None, 1200)                 0         ['block6a_activation[0][0]']
+ AveragePooling2D)
+
+ block6a_se_reshape (Reshap  (None, 1, 1, 1200)           0         ['block6a_se_squeeze[0][0]']
+ e)
+
+ block6a_se_reduce (Conv2D)  (None, 1, 1, 50)             60050     ['block6a_se_reshape[0][0]']
+
+ block6a_se_expand (Conv2D)  (None, 1, 1, 1200)           61200     ['block6a_se_reduce[0][0]']
+
+ block6a_se_excite (Multipl  (None, 7, 7, 1200)           0         ['block6a_activation[0][0]',
+ y)                                                                  'block6a_se_expand[0][0]']
+
+ block6a_project_conv (Conv  (None, 7, 7, 344)            412800    ['block6a_se_excite[0][0]']
+ 2D)
+
+ block6a_project_bn (BatchN  (None, 7, 7, 344)            1376      ['block6a_project_conv[0][0]']
+ ormalization)
+
+ block6b_expand_conv (Conv2  (None, 7, 7, 2064)           710016    ['block6a_project_bn[0][0]']
+ D)
+
+ block6b_expand_bn (BatchNo  (None, 7, 7, 2064)           8256      ['block6b_expand_conv[0][0]']
+ rmalization)
+
+ block6b_expand_activation   (None, 7, 7, 2064)           0         ['block6b_expand_bn[0][0]']
+ (Activation)
+
+ block6b_dwconv (DepthwiseC  (None, 7, 7, 2064)           51600     ['block6b_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block6b_bn (BatchNormaliza  (None, 7, 7, 2064)           8256      ['block6b_dwconv[0][0]']
+ tion)
+
+ block6b_activation (Activa  (None, 7, 7, 2064)           0         ['block6b_bn[0][0]']
+ tion)
+
+ block6b_se_squeeze (Global  (None, 2064)                 0         ['block6b_activation[0][0]']
+ AveragePooling2D)
+
+ block6b_se_reshape (Reshap  (None, 1, 1, 2064)           0         ['block6b_se_squeeze[0][0]']
+ e)
+
+ block6b_se_reduce (Conv2D)  (None, 1, 1, 86)             177590    ['block6b_se_reshape[0][0]']
+
+ block6b_se_expand (Conv2D)  (None, 1, 1, 2064)           179568    ['block6b_se_reduce[0][0]']
+
+ block6b_se_excite (Multipl  (None, 7, 7, 2064)           0         ['block6b_activation[0][0]',
+ y)                                                                  'block6b_se_expand[0][0]']
+
+ block6b_project_conv (Conv  (None, 7, 7, 344)            710016    ['block6b_se_excite[0][0]']
+ 2D)
+
+ block6b_project_bn (BatchN  (None, 7, 7, 344)            1376      ['block6b_project_conv[0][0]']
+ ormalization)
+
+ block6b_drop (Dropout)      (None, 7, 7, 344)            0         ['block6b_project_bn[0][0]']
+
+ block6b_add (Add)           (None, 7, 7, 344)            0         ['block6b_drop[0][0]',
+                                                                     'block6a_project_bn[0][0]']
+
+ block6c_expand_conv (Conv2  (None, 7, 7, 2064)           710016    ['block6b_add[0][0]']
+ D)
+
+ block6c_expand_bn (BatchNo  (None, 7, 7, 2064)           8256      ['block6c_expand_conv[0][0]']
+ rmalization)
+
+ block6c_expand_activation   (None, 7, 7, 2064)           0         ['block6c_expand_bn[0][0]']
+ (Activation)
+
+ block6c_dwconv (DepthwiseC  (None, 7, 7, 2064)           51600     ['block6c_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block6c_bn (BatchNormaliza  (None, 7, 7, 2064)           8256      ['block6c_dwconv[0][0]']
+ tion)
+
+ block6c_activation (Activa  (None, 7, 7, 2064)           0         ['block6c_bn[0][0]']
+ tion)
+
+ block6c_se_squeeze (Global  (None, 2064)                 0         ['block6c_activation[0][0]']
+ AveragePooling2D)
+
+ block6c_se_reshape (Reshap  (None, 1, 1, 2064)           0         ['block6c_se_squeeze[0][0]']
+ e)
+
+ block6c_se_reduce (Conv2D)  (None, 1, 1, 86)             177590    ['block6c_se_reshape[0][0]']
+
+ block6c_se_expand (Conv2D)  (None, 1, 1, 2064)           179568    ['block6c_se_reduce[0][0]']
+
+ block6c_se_excite (Multipl  (None, 7, 7, 2064)           0         ['block6c_activation[0][0]',
+ y)                                                                  'block6c_se_expand[0][0]']
+
+ block6c_project_conv (Conv  (None, 7, 7, 344)            710016    ['block6c_se_excite[0][0]']
+ 2D)
+
+ block6c_project_bn (BatchN  (None, 7, 7, 344)            1376      ['block6c_project_conv[0][0]']
+ ormalization)
+
+ block6c_drop (Dropout)      (None, 7, 7, 344)            0         ['block6c_project_bn[0][0]']
+
+ block6c_add (Add)           (None, 7, 7, 344)            0         ['block6c_drop[0][0]',
+                                                                     'block6b_add[0][0]']
+
+ block6d_expand_conv (Conv2  (None, 7, 7, 2064)           710016    ['block6c_add[0][0]']
+ D)
+
+ block6d_expand_bn (BatchNo  (None, 7, 7, 2064)           8256      ['block6d_expand_conv[0][0]']
+ rmalization)
+
+ block6d_expand_activation   (None, 7, 7, 2064)           0         ['block6d_expand_bn[0][0]']
+ (Activation)
+
+ block6d_dwconv (DepthwiseC  (None, 7, 7, 2064)           51600     ['block6d_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block6d_bn (BatchNormaliza  (None, 7, 7, 2064)           8256      ['block6d_dwconv[0][0]']
+ tion)
+
+ block6d_activation (Activa  (None, 7, 7, 2064)           0         ['block6d_bn[0][0]']
+ tion)
+
+ block6d_se_squeeze (Global  (None, 2064)                 0         ['block6d_activation[0][0]']
+ AveragePooling2D)
+
+ block6d_se_reshape (Reshap  (None, 1, 1, 2064)           0         ['block6d_se_squeeze[0][0]']
+ e)
+
+ block6d_se_reduce (Conv2D)  (None, 1, 1, 86)             177590    ['block6d_se_reshape[0][0]']
+
+ block6d_se_expand (Conv2D)  (None, 1, 1, 2064)           179568    ['block6d_se_reduce[0][0]']
+
+ block6d_se_excite (Multipl  (None, 7, 7, 2064)           0         ['block6d_activation[0][0]',
+ y)                                                                  'block6d_se_expand[0][0]']
+
+ block6d_project_conv (Conv  (None, 7, 7, 344)            710016    ['block6d_se_excite[0][0]']
+ 2D)
+
+ block6d_project_bn (BatchN  (None, 7, 7, 344)            1376      ['block6d_project_conv[0][0]']
+ ormalization)
+
+ block6d_drop (Dropout)      (None, 7, 7, 344)            0         ['block6d_project_bn[0][0]']
+
+ block6d_add (Add)           (None, 7, 7, 344)            0         ['block6d_drop[0][0]',
+                                                                     'block6c_add[0][0]']
+
+ block6e_expand_conv (Conv2  (None, 7, 7, 2064)           710016    ['block6d_add[0][0]']
+ D)
+
+ block6e_expand_bn (BatchNo  (None, 7, 7, 2064)           8256      ['block6e_expand_conv[0][0]']
+ rmalization)
+
+ block6e_expand_activation   (None, 7, 7, 2064)           0         ['block6e_expand_bn[0][0]']
+ (Activation)
+
+ block6e_dwconv (DepthwiseC  (None, 7, 7, 2064)           51600     ['block6e_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block6e_bn (BatchNormaliza  (None, 7, 7, 2064)           8256      ['block6e_dwconv[0][0]']
+ tion)
+
+ block6e_activation (Activa  (None, 7, 7, 2064)           0         ['block6e_bn[0][0]']
+ tion)
+
+ block6e_se_squeeze (Global  (None, 2064)                 0         ['block6e_activation[0][0]']
+ AveragePooling2D)
+
+ block6e_se_reshape (Reshap  (None, 1, 1, 2064)           0         ['block6e_se_squeeze[0][0]']
+ e)
+
+ block6e_se_reduce (Conv2D)  (None, 1, 1, 86)             177590    ['block6e_se_reshape[0][0]']
+
+ block6e_se_expand (Conv2D)  (None, 1, 1, 2064)           179568    ['block6e_se_reduce[0][0]']
+
+ block6e_se_excite (Multipl  (None, 7, 7, 2064)           0         ['block6e_activation[0][0]',
+ y)                                                                  'block6e_se_expand[0][0]']
+
+ block6e_project_conv (Conv  (None, 7, 7, 344)            710016    ['block6e_se_excite[0][0]']
+ 2D)
+
+ block6e_project_bn (BatchN  (None, 7, 7, 344)            1376      ['block6e_project_conv[0][0]']
+ ormalization)
+
+ block6e_drop (Dropout)      (None, 7, 7, 344)            0         ['block6e_project_bn[0][0]']
+
+ block6e_add (Add)           (None, 7, 7, 344)            0         ['block6e_drop[0][0]',
+                                                                     'block6d_add[0][0]']
+
+ block6f_expand_conv (Conv2  (None, 7, 7, 2064)           710016    ['block6e_add[0][0]']
+ D)
+
+ block6f_expand_bn (BatchNo  (None, 7, 7, 2064)           8256      ['block6f_expand_conv[0][0]']
+ rmalization)
+
+ block6f_expand_activation   (None, 7, 7, 2064)           0         ['block6f_expand_bn[0][0]']
+ (Activation)
+
+ block6f_dwconv (DepthwiseC  (None, 7, 7, 2064)           51600     ['block6f_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block6f_bn (BatchNormaliza  (None, 7, 7, 2064)           8256      ['block6f_dwconv[0][0]']
+ tion)
+
+ block6f_activation (Activa  (None, 7, 7, 2064)           0         ['block6f_bn[0][0]']
+ tion)
+
+ block6f_se_squeeze (Global  (None, 2064)                 0         ['block6f_activation[0][0]']
+ AveragePooling2D)
+
+ block6f_se_reshape (Reshap  (None, 1, 1, 2064)           0         ['block6f_se_squeeze[0][0]']
+ e)
+
+ block6f_se_reduce (Conv2D)  (None, 1, 1, 86)             177590    ['block6f_se_reshape[0][0]']
+
+ block6f_se_expand (Conv2D)  (None, 1, 1, 2064)           179568    ['block6f_se_reduce[0][0]']
+
+ block6f_se_excite (Multipl  (None, 7, 7, 2064)           0         ['block6f_activation[0][0]',
+ y)                                                                  'block6f_se_expand[0][0]']
+
+ block6f_project_conv (Conv  (None, 7, 7, 344)            710016    ['block6f_se_excite[0][0]']
+ 2D)
+
+ block6f_project_bn (BatchN  (None, 7, 7, 344)            1376      ['block6f_project_conv[0][0]']
+ ormalization)
+
+ block6f_drop (Dropout)      (None, 7, 7, 344)            0         ['block6f_project_bn[0][0]']
+
+ block6f_add (Add)           (None, 7, 7, 344)            0         ['block6f_drop[0][0]',
+                                                                     'block6e_add[0][0]']
+
+ block6g_expand_conv (Conv2  (None, 7, 7, 2064)           710016    ['block6f_add[0][0]']
+ D)
+
+ block6g_expand_bn (BatchNo  (None, 7, 7, 2064)           8256      ['block6g_expand_conv[0][0]']
+ rmalization)
+
+ block6g_expand_activation   (None, 7, 7, 2064)           0         ['block6g_expand_bn[0][0]']
+ (Activation)
+
+ block6g_dwconv (DepthwiseC  (None, 7, 7, 2064)           51600     ['block6g_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block6g_bn (BatchNormaliza  (None, 7, 7, 2064)           8256      ['block6g_dwconv[0][0]']
+ tion)
+
+ block6g_activation (Activa  (None, 7, 7, 2064)           0         ['block6g_bn[0][0]']
+ tion)
+
+ block6g_se_squeeze (Global  (None, 2064)                 0         ['block6g_activation[0][0]']
+ AveragePooling2D)
+
+ block6g_se_reshape (Reshap  (None, 1, 1, 2064)           0         ['block6g_se_squeeze[0][0]']
+ e)
+
+ block6g_se_reduce (Conv2D)  (None, 1, 1, 86)             177590    ['block6g_se_reshape[0][0]']
+
+ block6g_se_expand (Conv2D)  (None, 1, 1, 2064)           179568    ['block6g_se_reduce[0][0]']
+
+ block6g_se_excite (Multipl  (None, 7, 7, 2064)           0         ['block6g_activation[0][0]',
+ y)                                                                  'block6g_se_expand[0][0]']
+
+ block6g_project_conv (Conv  (None, 7, 7, 344)            710016    ['block6g_se_excite[0][0]']
+ 2D)
+
+ block6g_project_bn (BatchN  (None, 7, 7, 344)            1376      ['block6g_project_conv[0][0]']
+ ormalization)
+
+ block6g_drop (Dropout)      (None, 7, 7, 344)            0         ['block6g_project_bn[0][0]']
+
+ block6g_add (Add)           (None, 7, 7, 344)            0         ['block6g_drop[0][0]',
+                                                                     'block6f_add[0][0]']
+
+ block6h_expand_conv (Conv2  (None, 7, 7, 2064)           710016    ['block6g_add[0][0]']
+ D)
+
+ block6h_expand_bn (BatchNo  (None, 7, 7, 2064)           8256      ['block6h_expand_conv[0][0]']
+ rmalization)
+
+ block6h_expand_activation   (None, 7, 7, 2064)           0         ['block6h_expand_bn[0][0]']
+ (Activation)
+
+ block6h_dwconv (DepthwiseC  (None, 7, 7, 2064)           51600     ['block6h_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block6h_bn (BatchNormaliza  (None, 7, 7, 2064)           8256      ['block6h_dwconv[0][0]']
+ tion)
+
+ block6h_activation (Activa  (None, 7, 7, 2064)           0         ['block6h_bn[0][0]']
+ tion)
+
+ block6h_se_squeeze (Global  (None, 2064)                 0         ['block6h_activation[0][0]']
+ AveragePooling2D)
+
+ block6h_se_reshape (Reshap  (None, 1, 1, 2064)           0         ['block6h_se_squeeze[0][0]']
+ e)
+
+ block6h_se_reduce (Conv2D)  (None, 1, 1, 86)             177590    ['block6h_se_reshape[0][0]']
+
+ block6h_se_expand (Conv2D)  (None, 1, 1, 2064)           179568    ['block6h_se_reduce[0][0]']
+
+ block6h_se_excite (Multipl  (None, 7, 7, 2064)           0         ['block6h_activation[0][0]',
+ y)                                                                  'block6h_se_expand[0][0]']
+
+ block6h_project_conv (Conv  (None, 7, 7, 344)            710016    ['block6h_se_excite[0][0]']
+ 2D)
+
+ block6h_project_bn (BatchN  (None, 7, 7, 344)            1376      ['block6h_project_conv[0][0]']
+ ormalization)
+
+ block6h_drop (Dropout)      (None, 7, 7, 344)            0         ['block6h_project_bn[0][0]']
+
+ block6h_add (Add)           (None, 7, 7, 344)            0         ['block6h_drop[0][0]',
+                                                                     'block6g_add[0][0]']
+
+ block6i_expand_conv (Conv2  (None, 7, 7, 2064)           710016    ['block6h_add[0][0]']
+ D)
+
+ block6i_expand_bn (BatchNo  (None, 7, 7, 2064)           8256      ['block6i_expand_conv[0][0]']
+ rmalization)
+
+ block6i_expand_activation   (None, 7, 7, 2064)           0         ['block6i_expand_bn[0][0]']
+ (Activation)
+
+ block6i_dwconv (DepthwiseC  (None, 7, 7, 2064)           51600     ['block6i_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block6i_bn (BatchNormaliza  (None, 7, 7, 2064)           8256      ['block6i_dwconv[0][0]']
+ tion)
+
+ block6i_activation (Activa  (None, 7, 7, 2064)           0         ['block6i_bn[0][0]']
+ tion)
+
+ block6i_se_squeeze (Global  (None, 2064)                 0         ['block6i_activation[0][0]']
+ AveragePooling2D)
+
+ block6i_se_reshape (Reshap  (None, 1, 1, 2064)           0         ['block6i_se_squeeze[0][0]']
+ e)
+
+ block6i_se_reduce (Conv2D)  (None, 1, 1, 86)             177590    ['block6i_se_reshape[0][0]']
+
+ block6i_se_expand (Conv2D)  (None, 1, 1, 2064)           179568    ['block6i_se_reduce[0][0]']
+
+ block6i_se_excite (Multipl  (None, 7, 7, 2064)           0         ['block6i_activation[0][0]',
+ y)                                                                  'block6i_se_expand[0][0]']
+
+ block6i_project_conv (Conv  (None, 7, 7, 344)            710016    ['block6i_se_excite[0][0]']
+ 2D)
+
+ block6i_project_bn (BatchN  (None, 7, 7, 344)            1376      ['block6i_project_conv[0][0]']
+ ormalization)
+
+ block6i_drop (Dropout)      (None, 7, 7, 344)            0         ['block6i_project_bn[0][0]']
+
+ block6i_add (Add)           (None, 7, 7, 344)            0         ['block6i_drop[0][0]',
+                                                                     'block6h_add[0][0]']
+
+ block6j_expand_conv (Conv2  (None, 7, 7, 2064)           710016    ['block6i_add[0][0]']
+ D)
+
+ block6j_expand_bn (BatchNo  (None, 7, 7, 2064)           8256      ['block6j_expand_conv[0][0]']
+ rmalization)
+
+ block6j_expand_activation   (None, 7, 7, 2064)           0         ['block6j_expand_bn[0][0]']
+ (Activation)
+
+ block6j_dwconv (DepthwiseC  (None, 7, 7, 2064)           51600     ['block6j_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block6j_bn (BatchNormaliza  (None, 7, 7, 2064)           8256      ['block6j_dwconv[0][0]']
+ tion)
+
+ block6j_activation (Activa  (None, 7, 7, 2064)           0         ['block6j_bn[0][0]']
+ tion)
+
+ block6j_se_squeeze (Global  (None, 2064)                 0         ['block6j_activation[0][0]']
+ AveragePooling2D)
+
+ block6j_se_reshape (Reshap  (None, 1, 1, 2064)           0         ['block6j_se_squeeze[0][0]']
+ e)
+
+ block6j_se_reduce (Conv2D)  (None, 1, 1, 86)             177590    ['block6j_se_reshape[0][0]']
+
+ block6j_se_expand (Conv2D)  (None, 1, 1, 2064)           179568    ['block6j_se_reduce[0][0]']
+
+ block6j_se_excite (Multipl  (None, 7, 7, 2064)           0         ['block6j_activation[0][0]',
+ y)                                                                  'block6j_se_expand[0][0]']
+
+ block6j_project_conv (Conv  (None, 7, 7, 344)            710016    ['block6j_se_excite[0][0]']
+ 2D)
+
+ block6j_project_bn (BatchN  (None, 7, 7, 344)            1376      ['block6j_project_conv[0][0]']
+ ormalization)
+
+ block6j_drop (Dropout)      (None, 7, 7, 344)            0         ['block6j_project_bn[0][0]']
+
+ block6j_add (Add)           (None, 7, 7, 344)            0         ['block6j_drop[0][0]',
+                                                                     'block6i_add[0][0]']
+
+ block6k_expand_conv (Conv2  (None, 7, 7, 2064)           710016    ['block6j_add[0][0]']
+ D)
+
+ block6k_expand_bn (BatchNo  (None, 7, 7, 2064)           8256      ['block6k_expand_conv[0][0]']
+ rmalization)
+
+ block6k_expand_activation   (None, 7, 7, 2064)           0         ['block6k_expand_bn[0][0]']
+ (Activation)
+
+ block6k_dwconv (DepthwiseC  (None, 7, 7, 2064)           51600     ['block6k_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block6k_bn (BatchNormaliza  (None, 7, 7, 2064)           8256      ['block6k_dwconv[0][0]']
+ tion)
+
+ block6k_activation (Activa  (None, 7, 7, 2064)           0         ['block6k_bn[0][0]']
+ tion)
+
+ block6k_se_squeeze (Global  (None, 2064)                 0         ['block6k_activation[0][0]']
+ AveragePooling2D)
+
+ block6k_se_reshape (Reshap  (None, 1, 1, 2064)           0         ['block6k_se_squeeze[0][0]']
+ e)
+
+ block6k_se_reduce (Conv2D)  (None, 1, 1, 86)             177590    ['block6k_se_reshape[0][0]']
+
+ block6k_se_expand (Conv2D)  (None, 1, 1, 2064)           179568    ['block6k_se_reduce[0][0]']
+
+ block6k_se_excite (Multipl  (None, 7, 7, 2064)           0         ['block6k_activation[0][0]',
+ y)                                                                  'block6k_se_expand[0][0]']
+
+ block6k_project_conv (Conv  (None, 7, 7, 344)            710016    ['block6k_se_excite[0][0]']
+ 2D)
+
+ block6k_project_bn (BatchN  (None, 7, 7, 344)            1376      ['block6k_project_conv[0][0]']
+ ormalization)
+
+ block6k_drop (Dropout)      (None, 7, 7, 344)            0         ['block6k_project_bn[0][0]']
+
+ block6k_add (Add)           (None, 7, 7, 344)            0         ['block6k_drop[0][0]',
+                                                                     'block6j_add[0][0]']
+
+ block7a_expand_conv (Conv2  (None, 7, 7, 2064)           710016    ['block6k_add[0][0]']
+ D)
+
+ block7a_expand_bn (BatchNo  (None, 7, 7, 2064)           8256      ['block7a_expand_conv[0][0]']
+ rmalization)
+
+ block7a_expand_activation   (None, 7, 7, 2064)           0         ['block7a_expand_bn[0][0]']
+ (Activation)
+
+ block7a_dwconv (DepthwiseC  (None, 7, 7, 2064)           18576     ['block7a_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block7a_bn (BatchNormaliza  (None, 7, 7, 2064)           8256      ['block7a_dwconv[0][0]']
+ tion)
+
+ block7a_activation (Activa  (None, 7, 7, 2064)           0         ['block7a_bn[0][0]']
+ tion)
+
+ block7a_se_squeeze (Global  (None, 2064)                 0         ['block7a_activation[0][0]']
+ AveragePooling2D)
+
+ block7a_se_reshape (Reshap  (None, 1, 1, 2064)           0         ['block7a_se_squeeze[0][0]']
+ e)
+
+ block7a_se_reduce (Conv2D)  (None, 1, 1, 86)             177590    ['block7a_se_reshape[0][0]']
+
+ block7a_se_expand (Conv2D)  (None, 1, 1, 2064)           179568    ['block7a_se_reduce[0][0]']
+
+ block7a_se_excite (Multipl  (None, 7, 7, 2064)           0         ['block7a_activation[0][0]',
+ y)                                                                  'block7a_se_expand[0][0]']
+
+ block7a_project_conv (Conv  (None, 7, 7, 576)            1188864   ['block7a_se_excite[0][0]']
+ 2D)
+
+ block7a_project_bn (BatchN  (None, 7, 7, 576)            2304      ['block7a_project_conv[0][0]']
+ ormalization)
+
+ block7b_expand_conv (Conv2  (None, 7, 7, 3456)           1990656   ['block7a_project_bn[0][0]']
+ D)
+
+ block7b_expand_bn (BatchNo  (None, 7, 7, 3456)           13824     ['block7b_expand_conv[0][0]']
+ rmalization)
+
+ block7b_expand_activation   (None, 7, 7, 3456)           0         ['block7b_expand_bn[0][0]']
+ (Activation)
+
+ block7b_dwconv (DepthwiseC  (None, 7, 7, 3456)           31104     ['block7b_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block7b_bn (BatchNormaliza  (None, 7, 7, 3456)           13824     ['block7b_dwconv[0][0]']
+ tion)
+
+ block7b_activation (Activa  (None, 7, 7, 3456)           0         ['block7b_bn[0][0]']
+ tion)
+
+ block7b_se_squeeze (Global  (None, 3456)                 0         ['block7b_activation[0][0]']
+ AveragePooling2D)
+
+ block7b_se_reshape (Reshap  (None, 1, 1, 3456)           0         ['block7b_se_squeeze[0][0]']
+ e)
+
+ block7b_se_reduce (Conv2D)  (None, 1, 1, 144)            497808    ['block7b_se_reshape[0][0]']
+
+ block7b_se_expand (Conv2D)  (None, 1, 1, 3456)           501120    ['block7b_se_reduce[0][0]']
+
+ block7b_se_excite (Multipl  (None, 7, 7, 3456)           0         ['block7b_activation[0][0]',
+ y)                                                                  'block7b_se_expand[0][0]']
+
+ block7b_project_conv (Conv  (None, 7, 7, 576)            1990656   ['block7b_se_excite[0][0]']
+ 2D)
+
+ block7b_project_bn (BatchN  (None, 7, 7, 576)            2304      ['block7b_project_conv[0][0]']
+ ormalization)
+
+ block7b_drop (Dropout)      (None, 7, 7, 576)            0         ['block7b_project_bn[0][0]']
+
+ block7b_add (Add)           (None, 7, 7, 576)            0         ['block7b_drop[0][0]',
+                                                                     'block7a_project_bn[0][0]']
+
+ block7c_expand_conv (Conv2  (None, 7, 7, 3456)           1990656   ['block7b_add[0][0]']
+ D)
+
+ block7c_expand_bn (BatchNo  (None, 7, 7, 3456)           13824     ['block7c_expand_conv[0][0]']
+ rmalization)
+
+ block7c_expand_activation   (None, 7, 7, 3456)           0         ['block7c_expand_bn[0][0]']
+ (Activation)
+
+ block7c_dwconv (DepthwiseC  (None, 7, 7, 3456)           31104     ['block7c_expand_activation[0]
+ onv2D)                                                             [0]']
+
+ block7c_bn (BatchNormaliza  (None, 7, 7, 3456)           13824     ['block7c_dwconv[0][0]']
+ tion)
+
+ block7c_activation (Activa  (None, 7, 7, 3456)           0         ['block7c_bn[0][0]']
+ tion)
+
+ block7c_se_squeeze (Global  (None, 3456)                 0         ['block7c_activation[0][0]']
+ AveragePooling2D)
+
+ block7c_se_reshape (Reshap  (None, 1, 1, 3456)           0         ['block7c_se_squeeze[0][0]']
+ e)
+
+ block7c_se_reduce (Conv2D)  (None, 1, 1, 144)            497808    ['block7c_se_reshape[0][0]']
+
+ block7c_se_expand (Conv2D)  (None, 1, 1, 3456)           501120    ['block7c_se_reduce[0][0]']
+
+ block7c_se_excite (Multipl  (None, 7, 7, 3456)           0         ['block7c_activation[0][0]',
+ y)                                                                  'block7c_se_expand[0][0]']
+
+ block7c_project_conv (Conv  (None, 7, 7, 576)            1990656   ['block7c_se_excite[0][0]']
+ 2D)
+
+ block7c_project_bn (BatchN  (None, 7, 7, 576)            2304      ['block7c_project_conv[0][0]']
+ ormalization)
+
+ block7c_drop (Dropout)      (None, 7, 7, 576)            0         ['block7c_project_bn[0][0]']
+
+ block7c_add (Add)           (None, 7, 7, 576)            0         ['block7c_drop[0][0]',
+                                                                     'block7b_add[0][0]']
+
+ top_conv (Conv2D)           (None, 7, 7, 2304)           1327104   ['block7c_add[0][0]']
+
+ top_bn (BatchNormalization  (None, 7, 7, 2304)           9216      ['top_conv[0][0]']
+ )
+
+ top_activation (Activation  (None, 7, 7, 2304)           0         ['top_bn[0][0]']
+ )
+
+ avg_pool (GlobalAveragePoo  (None, 2304)                 0         ['top_activation[0][0]']
+ ling2D)
+
+ dense (Dense)               (None, 24)                   55320     ['avg_pool[0][0]']
+
+==================================================================================================
+Total params: 41015463 (156.46 MB)
+Trainable params: 40791024 (155.61 MB)
+Non-trainable params: 224439 (876.72 KB)
+__________________________________________________________________________________________________
+None
+WARNING:absl:`lr` is deprecated in Keras optimizer, please use `learning_rate` or use the legacy optimizer, e.g.,tf.keras.optimizers.legacy.Adam.
+C:\Users\walte\Documents\cs470\Final_Project\trainer.py:94: UserWarning: `Model.fit_generator` is deprecated and will be removed in a future version. Please use `Model.fit`, which supports generators.
+  history = model.fit_generator(generator=train_generator, steps_per_epoch=step_size_train, validation_data=val_generator, validation_steps=step_size_val, epochs=30, callbacks=callback)
+Epoch 1/30
+WARNING:tensorflow:From C:\Users\walte\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\utils\tf_utils.py:492: The name tf.ragged.RaggedTensorValue is deprecated. Please use tf.compat.v1.ragg
+ed.RaggedTensorValue instead.
+
+WARNING:tensorflow:From C:\Users\walte\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\utils\tf_utils.py:492: The name tf.ragged.RaggedTensorValue is deprecated. Please use tf.compat.v1.ragg
+ed.RaggedTensorValue instead.
+
+WARNING:tensorflow:From C:\Users\walte\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\engine\base_layer_utils.py:384: The name tf.executing_eagerly_outside_functions is deprecated. Please u
+se tf.compat.v1.executing_eagerly_outside_functions instead.
+
+WARNING:tensorflow:From C:\Users\walte\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\engine\base_layer_utils.py:384: The name tf.executing_eagerly_outside_functions is deprecated. Please u
+se tf.compat.v1.executing_eagerly_outside_functions instead.
+
+59/59 [==============================] - 526s 8s/step - loss: 0.2620 - accuracy: 0.9491 - val_loss: 4.2617 - val_accuracy: 0.0841 - lr: 0.0010
+Epoch 2/30
+59/59 [==============================] - 503s 9s/step - loss: 0.1011 - accuracy: 0.9785 - val_loss: 2.8849 - val_accuracy: 0.4727 - lr: 0.0010
+Epoch 3/30
+59/59 [==============================] - 481s 8s/step - loss: 0.0563 - accuracy: 0.9864 - val_loss: 0.7085 - val_accuracy: 0.7866 - lr: 0.0010
+Epoch 4/30
+59/59 [==============================] - 466s 8s/step - loss: 0.0380 - accuracy: 0.9864 - val_loss: 2.1100 - val_accuracy: 0.6142 - lr: 0.0010
+Epoch 5/30
+59/59 [==============================] - 472s 8s/step - loss: 0.0588 - accuracy: 0.9814 - val_loss: 4.5322 - val_accuracy: 0.3671 - lr: 0.0010
+Epoch 6/30
+59/59 [==============================] - ETA: 0s - loss: 0.1296 - accuracy: 0.9692
+Epoch 6: ReduceLROnPlateau reducing learning rate to 0.00010000000474974513.
+59/59 [==============================] - 464s 8s/step - loss: 0.1296 - accuracy: 0.9692 - val_loss: 2.1388 - val_accuracy: 0.8470 - lr: 0.0010
+Epoch 7/30
+59/59 [==============================] - 464s 8s/step - loss: 0.0180 - accuracy: 0.9964 - val_loss: 0.7833 - val_accuracy: 0.9382 - lr: 1.0000e-04
+Epoch 8/30
+59/59 [==============================] - 464s 8s/step - loss: 0.0075 - accuracy: 0.9979 - val_loss: 0.0416 - val_accuracy: 0.9871 - lr: 1.0000e-04
+Epoch 9/30
+59/59 [==============================] - 465s 8s/step - loss: 0.0043 - accuracy: 0.9993 - val_loss: 8.6771e-05 - val_accuracy: 1.0000 - lr: 1.0000e-04
+Epoch 10/30
+59/59 [==============================] - 465s 8s/step - loss: 0.0026 - accuracy: 0.9993 - val_loss: 7.2622e-05 - val_accuracy: 1.0000 - lr: 1.0000e-04
+Epoch 11/30
+59/59 [==============================] - 465s 8s/step - loss: 0.0012 - accuracy: 1.0000 - val_loss: 5.1506e-05 - val_accuracy: 1.0000 - lr: 1.0000e-04
+Epoch 12/30
+59/59 [==============================] - 465s 8s/step - loss: 0.0024 - accuracy: 0.9993 - val_loss: 3.2517e-05 - val_accuracy: 1.0000 - lr: 1.0000e-04
+Epoch 13/30
+59/59 [==============================] - ETA: 0s - loss: 0.0018 - accuracy: 1.0000
+Epoch 13: ReduceLROnPlateau reducing learning rate to 1.0000000474974514e-05.
+59/59 [==============================] - 464s 8s/step - loss: 0.0018 - accuracy: 1.0000 - val_loss: 2.5853e-05 - val_accuracy: 1.0000 - lr: 1.0000e-04
+Epoch 14/30
+59/59 [==============================] - 465s 8s/step - loss: 0.0014 - accuracy: 1.0000 - val_loss: 2.7347e-05 - val_accuracy: 1.0000 - lr: 1.0000e-05
+Epoch 15/30
+59/59 [==============================] - ETA: 0s - loss: 0.0012 - accuracy: 1.0000
+Epoch 15: ReduceLROnPlateau reducing learning rate to 1.0000000656873453e-06.
+59/59 [==============================] - 465s 8s/step - loss: 0.0012 - accuracy: 1.0000 - val_loss: 2.5530e-05 - val_accuracy: 1.0000 - lr: 1.0000e-05
+Epoch 16/30
+59/59 [==============================] - 465s 8s/step - loss: 0.0028 - accuracy: 0.9993 - val_loss: 2.6342e-05 - val_accuracy: 1.0000 - lr: 1.0000e-06
+Epoch 17/30
+59/59 [==============================] - 465s 8s/step - loss: 0.0010 - accuracy: 1.0000 - val_loss: 2.7922e-05 - val_accuracy: 1.0000 - lr: 1.0000e-06
+Epoch 18/30
+59/59 [==============================] - 465s 8s/step - loss: 0.0036 - accuracy: 0.9986 - val_loss: 2.6570e-05 - val_accuracy: 1.0000 - lr: 1.0000e-06
+Epoch 19/30
+59/59 [==============================] - 465s 8s/step - loss: 9.0811e-04 - accuracy: 1.0000 - val_loss: 2.6585e-05 - val_accuracy: 1.0000 - lr: 1.0000e-06
+Epoch 20/30
+59/59 [==============================] - 465s 8s/step - loss: 0.0034 - accuracy: 0.9986 - val_loss: 2.5573e-05 - val_accuracy: 1.0000 - lr: 1.0000e-06
+Epoch 21/30
+59/59 [==============================] - 465s 8s/step - loss: 7.7701e-04 - accuracy: 1.0000 - val_loss: 2.5418e-05 - val_accuracy: 1.0000 - lr: 1.0000e-06
+Epoch 22/30
+59/59 [==============================] - 465s 8s/step - loss: 9.8020e-04 - accuracy: 1.0000 - val_loss: 2.5814e-05 - val_accuracy: 1.0000 - lr: 1.0000e-06
+Epoch 23/30
+59/59 [==============================] - ETA: 0s - loss: 0.0014 - accuracy: 1.0000
+Epoch 23: ReduceLROnPlateau reducing learning rate to 1.0000001111620805e-07.
+59/59 [==============================] - 465s 8s/step - loss: 0.0014 - accuracy: 1.0000 - val_loss: 2.5259e-05 - val_accuracy: 1.0000 - lr: 1.0000e-06
+Epoch 24/30
+59/59 [==============================] - 465s 8s/step - loss: 0.0027 - accuracy: 0.9986 - val_loss: 2.5657e-05 - val_accuracy: 1.0000 - lr: 1.0000e-07
+Epoch 25/30
+59/59 [==============================] - ETA: 0s - loss: 8.2243e-04 - accuracy: 1.0000
+Epoch 25: ReduceLROnPlateau reducing learning rate to 1.000000082740371e-08.
+59/59 [==============================] - 465s 8s/step - loss: 8.2243e-04 - accuracy: 1.0000 - val_loss: 2.7074e-05 - val_accuracy: 1.0000 - lr: 1.0000e-07
+Epoch 26/30
+59/59 [==============================] - 465s 8s/step - loss: 0.0011 - accuracy: 1.0000 - val_loss: 2.6768e-05 - val_accuracy: 1.0000 - lr: 1.0000e-08
+Epoch 27/30
+59/59 [==============================] - 465s 8s/step - loss: 5.9615e-04 - accuracy: 1.0000 - val_loss: 2.7030e-05 - val_accuracy: 1.0000 - lr: 1.0000e-08
+Epoch 28/30
+59/59 [==============================] - 464s 8s/step - loss: 0.0015 - accuracy: 1.0000 - val_loss: 2.7314e-05 - val_accuracy: 1.0000 - lr: 1.0000e-08
+Epoch 29/30
+59/59 [==============================] - ETA: 0s - loss: 9.1665e-04 - accuracy: 1.0000
+Epoch 29: ReduceLROnPlateau reducing learning rate to 1.000000082740371e-09.
+59/59 [==============================] - 465s 8s/step - loss: 9.1665e-04 - accuracy: 1.0000 - val_loss: 2.8856e-05 - val_accuracy: 1.0000 - lr: 1.0000e-08
+Epoch 30/30
+59/59 [==============================] - 464s 8s/step - loss: 0.0015 - accuracy: 1.0000 - val_loss: 2.7609e-05 - val_accuracy: 1.0000 - lr: 1.0000e-09
+Saved artifact at 'exported_model'. The following endpoints are available:
+
+* Endpoint 'serve'
+  args_0 (POSITIONAL_ONLY): TensorSpec(shape=(None, 224, 224, 3), dtype=tf.float32, name='input_1')
+Output Type:
+  TensorSpec(shape=(None, 24), dtype=tf.float32, name=None)
+Captures:
+  1386684609360: TensorSpec(shape=(1, 1, 1, 3), dtype=tf.float32, name=None)
+  1386684611472: TensorSpec(shape=(1, 1, 1, 3), dtype=tf.float32, name=None)
+  1386455689040: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386455689808: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386455689424: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386455688848: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386455688656: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386455690960: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386455691536: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386455692304: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386455692112: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386455692496: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386455693648: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386455693456: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386455689616: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386455686352: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386455693840: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386455695184: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386455694608: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386455693072: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386455694416: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386455694224: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386455694992: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457415760: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457416144: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457415952: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457417296: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457417104: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457416720: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457416336: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457417680: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457419216: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457416912: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457418448: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457417872: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457419984: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457419792: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457420368: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457420752: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457420176: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457420944: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457420560: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457419408: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457419024: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457421136: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457422480: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457421904: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457421328: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457421712: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457422672: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457423440: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457423056: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457422288: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457422864: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457423632: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457423248: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457424016: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457424400: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457423824: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457424592: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457422096: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457419600: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457425360: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457424976: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457426128: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457425552: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457424208: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457424784: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457426320: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457427088: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457426704: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457425936: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457426512: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457427280: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457426896: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457427664: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457428048: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457427472: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457428240: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457427856: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457425168: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457425744: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457428432: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457429776: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457429200: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457428624: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457429008: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457429968: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457430736: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457430352: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457429584: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457430160: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457430928: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457430544: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457431312: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457431696: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457431120: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457431888: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457431504: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457428816: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457421520: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386457429392: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475012176: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475012560: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475012368: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475012752: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475013712: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475014480: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475014096: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475013520: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475013904: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475014672: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475014288: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475015056: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475015440: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475014864: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475015632: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475015248: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475013136: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475012944: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475015824: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475017168: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475016592: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475016016: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475016400: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475017360: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475018128: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475017744: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475016976: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475017552: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475018320: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475017936: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475018704: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475019088: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475018512: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475019280: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475018896: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475016208: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475016784: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475019472: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475020816: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475020240: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475019664: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475020048: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475021008: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475021776: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475021392: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475020624: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475021200: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475022160: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475022544: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475022928: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475021968: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475022352: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475023120: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475022736: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475013328: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475019856: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475023312: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475024656: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475024080: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475023504: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475023888: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475024848: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475025616: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475025232: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475024464: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475025040: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475026000: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475026384: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475026768: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475025808: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475026192: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475026960: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475026576: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475021584: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475024272: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475027152: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475027920: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475027728: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475027344: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475028112: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475025424: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475028304: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475027536: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475782224: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475782608: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475783376: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475783184: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475783760: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475784144: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475783568: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475784336: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475783952: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475782416: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475782800: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475784528: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475785872: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475785296: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475784720: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475785104: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475786064: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475786832: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475786448: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475785680: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475786256: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475787024: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475786640: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475787408: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475787792: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475787216: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475787984: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475787600: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475784912: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475785488: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475788176: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475789520: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475788944: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475788368: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475788752: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475789712: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475790480: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475790096: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475789328: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475789904: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475790672: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475790288: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475791056: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475791440: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475790864: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475791632: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475791248: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475788560: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475789136: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475791824: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475793168: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475792592: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475792016: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475792400: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475793360: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475794128: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475793744: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475792976: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475793552: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475794320: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475793936: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475794704: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475795088: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475794512: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475795280: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475794896: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475792208: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475792784: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475795472: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475796816: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475796240: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475795664: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475796048: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475797008: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475797776: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475797392: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475796624: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475797200: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475797968: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475797584: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475798160: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475798352: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475782992: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475796432: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386475795856: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476766032: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476765840: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476765264: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476767184: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476766608: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476765648: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476765456: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476767376: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476768144: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476767760: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476766992: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476767568: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476768336: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476767952: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476768720: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476769104: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476768528: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476769296: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476768912: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476766800: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476766416: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476769488: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476770832: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476770256: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476769680: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476770064: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476771024: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476771792: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476771408: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476770640: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476771216: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476771984: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476771600: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476772368: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476772752: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476772176: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476772944: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476772560: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476769872: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476770448: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476773136: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476774480: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476773904: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476773328: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476773712: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476774672: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476775440: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476775056: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476774288: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476774864: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476775632: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476775248: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476776016: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476776400: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476775824: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476776592: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476776208: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476773520: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476774096: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476776784: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476778128: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476777552: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476776976: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476777360: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476778320: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476779088: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476778704: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476777936: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476778512: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476779280: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476778896: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476779664: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476780048: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476779472: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476780240: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476779856: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476777168: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476777744: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476780432: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476781200: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476781008: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476780624: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476781392: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476780816: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386476766224: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494361680: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494362064: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494361872: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494363024: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494362832: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494363408: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494363792: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494363216: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494363984: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494363600: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494362256: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494362448: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494364176: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494365520: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494364944: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494364368: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494364752: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494365712: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494366480: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494366096: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494365328: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494365904: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494366672: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494366288: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494367056: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494367440: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494366864: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494367632: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494367248: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494364560: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494365136: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494367824: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494369168: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494368592: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494368016: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494368400: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494369360: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494370128: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494369744: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494368976: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494369552: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494370320: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494369936: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494370704: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494371088: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494370512: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494371280: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494370896: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494368208: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494368784: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494371472: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494372816: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494372240: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494371664: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494372048: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494373008: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494373776: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494373392: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494372624: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494373200: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494373968: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494373584: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494374352: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494374736: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494374160: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494374928: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494374544: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494371856: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494372432: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494375120: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494376464: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494375888: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494375312: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494375696: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494376656: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494377424: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494377040: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494376272: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494376848: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494377616: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494377232: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494362640: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494377808: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494375504: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386494376080: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501620176: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501619984: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501620560: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501620752: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501621904: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501621328: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501620368: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501621136: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501622096: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501622864: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501622480: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501621712: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501622288: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501623056: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501622672: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501623440: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501623824: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501623248: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501624016: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501623632: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501620944: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501621520: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501624208: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501625552: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501624976: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501624400: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501624784: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501625744: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501626512: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501626128: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501625360: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501625936: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501626704: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501626320: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501627088: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501627472: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501626896: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501627664: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501627280: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501624592: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501625168: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501627856: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501629200: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501628624: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501628048: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501628432: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501629392: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501630160: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501629776: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501629008: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501629584: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501630352: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501629968: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501630736: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501631120: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501630544: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501631312: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501630928: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501628240: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501628816: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501631504: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501632848: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501632272: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501631696: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501632080: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501633040: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501633808: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501633424: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501632656: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501633232: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501634000: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501633616: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501634384: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501634768: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501634192: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501634960: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501634576: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501631888: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501632464: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501635728: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501635920: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501635536: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501635152: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501619792: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386501635344: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544562448: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544562640: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544562256: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544562832: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544563792: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544563600: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544564176: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544564560: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544563984: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544564752: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544564368: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544563024: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544563216: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544564944: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544566288: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544565712: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544565136: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544565520: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544566480: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544567248: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544566864: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544566096: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544566672: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544567440: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544567056: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544567824: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544568208: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544567632: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544568400: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544568016: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544565328: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544565904: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544568592: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544569936: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544569360: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544568784: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544569168: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544570128: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544570896: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544570512: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544569744: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544570320: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544571088: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544570704: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544571472: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544571856: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544571280: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544572048: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544571664: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544568976: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544569552: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544572240: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544573584: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544573008: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544572432: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544572816: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544573776: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544574544: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544574160: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544573392: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544573968: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544574736: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544574352: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544575120: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544575504: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544574928: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544575696: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544575312: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544573200: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544572624: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544575888: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544577232: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544576656: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544576080: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544576464: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544577424: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544578192: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544577808: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544577040: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544577616: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544578384: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544578000: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544576272: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544563408: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386544576848: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562011984: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562011792: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562011408: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562011600: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562012176: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562013520: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562012944: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562012368: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562012752: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562013712: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562014480: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562014096: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562013328: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562013904: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562014672: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562014288: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562015056: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562015440: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562014864: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562015632: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562015248: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562012560: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562013136: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562015824: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562017168: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562016592: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562016016: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562016400: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562017360: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562018128: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562017744: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562016976: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562017552: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562018320: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562017936: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562018704: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562019088: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562018512: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562019280: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562018896: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562016208: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562016784: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562019472: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562020816: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562020240: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562019664: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562020048: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562021008: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562021776: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562021392: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562020624: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562021200: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562021968: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562021584: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562022352: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562022736: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562022160: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562022928: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562022544: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562019856: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562020432: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562023120: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562024464: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562023888: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562023312: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562023696: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562024656: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562025424: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562025040: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562024272: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562024848: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562025616: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562025232: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562026000: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562026384: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562025808: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562026576: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562026192: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562023504: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562024080: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562027344: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562027152: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562011216: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562026768: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386562026960: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597647184: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597647952: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597647568: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597646992: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597647376: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597648144: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597647760: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597648528: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597648912: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597648336: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597649104: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597648720: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597646800: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597646416: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597649296: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597650640: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597650064: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597649488: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597649872: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597650832: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597651600: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597651216: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597650448: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597651024: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597651792: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597651408: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597652176: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597652560: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597651984: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597652752: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597652368: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597649680: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597650256: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597652944: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597654288: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597653712: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597653136: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597653520: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597654480: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597655248: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597654864: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597654096: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597654672: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597655440: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597655056: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597655824: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597656208: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597655632: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597656400: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597656016: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597653328: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597653904: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597656592: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597657936: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597657360: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597656784: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597657168: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597658128: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597658896: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597658512: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597657744: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597658320: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597659088: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597658704: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597659472: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597659856: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597659280: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597660048: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597659664: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597656976: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597657552: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597660240: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597661584: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597661008: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597660432: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597660816: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597661776: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597662544: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597662160: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597661392: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597661968: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597646608: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597662352: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597661200: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386597660624: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684596304: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684597264: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684597072: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684596496: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684596880: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684597456: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684598800: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684598224: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684597648: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684598032: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684598992: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684599760: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684599376: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684598608: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684599184: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684599952: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684599568: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684600336: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684600720: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684600144: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684600912: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684600528: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684597840: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684598416: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684601104: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684602448: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684601872: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684601296: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684601680: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684602640: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684603408: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684603024: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684602256: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684602832: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684603600: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684603216: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684603984: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684604368: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684603792: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684604560: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684604176: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684601488: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684602064: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684604752: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684606096: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684605520: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684604944: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684605328: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684606288: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684607056: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684606672: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684605904: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684606480: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684607248: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684606864: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684607632: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684608016: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684607440: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684608208: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684607824: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684605136: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684605712: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684608400: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684609744: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684609168: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684608592: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684608976: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386453190608: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684610320: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684608784: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684596688: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684609936: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684611856: TensorSpec(shape=(), dtype=tf.resource, name=None)
+  1386684611664: TensorSpec(shape=(), dtype=tf.resource, name=None)
+
+walte@Lenny-Legion MINGW64 ~/Documents/cs470/Final_Project (main)
+$

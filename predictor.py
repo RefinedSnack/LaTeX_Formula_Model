@@ -8,10 +8,6 @@ import matplotlib.pyplot as plt
 
 class_labels = ['0','1','2','3','4','5','6','7','8','9',r'\div','dot',r'\downarrow',r'\leftarrow',r'\leftrightarrow',r'\times','+',r'\rightarrow','-', r'\uparrow',r'\updownarrow','x','y','z']
 
-
-def lookup(index: int) -> str:
-    return POSITION_TO_CLASS[index]
-    
 mod: tf.saved_model = None
 def identify_image(file) -> tuple[str, float]:
     global mod
@@ -36,9 +32,6 @@ def identify_image(file) -> tuple[str, float]:
 
     return (predict_class, Mv)
 
-
-    
-    
 def convert_to_LaTeX(png_file_path):
     # segement
     num_parts: int = segment_img(png_file_path, "temp_dir", delete_if_exists=True, boarder_size=3)
